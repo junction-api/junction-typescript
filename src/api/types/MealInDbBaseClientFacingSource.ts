@@ -12,6 +12,8 @@ export interface MealInDbBaseClientFacingSource {
     /** This value is identical to `id`. */
     providerId: string;
     timestamp: Date;
+    /** Date of the meal in the YYYY-mm-dd format. For providers that only expose a date, this is the calendar date as recorded by the user. */
+    calendarDate: string;
     name: string;
     energy?: Junction.Energy | null;
     macros?: Junction.Macros | null;
