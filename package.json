@@ -1,0 +1,366 @@
+{
+    "name": "@junction-api/sdk",
+    "version": "0.0.1",
+    "private": false,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/junction-api/junction-typescript.git"
+    },
+    "type": "commonjs",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.mjs",
+    "types": "./dist/cjs/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/esm/index.d.mts",
+                "default": "./dist/esm/index.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/index.d.ts",
+                "default": "./dist/cjs/index.js"
+            },
+            "default": "./dist/cjs/index.js"
+        },
+        "./serialization": {
+            "import": {
+                "types": "./dist/esm/serialization/index.d.mts",
+                "default": "./dist/esm/serialization/index.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/serialization/index.d.ts",
+                "default": "./dist/cjs/serialization/index.js"
+            },
+            "default": "./dist/cjs/serialization/index.js"
+        },
+        "./link": {
+            "import": {
+                "types": "./dist/esm/api/resources/link/exports.d.mts",
+                "default": "./dist/esm/api/resources/link/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/link/exports.d.ts",
+                "default": "./dist/cjs/api/resources/link/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/link/exports.js"
+        },
+        "./electrocardiogram": {
+            "import": {
+                "types": "./dist/esm/api/resources/electrocardiogram/exports.d.mts",
+                "default": "./dist/esm/api/resources/electrocardiogram/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/electrocardiogram/exports.d.ts",
+                "default": "./dist/cjs/api/resources/electrocardiogram/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/electrocardiogram/exports.js"
+        },
+        "./sleepCycle": {
+            "import": {
+                "types": "./dist/esm/api/resources/sleepCycle/exports.d.mts",
+                "default": "./dist/esm/api/resources/sleepCycle/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/sleepCycle/exports.d.ts",
+                "default": "./dist/cjs/api/resources/sleepCycle/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/sleepCycle/exports.js"
+        },
+        "./profile": {
+            "import": {
+                "types": "./dist/esm/api/resources/profile/exports.d.mts",
+                "default": "./dist/esm/api/resources/profile/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/profile/exports.d.ts",
+                "default": "./dist/cjs/api/resources/profile/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/profile/exports.js"
+        },
+        "./devices": {
+            "import": {
+                "types": "./dist/esm/api/resources/devices/exports.d.mts",
+                "default": "./dist/esm/api/resources/devices/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/devices/exports.d.ts",
+                "default": "./dist/cjs/api/resources/devices/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/devices/exports.js"
+        },
+        "./activity": {
+            "import": {
+                "types": "./dist/esm/api/resources/activity/exports.d.mts",
+                "default": "./dist/esm/api/resources/activity/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/activity/exports.d.ts",
+                "default": "./dist/cjs/api/resources/activity/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/activity/exports.js"
+        },
+        "./workouts": {
+            "import": {
+                "types": "./dist/esm/api/resources/workouts/exports.d.mts",
+                "default": "./dist/esm/api/resources/workouts/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/workouts/exports.d.ts",
+                "default": "./dist/cjs/api/resources/workouts/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/workouts/exports.js"
+        },
+        "./sleep": {
+            "import": {
+                "types": "./dist/esm/api/resources/sleep/exports.d.mts",
+                "default": "./dist/esm/api/resources/sleep/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/sleep/exports.d.ts",
+                "default": "./dist/cjs/api/resources/sleep/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/sleep/exports.js"
+        },
+        "./body": {
+            "import": {
+                "types": "./dist/esm/api/resources/body/exports.d.mts",
+                "default": "./dist/esm/api/resources/body/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/body/exports.d.ts",
+                "default": "./dist/cjs/api/resources/body/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/body/exports.js"
+        },
+        "./meal": {
+            "import": {
+                "types": "./dist/esm/api/resources/meal/exports.d.mts",
+                "default": "./dist/esm/api/resources/meal/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/meal/exports.d.ts",
+                "default": "./dist/cjs/api/resources/meal/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/meal/exports.js"
+        },
+        "./menstrualCycle": {
+            "import": {
+                "types": "./dist/esm/api/resources/menstrualCycle/exports.d.mts",
+                "default": "./dist/esm/api/resources/menstrualCycle/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/menstrualCycle/exports.d.ts",
+                "default": "./dist/cjs/api/resources/menstrualCycle/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/menstrualCycle/exports.js"
+        },
+        "./vitals": {
+            "import": {
+                "types": "./dist/esm/api/resources/vitals/exports.d.mts",
+                "default": "./dist/esm/api/resources/vitals/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/vitals/exports.d.ts",
+                "default": "./dist/cjs/api/resources/vitals/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/vitals/exports.js"
+        },
+        "./user": {
+            "import": {
+                "types": "./dist/esm/api/resources/user/exports.d.mts",
+                "default": "./dist/esm/api/resources/user/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/user/exports.d.ts",
+                "default": "./dist/cjs/api/resources/user/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/user/exports.js"
+        },
+        "./team": {
+            "import": {
+                "types": "./dist/esm/api/resources/team/exports.d.mts",
+                "default": "./dist/esm/api/resources/team/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/team/exports.d.ts",
+                "default": "./dist/cjs/api/resources/team/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/team/exports.js"
+        },
+        "./providers": {
+            "import": {
+                "types": "./dist/esm/api/resources/providers/exports.d.mts",
+                "default": "./dist/esm/api/resources/providers/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/providers/exports.d.ts",
+                "default": "./dist/cjs/api/resources/providers/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/providers/exports.js"
+        },
+        "./introspect": {
+            "import": {
+                "types": "./dist/esm/api/resources/introspect/exports.d.mts",
+                "default": "./dist/esm/api/resources/introspect/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/introspect/exports.d.ts",
+                "default": "./dist/cjs/api/resources/introspect/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/introspect/exports.js"
+        },
+        "./labTests": {
+            "import": {
+                "types": "./dist/esm/api/resources/labTests/exports.d.mts",
+                "default": "./dist/esm/api/resources/labTests/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/labTests/exports.d.ts",
+                "default": "./dist/cjs/api/resources/labTests/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/labTests/exports.js"
+        },
+        "./compendium": {
+            "import": {
+                "types": "./dist/esm/api/resources/compendium/exports.d.mts",
+                "default": "./dist/esm/api/resources/compendium/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/compendium/exports.d.ts",
+                "default": "./dist/cjs/api/resources/compendium/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/compendium/exports.js"
+        },
+        "./labAccount": {
+            "import": {
+                "types": "./dist/esm/api/resources/labAccount/exports.d.mts",
+                "default": "./dist/esm/api/resources/labAccount/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/labAccount/exports.d.ts",
+                "default": "./dist/cjs/api/resources/labAccount/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/labAccount/exports.js"
+        },
+        "./orderTransaction": {
+            "import": {
+                "types": "./dist/esm/api/resources/orderTransaction/exports.d.mts",
+                "default": "./dist/esm/api/resources/orderTransaction/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/orderTransaction/exports.d.ts",
+                "default": "./dist/cjs/api/resources/orderTransaction/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/orderTransaction/exports.js"
+        },
+        "./testkit": {
+            "import": {
+                "types": "./dist/esm/api/resources/testkit/exports.d.mts",
+                "default": "./dist/esm/api/resources/testkit/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/testkit/exports.d.ts",
+                "default": "./dist/cjs/api/resources/testkit/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/testkit/exports.js"
+        },
+        "./order": {
+            "import": {
+                "types": "./dist/esm/api/resources/order/exports.d.mts",
+                "default": "./dist/esm/api/resources/order/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/order/exports.d.ts",
+                "default": "./dist/cjs/api/resources/order/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/order/exports.js"
+        },
+        "./insurance": {
+            "import": {
+                "types": "./dist/esm/api/resources/insurance/exports.d.mts",
+                "default": "./dist/esm/api/resources/insurance/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/insurance/exports.d.ts",
+                "default": "./dist/cjs/api/resources/insurance/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/insurance/exports.js"
+        },
+        "./payor": {
+            "import": {
+                "types": "./dist/esm/api/resources/payor/exports.d.mts",
+                "default": "./dist/esm/api/resources/payor/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/payor/exports.d.ts",
+                "default": "./dist/cjs/api/resources/payor/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/payor/exports.js"
+        },
+        "./labReport": {
+            "import": {
+                "types": "./dist/esm/api/resources/labReport/exports.d.mts",
+                "default": "./dist/esm/api/resources/labReport/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/labReport/exports.d.ts",
+                "default": "./dist/cjs/api/resources/labReport/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/labReport/exports.js"
+        },
+        "./aggregate": {
+            "import": {
+                "types": "./dist/esm/api/resources/aggregate/exports.d.mts",
+                "default": "./dist/esm/api/resources/aggregate/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/aggregate/exports.d.ts",
+                "default": "./dist/cjs/api/resources/aggregate/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/aggregate/exports.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "reference.md",
+        "README.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "format": "biome format --write --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "format:check": "biome format --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "lint": "biome lint --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "lint:fix": "biome lint --fix --unsafe --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "check": "biome check --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "check:fix": "biome check --fix --unsafe --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "build": "pnpm build:cjs && pnpm build:esm",
+        "build:cjs": "tsc --project ./tsconfig.cjs.json",
+        "build:esm": "tsc --project ./tsconfig.esm.json && node scripts/rename-to-esm-files.js dist/esm",
+        "test": "vitest",
+        "test:unit": "vitest --project unit",
+        "test:wire": "vitest --project wire"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "webpack": "^5.105.4",
+        "ts-loader": "^9.5.4",
+        "vitest": "^4.1.1",
+        "msw": "2.11.2",
+        "@types/node": "^18.19.70",
+        "typescript": "~5.9.3",
+        "@biomejs/biome": "2.4.10"
+    },
+    "browser": {
+        "fs": false,
+        "os": false,
+        "path": false,
+        "stream": false,
+        "crypto": false
+    },
+    "packageManager": "pnpm@10.33.0",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "sideEffects": false
+}
