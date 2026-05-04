@@ -18,7 +18,7 @@ export const SampleData: core.serialization.ObjectSchema<serializers.SampleData.
         dateReported: core.serialization.property("date_reported", SampleDataDateReported.optionalNullable()),
         performingLaboratories: core.serialization.property(
             "performing_laboratories",
-            core.serialization.record(core.serialization.string(), PerformingLaboratory).optionalNullable(),
+            core.serialization.record(core.serialization.string(), PerformingLaboratory.nullable()).optionalNullable(),
         ),
         clinicalInformation: core.serialization.property(
             "clinical_information",

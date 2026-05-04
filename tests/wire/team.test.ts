@@ -131,16 +131,16 @@ describe("TeamClient", () => {
                 user_id: "56bd81c9-6219-4000-a775-ae85526eba18",
                 team_id: "56bd81c9-6219-4000-a775-ae85526eba18",
                 client_user_id: "ZTEwZjNjMjctOTI2ZS00M2Vm",
-                created_on: "2026-04-30T17:37:45Z",
+                created_on: "2026-05-04T11:12:22Z",
                 connected_sources: [
                     {
                         provider: { name: "Oura", slug: "oura", logo: "https://logo_url.com" },
-                        created_on: "2026-04-30T17:37:45Z",
+                        created_on: "2026-05-04T11:12:22Z",
                         source: { name: "Oura", slug: "oura", logo: "logo_url" },
                     },
                 ],
-                fallback_time_zone: { id: "Europe/London", source_slug: "manual", updated_at: "2026-04-30T17:37:45Z" },
-                fallback_birth_date: { value: "1989-09-12", source_slug: "manual", updated_at: "2026-04-30T17:37:45Z" },
+                fallback_time_zone: { id: "Europe/London", source_slug: "manual", updated_at: "2026-05-04T11:12:22Z" },
+                fallback_birth_date: { value: "1989-09-12", source_slug: "manual", updated_at: "2026-05-04T11:12:22Z" },
                 ingestion_start: "ingestion_start",
                 ingestion_end: "ingestion_end",
             },
@@ -162,7 +162,7 @@ describe("TeamClient", () => {
                 userId: "56bd81c9-6219-4000-a775-ae85526eba18",
                 teamId: "56bd81c9-6219-4000-a775-ae85526eba18",
                 clientUserId: "ZTEwZjNjMjctOTI2ZS00M2Vm",
-                createdOn: new Date("2026-04-30T17:37:45.000Z"),
+                createdOn: new Date("2026-05-04T11:12:22.000Z"),
                 connectedSources: [
                     {
                         provider: {
@@ -170,7 +170,7 @@ describe("TeamClient", () => {
                             slug: "oura",
                             logo: "https://logo_url.com",
                         },
-                        createdOn: new Date("2026-04-30T17:37:45.000Z"),
+                        createdOn: new Date("2026-05-04T11:12:22.000Z"),
                         source: {
                             name: "Oura",
                             slug: "oura",
@@ -181,12 +181,12 @@ describe("TeamClient", () => {
                 fallbackTimeZone: {
                     id: "Europe/London",
                     sourceSlug: "manual",
-                    updatedAt: new Date("2026-04-30T17:37:45.000Z"),
+                    updatedAt: new Date("2026-05-04T11:12:22.000Z"),
                 },
                 fallbackBirthDate: {
                     value: "1989-09-12",
                     sourceSlug: "manual",
-                    updatedAt: new Date("2026-04-30T17:37:45.000Z"),
+                    updatedAt: new Date("2026-05-04T11:12:22.000Z"),
                 },
                 ingestionStart: "ingestion_start",
                 ingestionEnd: "ingestion_end",
