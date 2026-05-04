@@ -19,6 +19,7 @@ export const MealInDbBaseClientFacingSource: core.serialization.ObjectSchema<
     sourceId: core.serialization.property("source_id", core.serialization.number()),
     providerId: core.serialization.property("provider_id", core.serialization.string()),
     timestamp: core.serialization.date(),
+    calendarDate: core.serialization.property("calendar_date", core.serialization.string()),
     name: core.serialization.string(),
     energy: Energy.optionalNullable(),
     macros: Macros.optionalNullable(),
@@ -39,6 +40,7 @@ export declare namespace MealInDbBaseClientFacingSource {
         source_id: number;
         provider_id: string;
         timestamp: string;
+        calendar_date: string;
         name: string;
         energy?: (Energy.Raw | null | undefined) | null;
         macros?: (Macros.Raw | null | undefined) | null;
