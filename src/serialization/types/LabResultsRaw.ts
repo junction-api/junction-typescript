@@ -19,7 +19,7 @@ export const LabResultsRaw: core.serialization.ObjectSchema<serializers.LabResul
         ),
         sampleInformation: core.serialization.property(
             "sample_information",
-            core.serialization.record(core.serialization.string(), SampleData).optionalNullable(),
+            core.serialization.record(core.serialization.string(), SampleData.nullable()).optionalNullable(),
         ),
         orderTransaction: core.serialization.property(
             "order_transaction",

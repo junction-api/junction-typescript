@@ -7,14 +7,16 @@ import type * as serializers from "../index.js";
 export const Micros: core.serialization.ObjectSchema<serializers.Micros.Raw, Junction.Micros> =
     core.serialization.object({
         minerals: core.serialization
-            .record(core.serialization.string(), core.serialization.number())
+            .record(core.serialization.string(), core.serialization.number().nullable())
             .optionalNullable(),
         traceElements: core.serialization.property(
             "trace_elements",
-            core.serialization.record(core.serialization.string(), core.serialization.number()).optionalNullable(),
+            core.serialization
+                .record(core.serialization.string(), core.serialization.number().nullable())
+                .optionalNullable(),
         ),
         vitamins: core.serialization
-            .record(core.serialization.string(), core.serialization.number())
+            .record(core.serialization.string(), core.serialization.number().nullable())
             .optionalNullable(),
     });
 
