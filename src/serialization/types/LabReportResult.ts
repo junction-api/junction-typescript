@@ -4,6 +4,8 @@ import type * as Junction from "../../api/index.js";
 import * as core from "../../core/index.js";
 import type * as serializers from "../index.js";
 import { Interpretation } from "./Interpretation.js";
+import { LabReportResultMeasurementKind } from "./LabReportResultMeasurementKind.js";
+import { LabReportResultSampleType } from "./LabReportResultSampleType.js";
 import { LabReportResultType } from "./LabReportResultType.js";
 import { LoincMatch } from "./LoincMatch.js";
 
@@ -13,6 +15,8 @@ export const LabReportResult: core.serialization.ObjectSchema<
 > = core.serialization.object({
     testName: core.serialization.property("test_name", core.serialization.string()),
     value: core.serialization.string(),
+    sampleType: core.serialization.property("sample_type", LabReportResultSampleType.optional()),
+    measurementKind: core.serialization.property("measurement_kind", LabReportResultMeasurementKind.optional()),
     type: LabReportResultType.optionalNullable(),
     units: core.serialization.string().optionalNullable(),
     maxReferenceRange: core.serialization.property(
@@ -34,6 +38,8 @@ export declare namespace LabReportResult {
     export interface Raw {
         test_name: string;
         value: string;
+        sample_type?: LabReportResultSampleType.Raw | null;
+        measurement_kind?: LabReportResultMeasurementKind.Raw | null;
         type?: (LabReportResultType.Raw | null | undefined) | null;
         units?: (string | null | undefined) | null;
         max_reference_range?: (number | null | undefined) | null;

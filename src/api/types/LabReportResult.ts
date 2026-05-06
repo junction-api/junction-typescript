@@ -6,6 +6,10 @@ export interface LabReportResult {
     testName: string;
     value: string;
     /** ℹ️ This enum is non-exhaustive. */
+    sampleType?: Junction.LabReportResultSampleType;
+    /** ℹ️ This enum is non-exhaustive. */
+    measurementKind?: Junction.LabReportResultMeasurementKind;
+    /** ℹ️ This enum is non-exhaustive. */
     type?: Junction.LabReportResultType | null;
     units?: string | null;
     maxReferenceRange?: number | null;

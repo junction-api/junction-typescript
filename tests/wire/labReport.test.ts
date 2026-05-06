@@ -28,6 +28,8 @@ describe("LabReportClient", () => {
                     {
                         test_name: "Glucose",
                         value: "90",
+                        sample_type: "serum_plasma_blood",
+                        measurement_kind: "direct",
                         type: "numeric",
                         units: "mg/dL",
                         max_reference_range: 99,
@@ -82,6 +84,8 @@ describe("LabReportClient", () => {
                     {
                         testName: "Glucose",
                         value: "90",
+                        sampleType: "serum_plasma_blood",
+                        measurementKind: "direct",
                         type: "numeric",
                         units: "mg/dL",
                         maxReferenceRange: 99,
