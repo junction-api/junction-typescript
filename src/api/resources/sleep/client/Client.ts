@@ -219,6 +219,8 @@ export class SleepClient {
     }
 
     /**
+     * @deprecated
+     *
      * Get Sleep stream for a user_id
      *
      * @param {Junction.GetStreamBySleepIdSleepRequest} request
