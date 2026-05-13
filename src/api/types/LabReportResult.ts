@@ -17,6 +17,8 @@ export interface LabReportResult {
     sourcePanelName?: string | null;
     loincMatches?: Junction.LoincMatch[] | null;
     /** ℹ️ This enum is non-exhaustive. */
+    loincMatchStatus?: Junction.LabReportResultLoincMatchStatus | null;
+    /** ℹ️ This enum is non-exhaustive. */
     interpretation?: Junction.Interpretation | null;
     isAboveMaxRange?: boolean | null;
     isBelowMinRange?: boolean | null;
