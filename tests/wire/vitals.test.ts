@@ -2217,7 +2217,7 @@ describe("VitalsClient", () => {
                                 unit: "min",
                                 timestamp: "2024-01-15T09:30:00Z",
                                 start: "2023-02-13T14:57:24Z",
-                                end: "2026-05-07T08:32:46Z",
+                                end: "2026-05-13T13:12:11Z",
                                 value: 42,
                             },
                         ],
@@ -2257,7 +2257,7 @@ describe("VitalsClient", () => {
                                 unit: "min",
                                 timestamp: new Date("2024-01-15T09:30:00.000Z"),
                                 start: new Date("2023-02-13T14:57:24.000Z"),
-                                end: new Date("2026-05-07T08:32:46.000Z"),
+                                end: new Date("2026-05-13T13:12:11.000Z"),
                                 value: 42,
                             },
                         ],
@@ -4331,7 +4331,7 @@ describe("VitalsClient", () => {
                 oura: [
                     {
                         source: { provider: "oura", type: "ring" },
-                        data: [{ unit: "mmHg", timestamp: "2026-05-07T08:27:46Z", systolic: 125, diastolic: 75 }],
+                        data: [{ unit: "mmHg", timestamp: "2026-05-13T13:07:11Z", systolic: 125, diastolic: 75 }],
                     },
                 ],
             },
@@ -4366,7 +4366,7 @@ describe("VitalsClient", () => {
                         data: [
                             {
                                 unit: "mmHg",
-                                timestamp: new Date("2026-05-07T08:27:46.000Z"),
+                                timestamp: new Date("2026-05-13T13:07:11.000Z"),
                                 systolic: 125,
                                 diastolic: 75,
                             },
@@ -4536,7 +4536,7 @@ describe("VitalsClient", () => {
                 unit: "min",
                 timestamp: "2024-01-15T09:30:00Z",
                 start: "2023-02-13T14:57:24Z",
-                end: "2026-05-07T08:32:46Z",
+                end: "2026-05-13T13:12:11Z",
                 value: 42,
             },
         ];
@@ -4563,7 +4563,7 @@ describe("VitalsClient", () => {
                 unit: "min",
                 timestamp: new Date("2024-01-15T09:30:00.000Z"),
                 start: new Date("2023-02-13T14:57:24.000Z"),
-                end: new Date("2026-05-07T08:32:46.000Z"),
+                end: new Date("2026-05-13T13:12:11.000Z"),
                 value: 42,
             },
         ]);
@@ -5994,7 +5994,7 @@ describe("VitalsClient", () => {
                 type: "type",
                 unit: "mmHg",
                 grouping: [{ key: "value" }],
-                timestamp: "2026-05-07T08:27:46Z",
+                timestamp: "2026-05-13T13:07:11Z",
                 systolic: 125,
                 diastolic: 75,
             },
@@ -6025,7 +6025,7 @@ describe("VitalsClient", () => {
                         key: "value",
                     },
                 ],
-                timestamp: new Date("2026-05-07T08:27:46.000Z"),
+                timestamp: new Date("2026-05-13T13:07:11.000Z"),
                 systolic: 125,
                 diastolic: 75,
             },
