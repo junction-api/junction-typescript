@@ -15,23 +15,23 @@ describe("UserClient", () => {
                     user_id: "56bd81c9-6219-4000-a775-ae85526eba18",
                     team_id: "56bd81c9-6219-4000-a775-ae85526eba18",
                     client_user_id: "ZTEwZjNjMjctOTI2ZS00M2Vm",
-                    created_on: "2026-05-07T08:27:47Z",
+                    created_on: "2026-05-15T20:25:39Z",
                     connected_sources: [
                         {
                             provider: { name: "Oura", slug: "oura", logo: "https://logo_url.com" },
-                            created_on: "2026-05-07T08:27:47Z",
+                            created_on: "2026-05-15T20:25:39Z",
                             source: { name: "Oura", slug: "oura", logo: "logo_url" },
                         },
                     ],
                     fallback_time_zone: {
                         id: "Europe/London",
                         source_slug: "manual",
-                        updated_at: "2026-05-07T08:27:47Z",
+                        updated_at: "2026-05-15T20:25:39Z",
                     },
                     fallback_birth_date: {
                         value: "1989-09-12",
                         source_slug: "manual",
-                        updated_at: "2026-05-07T08:27:47Z",
+                        updated_at: "2026-05-15T20:25:39Z",
                     },
                     ingestion_start: "ingestion_start",
                     ingestion_end: "ingestion_end",
@@ -54,7 +54,7 @@ describe("UserClient", () => {
                     userId: "56bd81c9-6219-4000-a775-ae85526eba18",
                     teamId: "56bd81c9-6219-4000-a775-ae85526eba18",
                     clientUserId: "ZTEwZjNjMjctOTI2ZS00M2Vm",
-                    createdOn: new Date("2026-05-07T08:27:47.000Z"),
+                    createdOn: new Date("2026-05-15T20:25:39.000Z"),
                     connectedSources: [
                         {
                             provider: {
@@ -62,7 +62,7 @@ describe("UserClient", () => {
                                 slug: "oura",
                                 logo: "https://logo_url.com",
                             },
-                            createdOn: new Date("2026-05-07T08:27:47.000Z"),
+                            createdOn: new Date("2026-05-15T20:25:39.000Z"),
                             source: {
                                 name: "Oura",
                                 slug: "oura",
@@ -73,12 +73,12 @@ describe("UserClient", () => {
                     fallbackTimeZone: {
                         id: "Europe/London",
                         sourceSlug: "manual",
-                        updatedAt: new Date("2026-05-07T08:27:47.000Z"),
+                        updatedAt: new Date("2026-05-15T20:25:39.000Z"),
                     },
                     fallbackBirthDate: {
                         value: "1989-09-12",
                         sourceSlug: "manual",
-                        updatedAt: new Date("2026-05-07T08:27:47.000Z"),
+                        updatedAt: new Date("2026-05-15T20:25:39.000Z"),
                     },
                     ingestionStart: "ingestion_start",
                     ingestionEnd: "ingestion_end",
@@ -111,16 +111,16 @@ describe("UserClient", () => {
             user_id: "56bd81c9-6219-4000-a775-ae85526eba18",
             team_id: "56bd81c9-6219-4000-a775-ae85526eba18",
             client_user_id: "ZTEwZjNjMjctOTI2ZS00M2Vm",
-            created_on: "2026-05-07T08:27:47Z",
+            created_on: "2026-05-15T20:25:39Z",
             connected_sources: [
                 {
                     provider: { name: "Oura", slug: "oura", logo: "https://logo_url.com" },
-                    created_on: "2026-05-07T08:27:47Z",
+                    created_on: "2026-05-15T20:25:39Z",
                     source: { name: "Oura", slug: "oura", logo: "logo_url" },
                 },
             ],
-            fallback_time_zone: { id: "Europe/London", source_slug: "manual", updated_at: "2026-05-07T08:27:47Z" },
-            fallback_birth_date: { value: "1989-09-12", source_slug: "manual", updated_at: "2026-05-07T08:27:47Z" },
+            fallback_time_zone: { id: "Europe/London", source_slug: "manual", updated_at: "2026-05-15T20:25:39Z" },
+            fallback_birth_date: { value: "1989-09-12", source_slug: "manual", updated_at: "2026-05-15T20:25:39Z" },
             ingestion_start: "ingestion_start",
             ingestion_end: "ingestion_end",
         };
@@ -141,7 +141,7 @@ describe("UserClient", () => {
             userId: "56bd81c9-6219-4000-a775-ae85526eba18",
             teamId: "56bd81c9-6219-4000-a775-ae85526eba18",
             clientUserId: "ZTEwZjNjMjctOTI2ZS00M2Vm",
-            createdOn: new Date("2026-05-07T08:27:47.000Z"),
+            createdOn: new Date("2026-05-15T20:25:39.000Z"),
             connectedSources: [
                 {
                     provider: {
@@ -149,7 +149,7 @@ describe("UserClient", () => {
                         slug: "oura",
                         logo: "https://logo_url.com",
                     },
-                    createdOn: new Date("2026-05-07T08:27:47.000Z"),
+                    createdOn: new Date("2026-05-15T20:25:39.000Z"),
                     source: {
                         name: "Oura",
                         slug: "oura",
@@ -160,12 +160,12 @@ describe("UserClient", () => {
             fallbackTimeZone: {
                 id: "Europe/London",
                 sourceSlug: "manual",
-                updatedAt: new Date("2026-05-07T08:27:47.000Z"),
+                updatedAt: new Date("2026-05-15T20:25:39.000Z"),
             },
             fallbackBirthDate: {
                 value: "1989-09-12",
                 sourceSlug: "manual",
-                updatedAt: new Date("2026-05-07T08:27:47.000Z"),
+                updatedAt: new Date("2026-05-15T20:25:39.000Z"),
             },
             ingestionStart: "ingestion_start",
             ingestionEnd: "ingestion_end",
@@ -982,16 +982,16 @@ describe("UserClient", () => {
             user_id: "56bd81c9-6219-4000-a775-ae85526eba18",
             team_id: "56bd81c9-6219-4000-a775-ae85526eba18",
             client_user_id: "ZTEwZjNjMjctOTI2ZS00M2Vm",
-            created_on: "2026-05-07T08:27:47Z",
+            created_on: "2026-05-15T20:25:39Z",
             connected_sources: [
                 {
                     provider: { name: "Oura", slug: "oura", logo: "https://logo_url.com" },
-                    created_on: "2026-05-07T08:27:47Z",
+                    created_on: "2026-05-15T20:25:39Z",
                     source: { name: "Oura", slug: "oura", logo: "logo_url" },
                 },
             ],
-            fallback_time_zone: { id: "Europe/London", source_slug: "manual", updated_at: "2026-05-07T08:27:47Z" },
-            fallback_birth_date: { value: "1989-09-12", source_slug: "manual", updated_at: "2026-05-07T08:27:47Z" },
+            fallback_time_zone: { id: "Europe/London", source_slug: "manual", updated_at: "2026-05-15T20:25:39Z" },
+            fallback_birth_date: { value: "1989-09-12", source_slug: "manual", updated_at: "2026-05-15T20:25:39Z" },
             ingestion_start: "ingestion_start",
             ingestion_end: "ingestion_end",
         };
@@ -1011,7 +1011,7 @@ describe("UserClient", () => {
             userId: "56bd81c9-6219-4000-a775-ae85526eba18",
             teamId: "56bd81c9-6219-4000-a775-ae85526eba18",
             clientUserId: "ZTEwZjNjMjctOTI2ZS00M2Vm",
-            createdOn: new Date("2026-05-07T08:27:47.000Z"),
+            createdOn: new Date("2026-05-15T20:25:39.000Z"),
             connectedSources: [
                 {
                     provider: {
@@ -1019,7 +1019,7 @@ describe("UserClient", () => {
                         slug: "oura",
                         logo: "https://logo_url.com",
                     },
-                    createdOn: new Date("2026-05-07T08:27:47.000Z"),
+                    createdOn: new Date("2026-05-15T20:25:39.000Z"),
                     source: {
                         name: "Oura",
                         slug: "oura",
@@ -1030,12 +1030,12 @@ describe("UserClient", () => {
             fallbackTimeZone: {
                 id: "Europe/London",
                 sourceSlug: "manual",
-                updatedAt: new Date("2026-05-07T08:27:47.000Z"),
+                updatedAt: new Date("2026-05-15T20:25:39.000Z"),
             },
             fallbackBirthDate: {
                 value: "1989-09-12",
                 sourceSlug: "manual",
-                updatedAt: new Date("2026-05-07T08:27:47.000Z"),
+                updatedAt: new Date("2026-05-15T20:25:39.000Z"),
             },
             ingestionStart: "ingestion_start",
             ingestionEnd: "ingestion_end",
@@ -1116,16 +1116,16 @@ describe("UserClient", () => {
             user_id: "56bd81c9-6219-4000-a775-ae85526eba18",
             team_id: "56bd81c9-6219-4000-a775-ae85526eba18",
             client_user_id: "ZTEwZjNjMjctOTI2ZS00M2Vm",
-            created_on: "2026-05-07T08:27:47Z",
+            created_on: "2026-05-15T20:25:39Z",
             connected_sources: [
                 {
                     provider: { name: "Oura", slug: "oura", logo: "https://logo_url.com" },
-                    created_on: "2026-05-07T08:27:47Z",
+                    created_on: "2026-05-15T20:25:39Z",
                     source: { name: "Oura", slug: "oura", logo: "logo_url" },
                 },
             ],
-            fallback_time_zone: { id: "Europe/London", source_slug: "manual", updated_at: "2026-05-07T08:27:47Z" },
-            fallback_birth_date: { value: "1989-09-12", source_slug: "manual", updated_at: "2026-05-07T08:27:47Z" },
+            fallback_time_zone: { id: "Europe/London", source_slug: "manual", updated_at: "2026-05-15T20:25:39Z" },
+            fallback_birth_date: { value: "1989-09-12", source_slug: "manual", updated_at: "2026-05-15T20:25:39Z" },
             ingestion_start: "ingestion_start",
             ingestion_end: "ingestion_end",
         };
@@ -1139,7 +1139,7 @@ describe("UserClient", () => {
             userId: "56bd81c9-6219-4000-a775-ae85526eba18",
             teamId: "56bd81c9-6219-4000-a775-ae85526eba18",
             clientUserId: "ZTEwZjNjMjctOTI2ZS00M2Vm",
-            createdOn: new Date("2026-05-07T08:27:47.000Z"),
+            createdOn: new Date("2026-05-15T20:25:39.000Z"),
             connectedSources: [
                 {
                     provider: {
@@ -1147,7 +1147,7 @@ describe("UserClient", () => {
                         slug: "oura",
                         logo: "https://logo_url.com",
                     },
-                    createdOn: new Date("2026-05-07T08:27:47.000Z"),
+                    createdOn: new Date("2026-05-15T20:25:39.000Z"),
                     source: {
                         name: "Oura",
                         slug: "oura",
@@ -1158,12 +1158,12 @@ describe("UserClient", () => {
             fallbackTimeZone: {
                 id: "Europe/London",
                 sourceSlug: "manual",
-                updatedAt: new Date("2026-05-07T08:27:47.000Z"),
+                updatedAt: new Date("2026-05-15T20:25:39.000Z"),
             },
             fallbackBirthDate: {
                 value: "1989-09-12",
                 sourceSlug: "manual",
-                updatedAt: new Date("2026-05-07T08:27:47.000Z"),
+                updatedAt: new Date("2026-05-15T20:25:39.000Z"),
             },
             ingestionStart: "ingestion_start",
             ingestionEnd: "ingestion_end",
