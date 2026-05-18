@@ -10095,6 +10095,81 @@ await client.labTests.getOrder({
 </dl>
 </details>
 
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">updateOrder</a>({ ...params }) -> Junction.PostOrderResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a modifiable order's scheduled activation date.
+
+The order must be in `ordered` or `awaiting_registration` status. Setting
+`activate_by` to a future date reschedules dispatch; setting it to `null`
+clears the schedule and enqueues immediate dispatch for `ordered` orders.
+
+Returns 400 when:
+- the order is not in a modifiable status,
+- the order was created for immediate processing (cannot be scheduled
+  after the fact),
+- `activate_by` is in the past.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.updateOrder({
+    orderId: "order_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.UpdateOrderBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">createOrder</a>({ ...params }) -> Junction.PostOrderResponse</code></summary>
 <dl>
 <dd>

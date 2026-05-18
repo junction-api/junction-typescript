@@ -575,6 +575,7 @@ export * from "./LabAccountStatus.js";
 export * from "./LabLocationCapability.js";
 export * from "./LabLocationMetadata.js";
 export * from "./LabReportResult.js";
+export * from "./LabReportResultLoincMatchStatus.js";
 export * from "./LabReportResultMeasurementKind.js";
 export * from "./LabReportResultSampleType.js";
 export * from "./LabReportResultType.js";

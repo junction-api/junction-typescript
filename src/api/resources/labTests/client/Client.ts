@@ -3416,6 +3416,102 @@ export class LabTestsClient {
     }
 
     /**
+     * Update a modifiable order's scheduled activation date.
+     *
+     * The order must be in `ordered` or `awaiting_registration` status. Setting
+     * `activate_by` to a future date reschedules dispatch; setting it to `null`
+     * clears the schedule and enqueues immediate dispatch for `ordered` orders.
+     *
+     * Returns 400 when:
+     * - the order is not in a modifiable status,
+     * - the order was created for immediate processing (cannot be scheduled
+     *   after the fact),
+     * - `activate_by` is in the past.
+     *
+     * @param {Junction.UpdateOrderBody} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.updateOrder({
+     *         orderId: "order_id"
+     *     })
+     */
+    public updateOrder(
+        request: Junction.UpdateOrderBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.PostOrderResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__updateOrder(request, requestOptions));
+    }
+
+    private async __updateOrder(
+        request: Junction.UpdateOrderBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.PostOrderResponse>> {
+        const { orderId, ..._body } = request;
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                `v3/order/${core.url.encodePathParam(orderId)}`,
+            ),
+            method: "PATCH",
+            headers: _headers,
+            contentType: "application/json",
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            requestType: "json",
+            body: serializers.UpdateOrderBody.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.PostOrderResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(_response.error, _response.rawResponse, "PATCH", "/v3/order/{order_id}");
+    }
+
+    /**
      * @param {Junction.CreateOrderRequestCompatible} request
      * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
      *
