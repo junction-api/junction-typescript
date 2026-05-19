@@ -4,5 +4,6 @@ export { CreateOrderRequestCompatible } from "./CreateOrderRequestCompatible.js"
 export { ImportOrderBody } from "./ImportOrderBody.js";
 export { RequestAppointmentRequest } from "./RequestAppointmentRequest.js";
 export { UpdateLabTestRequest } from "./UpdateLabTestRequest.js";
+export { UpdateOrderBody } from "./UpdateOrderBody.js";
 export { ValidateIcdCodesBody } from "./ValidateIcdCodesBody.js";
 export { VitalCoreClientsLabTestGetlabsSchemaAppointmentCancelRequest } from "./VitalCoreClientsLabTestGetlabsSchemaAppointmentCancelRequest.js";
