@@ -35,5 +35,6 @@ export type { ReschedulePscAppointmentLabTestsRequest } from "./ReschedulePscApp
 export type { SimulateOrderProcessLabTestsRequest } from "./SimulateOrderProcessLabTestsRequest.js";
 export type { UpdateLabTestRequest } from "./UpdateLabTestRequest.js";
 export type { UpdateOnSiteCollectionOrderDrawCompletedLabTestsRequest } from "./UpdateOnSiteCollectionOrderDrawCompletedLabTestsRequest.js";
+export type { UpdateOrderBody } from "./UpdateOrderBody.js";
 export type { ValidateIcdCodesBody } from "./ValidateIcdCodesBody.js";
 export type { VitalCoreClientsLabTestGetlabsSchemaAppointmentCancelRequest } from "./VitalCoreClientsLabTestGetlabsSchemaAppointmentCancelRequest.js";

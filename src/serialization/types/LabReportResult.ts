@@ -4,6 +4,8 @@ import type * as Junction from "../../api/index.js";
 import * as core from "../../core/index.js";
 import type * as serializers from "../index.js";
 import { Interpretation } from "./Interpretation.js";
+import { LabReportResultIsSensitive } from "./LabReportResultIsSensitive.js";
+import { LabReportResultLoincMatchStatus } from "./LabReportResultLoincMatchStatus.js";
 import { LabReportResultMeasurementKind } from "./LabReportResultMeasurementKind.js";
 import { LabReportResultSampleType } from "./LabReportResultSampleType.js";
 import { LabReportResultType } from "./LabReportResultType.js";
@@ -28,7 +30,12 @@ export const LabReportResult: core.serialization.ObjectSchema<
         core.serialization.number().optionalNullable(),
     ),
     sourcePanelName: core.serialization.property("source_panel_name", core.serialization.string().optionalNullable()),
+    isSensitive: core.serialization.property("is_sensitive", LabReportResultIsSensitive.optional()),
     loincMatches: core.serialization.property("loinc_matches", core.serialization.list(LoincMatch).optionalNullable()),
+    loincMatchStatus: core.serialization.property(
+        "loinc_match_status",
+        LabReportResultLoincMatchStatus.optionalNullable(),
+    ),
     interpretation: Interpretation.optionalNullable(),
     isAboveMaxRange: core.serialization.property("is_above_max_range", core.serialization.boolean().optionalNullable()),
     isBelowMinRange: core.serialization.property("is_below_min_range", core.serialization.boolean().optionalNullable()),
@@ -45,7 +52,9 @@ export declare namespace LabReportResult {
         max_reference_range?: (number | null | undefined) | null;
         min_reference_range?: (number | null | undefined) | null;
         source_panel_name?: (string | null | undefined) | null;
+        is_sensitive?: LabReportResultIsSensitive.Raw | null;
         loinc_matches?: (LoincMatch.Raw[] | null | undefined) | null;
+        loinc_match_status?: (LabReportResultLoincMatchStatus.Raw | null | undefined) | null;
         interpretation?: (Interpretation.Raw | null | undefined) | null;
         is_above_max_range?: (boolean | null | undefined) | null;
         is_below_min_range?: (boolean | null | undefined) | null;
