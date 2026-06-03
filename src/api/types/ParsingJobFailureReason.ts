@@ -5,5 +5,6 @@ export const ParsingJobFailureReason = {
     InvalidInput: "invalid_input",
     LowQuality: "low_quality",
     NotEnglish: "not_english",
+    TooManyPages: "too_many_pages",
 } as const;
 export type ParsingJobFailureReason = (typeof ParsingJobFailureReason)[keyof typeof ParsingJobFailureReason];

@@ -13,4 +13,10 @@ export interface Query {
      * * Parentheses is supported.
      */
     where?: string | null;
+    /**
+     * Post-aggregation alignment clause. When a carry operator is set, missing
+     * datetime buckets are materialised and filled after group_by+aggregate.
+     * Omitting this field preserves honest-null behaviour.
+     */
+    align?: Junction.AlignExpr | null;
 }

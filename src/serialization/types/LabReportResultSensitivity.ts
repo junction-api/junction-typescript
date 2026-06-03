@@ -4,11 +4,11 @@ import type * as Junction from "../../api/index.js";
 import * as core from "../../core/index.js";
 import type * as serializers from "../index.js";
 
-export const LabReportResultIsSensitive: core.serialization.Schema<
-    serializers.LabReportResultIsSensitive.Raw,
-    Junction.LabReportResultIsSensitive
+export const LabReportResultSensitivity: core.serialization.Schema<
+    serializers.LabReportResultSensitivity.Raw,
+    Junction.LabReportResultSensitivity
 > = core.serialization.enum_(["sensitive", "insensitive", "unknown"]);
 
-export declare namespace LabReportResultIsSensitive {
+export declare namespace LabReportResultSensitivity {
     export type Raw = "sensitive" | "insensitive" | "unknown";
 }
