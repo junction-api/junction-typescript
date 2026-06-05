@@ -35,7 +35,7 @@ describe("LabReportClient", () => {
                         max_reference_range: 99,
                         min_reference_range: 70,
                         source_panel_name: "CMP",
-                        is_sensitive: "unknown",
+                        sensitivity: "unknown",
                         loinc_matches: [
                             {
                                 loinc_code: "2345-7",
@@ -92,7 +92,7 @@ describe("LabReportClient", () => {
                         maxReferenceRange: 99,
                         minReferenceRange: 70,
                         sourcePanelName: "CMP",
-                        isSensitive: "unknown",
+                        sensitivity: "unknown",
                         loincMatches: [
                             {
                                 loincCode: "2345-7",

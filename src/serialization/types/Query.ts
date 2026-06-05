@@ -3,6 +3,7 @@
 import type * as Junction from "../../api/index.js";
 import * as core from "../../core/index.js";
 import type * as serializers from "../index.js";
+import { AlignExpr } from "./AlignExpr.js";
 import { QueryGroupByItem } from "./QueryGroupByItem.js";
 import { QuerySelectItem } from "./QuerySelectItem.js";
 
@@ -10,6 +11,7 @@ export const Query: core.serialization.ObjectSchema<serializers.Query.Raw, Junct
     select: core.serialization.list(QuerySelectItem),
     groupBy: core.serialization.property("group_by", core.serialization.list(QueryGroupByItem).optional()),
     where: core.serialization.string().optionalNullable(),
+    align: AlignExpr.optionalNullable(),
 });
 
 export declare namespace Query {
@@ -17,5 +19,6 @@ export declare namespace Query {
         select: QuerySelectItem.Raw[];
         group_by?: QueryGroupByItem.Raw[] | null;
         where?: (string | null | undefined) | null;
+        align?: (AlignExpr.Raw | null | undefined) | null;
     }
 }

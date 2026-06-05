@@ -16,7 +16,7 @@ export interface LabReportResult {
     minReferenceRange?: number | null;
     sourcePanelName?: string | null;
     /** ℹ️ This enum is non-exhaustive. */
-    isSensitive?: Junction.LabReportResultIsSensitive;
+    sensitivity?: Junction.LabReportResultSensitivity;
     loincMatches?: Junction.LoincMatch[] | null;
     /** ℹ️ This enum is non-exhaustive. */
     loincMatchStatus?: Junction.LabReportResultLoincMatchStatus | null;
