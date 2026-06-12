@@ -1,3 +1,13 @@
+## [2.0.0] - 2026-06-12
+### Breaking Changes
+- **`LabReportResultIsSensitive`** — renamed to **`LabReportResultSensitivity`**; update all references from `LabReportResultIsSensitive` to `LabReportResultSensitivity`.
+- **`LabReportResult.isSensitive`** — field renamed to `sensitivity` (typed as `LabReportResultSensitivity`); update all property accesses from `.isSensitive` to `.sensitivity`.
+
+### Added
+- **`AlignExpr`**, **`AlignExprCarry`**, **`CarryForwardExpr`**, **`CarryBackwardExpr`**, and **`CarryNearestExpr`** — new types supporting post-aggregation carry/fill operators for CQ queries.
+- **`Query.align`** — new optional field accepting an `AlignExpr` to materialise and fill missing datetime buckets after group-by aggregation.
+- **New enum values** `google_health` added to `OAuthProviders` and `Providers`; `too_many_pages` added to `ParsingJobFailureReason`.
+
 ## 1.2.0 - 2026-06-05
 ### Added
 * **`AlignExpr`** — new public symbol
