@@ -46,6 +46,7 @@ export const Providers: core.serialization.Schema<serializers.Providers.Raw, Jun
         "my_fitness_pal_v2",
         "map_my_fitness",
         "runkeeper",
+        "google_health",
     ]);
 
 export declare namespace Providers {
@@ -89,5 +90,6 @@ export declare namespace Providers {
         | "ultrahuman"
         | "my_fitness_pal_v2"
         | "map_my_fitness"
-        | "runkeeper";
+        | "runkeeper"
+        | "google_health";
 }

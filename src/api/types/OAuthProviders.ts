@@ -18,5 +18,6 @@ export const OAuthProviders = {
     MyFitnessPalV2: "my_fitness_pal_v2",
     Ultrahuman: "ultrahuman",
     Runkeeper: "runkeeper",
+    GoogleHealth: "google_health",
 } as const;
 export type OAuthProviders = (typeof OAuthProviders)[keyof typeof OAuthProviders];

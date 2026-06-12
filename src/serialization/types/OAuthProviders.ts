@@ -22,6 +22,7 @@ export const OAuthProviders: core.serialization.Schema<serializers.OAuthProvider
         "my_fitness_pal_v2",
         "ultrahuman",
         "runkeeper",
+        "google_health",
     ]);
 
 export declare namespace OAuthProviders {
@@ -41,5 +42,6 @@ export declare namespace OAuthProviders {
         | "whoop_v2"
         | "my_fitness_pal_v2"
         | "ultrahuman"
-        | "runkeeper";
+        | "runkeeper"
+        | "google_health";
 }
