@@ -24,8 +24,6 @@ export class LabReportClient {
     }
 
     /**
-     * @beta This endpoint is in pre-release and may change.
-     *
      * Creates a parse job, uploads the file(s) to provider, persists the job row,
      * and starts the ParseLabReport. Returns a generated job_id.
      *
@@ -126,8 +124,6 @@ export class LabReportClient {
     }
 
     /**
-     * @beta This endpoint is in pre-release and may change.
-     *
      * Retrieves the parse job status and stored result if completed.
      *
      * Returns:

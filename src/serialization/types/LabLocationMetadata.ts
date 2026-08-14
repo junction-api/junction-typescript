@@ -17,6 +17,7 @@ export const LabLocationMetadata: core.serialization.ObjectSchema<
     phoneNumber: core.serialization.property("phone_number", core.serialization.string().optionalNullable()),
     faxNumber: core.serialization.property("fax_number", core.serialization.string().optionalNullable()),
     hours: core.serialization.record(core.serialization.string(), core.serialization.unknown()).optionalNullable(),
+    website: core.serialization.string().optionalNullable(),
 });
 
 export declare namespace LabLocationMetadata {
@@ -30,5 +31,6 @@ export declare namespace LabLocationMetadata {
         phone_number?: (string | null | undefined) | null;
         fax_number?: (string | null | undefined) | null;
         hours?: (Record<string, unknown> | null | undefined) | null;
+        website?: (string | null | undefined) | null;
     }
 }

@@ -24,7 +24,7 @@ import type * as Junction from "../../../../index.js";
  *     }
  */
 export interface RegisterTestkitRequest {
-    /** The user ID of the patient. */
+    /** The user ID of the patient. If it differs from the user currently associated with the unregistered testkit order, the order is rebound to this user at registration time. The user must exist on the same team as the order. If omitted, the order's existing user is kept. */
     userId?: string | null;
     sampleId: string;
     patientDetails: Junction.PatientDetailsWithValidation;

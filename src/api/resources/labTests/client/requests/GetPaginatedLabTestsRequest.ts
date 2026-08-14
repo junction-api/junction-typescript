@@ -7,6 +7,8 @@ import type * as Junction from "../../../../index.js";
  *     {
  *         labTestLimit: 1,
  *         nextCursor: "next_cursor",
+ *         includePricing: true,
+ *         labAccountId: "lab_account_id",
  *         generationMethod: "auto",
  *         labSlug: "lab_slug",
  *         collectionMethod: "testkit",
@@ -20,7 +22,11 @@ import type * as Junction from "../../../../index.js";
  */
 export interface GetPaginatedLabTestsRequest {
     labTestLimit?: number | null;
+    /** The cursor for fetching the next page, or `null` to fetch the first page. */
     nextCursor?: string | null;
+    includePricing?: boolean | null;
+    /** The lab account ID. This lab account is used to determine the availability of markers and lab tests. */
+    labAccountId?: string | null;
     /** Filter on whether auto-generated lab tests created by Vital, manually created lab tests, or all lab tests should be returned. */
     generationMethod?: Junction.LabTestGenerationMethodFilter | null;
     /** Filter by the slug of the lab for these lab tests. */

@@ -4,6 +4,7 @@ import type * as Junction from "../../api/index.js";
 import * as core from "../../core/index.js";
 import type * as serializers from "../index.js";
 import { ClientFacingLabTest } from "./ClientFacingLabTest.js";
+import { GetLabTestPricingResponse } from "./GetLabTestPricingResponse.js";
 
 export const LabTestResourcesResponse: core.serialization.ObjectSchema<
     serializers.LabTestResourcesResponse.Raw,
@@ -11,11 +12,13 @@ export const LabTestResourcesResponse: core.serialization.ObjectSchema<
 > = core.serialization.object({
     data: core.serialization.list(ClientFacingLabTest),
     nextCursor: core.serialization.property("next_cursor", core.serialization.string().optionalNullable()),
+    pricing: GetLabTestPricingResponse.optionalNullable(),
 });
 
 export declare namespace LabTestResourcesResponse {
     export interface Raw {
         data: ClientFacingLabTest.Raw[];
         next_cursor?: (string | null | undefined) | null;
+        pricing?: (GetLabTestPricingResponse.Raw | null | undefined) | null;
     }
 }

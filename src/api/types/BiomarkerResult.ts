@@ -20,6 +20,7 @@ export interface BiomarkerResult {
     isAboveMaxRange?: boolean | null;
     isBelowMinRange?: boolean | null;
     interpretation?: string;
+    sourceInterpretation?: string;
     loinc?: string | null;
     loincSlug?: string | null;
     providerId?: string | null;

@@ -19,6 +19,7 @@ export const ClientFacingResource: core.serialization.Schema<
     "result",
     "match_review",
     "appointment",
+    "result_table",
     "glucose",
     "heartrate",
     "hrv",
@@ -92,6 +93,7 @@ export declare namespace ClientFacingResource {
         | "result"
         | "match_review"
         | "appointment"
+        | "result_table"
         | "glucose"
         | "heartrate"
         | "hrv"

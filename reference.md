@@ -8113,6 +8113,7 @@ await client.labTests.getMarkers({
     labSlug: "lab_slug",
     name: "name",
     aLaCarteEnabled: true,
+    includePricing: true,
     labAccountId: "lab_account_id",
     page: 1,
     size: 1
@@ -8425,6 +8426,8 @@ GET lab tests the team has access to as a paginated list.
 await client.labTests.getPaginated({
     labTestLimit: 1,
     nextCursor: "next_cursor",
+    includePricing: true,
+    labAccountId: "lab_account_id",
     generationMethod: "auto",
     labSlug: "lab_slug",
     collectionMethod: "testkit",
@@ -10505,6 +10508,363 @@ await client.labTests.updateOnSiteCollectionOrderDrawCompleted({
 </dl>
 </details>
 
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">listUnmatchedResultTestCases</a>() -> Junction.ListUnmatchedResultTestCasesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.listUnmatchedResultTestCases();
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">createUnmatchedResultTest</a>({ ...params }) -> Junction.CreateUnmatchedResultTestResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.createUnmatchedResultTest({
+    idempotencyKey: "X-Idempotency-Key",
+    "case": "match_completed",
+    orderSource: "managed"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.CreateUnmatchedResultTestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getUnmatchedResultTest</a>({ ...params }) -> Junction.GetUnmatchedResultTestResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.getUnmatchedResultTest({
+    runId: "run_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.GetUnmatchedResultTestLabTestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">listUnmatchedResults</a>({ ...params }) -> Junction.ListUnmatchedResultResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.listUnmatchedResults({
+    limit: 1,
+    nextCursor: "next_cursor",
+    decisionCode: "match_sample_id",
+    labSlug: "lab_slug",
+    status: "pending_customer_review",
+    createdAtStart: "created_at_start",
+    createdAtEnd: "created_at_end",
+    searchInput: "search_input"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.ListUnmatchedResultsLabTestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getUnmatchedResult</a>({ ...params }) -> Junction.GetUnmatchedResultResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.getUnmatchedResult({
+    rawResultId: "raw_result_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.GetUnmatchedResultLabTestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">acceptUnmatchedResult</a>({ ...params }) -> Junction.ClientFacingOrder</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.acceptUnmatchedResult({
+    rawResultId: "raw_result_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.AcceptUnmatchedResultBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">resolveUnmatchedResult</a>({ ...params }) -> Junction.UnmatchedResult</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.resolveUnmatchedResult({
+    rawResultId: "raw_result_id",
+    action: "reject"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.ResolveUnmatchedResultBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">validateIcdCodes</a>({ ...params }) -> Junction.ValidateIcdCodesResponse</code></summary>
 <dl>
 <dd>
@@ -10640,6 +11000,58 @@ await client.compendium.convert({
 <dd>
 
 **request:** `Junction.ConvertCompendiumBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CompendiumClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.compendium.<a href="/src/api/resources/compendium/client/Client.ts">searchOrderableTests</a>({ ...params }) -> Junction.SearchOrderableTestsResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.compendium.searchOrderableTests({
+    providerIds: ["provider_ids"],
+    targetLab: "labcorp"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.SearchOrderableTestsBody` 
     
 </dd>
 </dl>

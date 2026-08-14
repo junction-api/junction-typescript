@@ -11,4 +11,5 @@ export interface ClientFacingLab {
     zipcode: string;
     collectionMethods: Junction.LabTestCollectionMethod[];
     sampleTypes: Junction.LabTestSampleType[];
+    logoUrl?: string | null;
 }

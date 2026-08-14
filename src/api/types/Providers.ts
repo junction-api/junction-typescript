@@ -42,5 +42,6 @@ export const Providers = {
     MyFitnessPalV2: "my_fitness_pal_v2",
     MapMyFitness: "map_my_fitness",
     Runkeeper: "runkeeper",
+    GoogleHealth: "google_health",
 } as const;
 export type Providers = (typeof Providers)[keyof typeof Providers];

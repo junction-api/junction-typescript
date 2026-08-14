@@ -16,5 +16,6 @@ export const Labs = {
     Nexus: "nexus",
     MyUti: "my_uti",
     Crl: "crl",
+    Mtl: "mtl",
 } as const;
 export type Labs = (typeof Labs)[keyof typeof Labs];

@@ -21,6 +21,7 @@ export const ClientFacingLab: core.serialization.ObjectSchema<
         core.serialization.list(LabTestCollectionMethod),
     ),
     sampleTypes: core.serialization.property("sample_types", core.serialization.list(LabTestSampleType)),
+    logoUrl: core.serialization.property("logo_url", core.serialization.string().optionalNullable()),
 });
 
 export declare namespace ClientFacingLab {
@@ -33,5 +34,6 @@ export declare namespace ClientFacingLab {
         zipcode: string;
         collection_methods: LabTestCollectionMethod.Raw[];
         sample_types: LabTestSampleType.Raw[];
+        logo_url?: (string | null | undefined) | null;
     }
 }

@@ -10,4 +10,5 @@ export interface LabLocationMetadata {
     phoneNumber?: string | null;
     faxNumber?: string | null;
     hours?: Record<string, unknown> | null;
+    website?: string | null;
 }

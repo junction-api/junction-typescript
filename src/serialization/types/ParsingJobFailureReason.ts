@@ -7,8 +7,8 @@ import type * as serializers from "../index.js";
 export const ParsingJobFailureReason: core.serialization.Schema<
     serializers.ParsingJobFailureReason.Raw,
     Junction.ParsingJobFailureReason
-> = core.serialization.enum_(["invalid_input", "low_quality", "not_english", "too_many_pages"]);
+> = core.serialization.enum_(["invalid_input", "low_quality", "not_english", "too_many_pages", "processing_error"]);
 
 export declare namespace ParsingJobFailureReason {
-    export type Raw = "invalid_input" | "low_quality" | "not_english" | "too_many_pages";
+    export type Raw = "invalid_input" | "low_quality" | "not_english" | "too_many_pages" | "processing_error";
 }
