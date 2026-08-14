@@ -1,19 +1,21 @@
-## [2.0.0] - 2026-08-14
-### Breaking Changes
-- **`LabReportResultIsSensitive`** — renamed to **`LabReportResultSensitivity`**; replace all imports and references with the new name.
-- **`LabReportResult.isSensitive`** — field renamed to `sensitivity` (typed as `LabReportResultSensitivity`); update all property accesses accordingly.
+## 1.3.0 - 2026-08-14
 
 ### Added
-- **`LabTestsClient`** unmatched-result methods — `listUnmatchedResultTestCases()`, `createUnmatchedResultTest()`, `getUnmatchedResultTest()`, `listUnmatchedResults()`, `getUnmatchedResult()`, `acceptUnmatchedResult()`, and `resolveUnmatchedResult()` provide a full management surface for unmatched lab results.
-- **`CompendiumClient.searchOrderableTests()`** — new method to search orderable tests by provider IDs and target lab via `POST /v3/compendium/search_orderable_tests`, accepting `SearchOrderableTestsBody` and returning `SearchOrderableTestsResponse`.
-- **Lab-test pricing types** — new types (`GetLabTestPricingResponse`, `LabTestPanelPricing`, `MarkerPricingResponse`, `PricingModifierRange`, and related) plus optional `includePricing` and `labAccountId` fields on `GetPaginatedLabTestsRequest` and `GetMarkersLabTestsRequest`.
-- **Match-review webhook types** — `ClientFacingMatchReviewChanged`, `ClientFacingMatchReviewUpdated`, and `MatchReviewWebhookPayload` added for lab-result match-review lifecycle events.
-- **`JunctionError.requestId`** — new getter returning the `x-request-id` response header; `JunctionTimeoutError` now extends `JunctionError` for consistent error properties.
+
+* **Orderable-test search** — added `CompendiumClient.searchOrderableTests()` and the related request and response types.
+* **Unmatched lab-result management** — added methods for listing, testing, reviewing, accepting, and resolving unmatched results, together with match-review webhook types.
+* **Lab-test pricing** — added pricing types and optional `includePricing` and `labAccountId` request fields.
+* **Provider and lab coverage** — added Google Health provider and OAuth values and the MTL lab value.
+* **Lab metadata** — added optional source interpretation, lab logo URL, and lab-location website fields.
 
 ### Changed
-- **`additionalBodyParameters`** in `RequestOptions` — now merged into the serialized request body across all resource clients (`CompendiumClient`, `AggregateClient`, `LinkClient`, `UserClient`, `InsuranceClient`, `OrderClient`, `PayorClient`, `TestkitClient`, and others).
-- **`LabReportClient` parse-job endpoints** — `@beta` designation removed; these endpoints are now considered stable.
-- **New enum values and optional fields** — `Labs.Mtl`, `OAuthProviders.GoogleHealth`, `Providers.GoogleHealth`, `ParsingJobFailureReason.TooManyPages`/`ProcessingError`, and `ClientFacingResource.ResultTable` added; optional fields `logoUrl`, `website`, `sourceInterpretation`, `pricing`, and `Query.align` added to existing types.
+
+* **Request controls** — added SSE reconnection settings and support for merging `additionalBodyParameters` into serialized request bodies.
+* **Errors** — `JunctionError.requestId` exposes the response request ID, and `JunctionTimeoutError` now extends `JunctionError` while remaining an `Error`.
+
+### Beta
+
+* **Aggregate and lab-report states** — added the result-table resource and processing-error parsing state without affecting the stable-surface SemVer calculation.
 
 ## 1.2.0 - 2026-06-05
 ### Added
