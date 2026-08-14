@@ -6,4 +6,5 @@ export interface LabTestResourcesResponse {
     data: Junction.ClientFacingLabTest[];
     /** The cursor for fetching the next page, or `null` to fetch the first page. */
     nextCursor?: string | null;
+    pricing?: Junction.GetLabTestPricingResponse | null;
 }

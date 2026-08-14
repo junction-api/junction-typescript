@@ -7,6 +7,7 @@
  *         labSlug: "lab_slug",
  *         name: "name",
  *         aLaCarteEnabled: true,
+ *         includePricing: true,
  *         labAccountId: "lab_account_id",
  *         page: 1,
  *         size: 1
@@ -20,6 +21,7 @@ export interface GetMarkersLabTestsRequest {
     /** The name or test code of an individual biomarker or a panel. */
     name?: string | null;
     aLaCarteEnabled?: boolean | null;
+    includePricing?: boolean | null;
     /** The lab account ID. This lab account is used to determine the availability of markers and lab tests. */
     labAccountId?: string | null;
     page?: number | null;

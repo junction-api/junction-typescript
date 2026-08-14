@@ -23,6 +23,7 @@ export const BiomarkerResult: core.serialization.ObjectSchema<
     isAboveMaxRange: core.serialization.property("is_above_max_range", core.serialization.boolean().optionalNullable()),
     isBelowMinRange: core.serialization.property("is_below_min_range", core.serialization.boolean().optionalNullable()),
     interpretation: core.serialization.string().optional(),
+    sourceInterpretation: core.serialization.property("source_interpretation", core.serialization.string().optional()),
     loinc: core.serialization.string().optionalNullable(),
     loincSlug: core.serialization.property("loinc_slug", core.serialization.string().optionalNullable()),
     providerId: core.serialization.property("provider_id", core.serialization.string().optionalNullable()),
@@ -52,6 +53,7 @@ export declare namespace BiomarkerResult {
         is_above_max_range?: (boolean | null | undefined) | null;
         is_below_min_range?: (boolean | null | undefined) | null;
         interpretation?: string | null;
+        source_interpretation?: string | null;
         loinc?: (string | null | undefined) | null;
         loinc_slug?: (string | null | undefined) | null;
         provider_id?: (string | null | undefined) | null;

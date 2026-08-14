@@ -4,6 +4,7 @@ import type { BaseClientOptions, BaseRequestOptions } from "../../../../BaseClie
 import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } from "../../../../BaseClient.js";
 import { mergeHeaders, mergeOnlyDefinedHeaders } from "../../../../core/headers.js";
 import * as core from "../../../../core/index.js";
+import { mergeAdditionalBodyParameters } from "../../../../core/requestBody.js";
 import * as environments from "../../../../environments.js";
 import { handleNonStatusCodeError } from "../../../../errors/handleNonStatusCodeError.js";
 import * as errors from "../../../../errors/index.js";
@@ -24,8 +25,6 @@ export class AggregateClient {
     }
 
     /**
-     * @beta This endpoint is in pre-release and may change.
-     *
      * @param {Junction.QueryBatch} request
      * @param {AggregateClient.RequestOptions} requestOptions - Request-specific configuration.
      *
@@ -82,7 +81,10 @@ export class AggregateClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.QueryBatch.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.QueryBatch.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -131,8 +133,6 @@ export class AggregateClient {
     }
 
     /**
-     * @beta This endpoint is in pre-release and may change.
-     *
      * @param {Junction.GetResultTableForContinuousQueryAggregateRequest} request
      * @param {AggregateClient.RequestOptions} requestOptions - Request-specific configuration.
      *
@@ -221,8 +221,6 @@ export class AggregateClient {
     }
 
     /**
-     * @beta This endpoint is in pre-release and may change.
-     *
      * @param {Junction.GetTaskHistoryForContinuousQueryAggregateRequest} request
      * @param {AggregateClient.RequestOptions} requestOptions - Request-specific configuration.
      *

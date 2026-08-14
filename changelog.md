@@ -1,3 +1,22 @@
+## 1.3.0 - 2026-08-14
+
+### Added
+
+* **Orderable-test search** — added `CompendiumClient.searchOrderableTests()` and the related request and response types.
+* **Unmatched lab-result management** — added methods for listing, testing, reviewing, accepting, and resolving unmatched results, together with match-review webhook types.
+* **Lab-test pricing** — added pricing types and optional `includePricing` and `labAccountId` request fields.
+* **Provider and lab coverage** — added Google Health provider and OAuth values and the MTL lab value.
+* **Lab metadata** — added optional source interpretation, lab logo URL, and lab-location website fields.
+
+### Changed
+
+* **Request controls** — added SSE reconnection settings and support for merging `additionalBodyParameters` into serialized request bodies.
+* **Errors** — `JunctionError.requestId` exposes the response request ID, and `JunctionTimeoutError` now extends `JunctionError` while remaining an `Error`.
+
+### Beta
+
+* **Aggregate and lab-report states** — added the result-table resource and processing-error parsing state without affecting the stable-surface SemVer calculation.
+
 ## 1.2.0 - 2026-06-05
 ### Added
 * **`AlignExpr`** — new public symbol

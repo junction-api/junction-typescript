@@ -4,6 +4,7 @@ import type * as Junction from "../../api/index.js";
 import * as core from "../../core/index.js";
 import type * as serializers from "../index.js";
 import { ClientFacingMarkerComplete } from "./ClientFacingMarkerComplete.js";
+import { MarkerPricingResponse } from "./MarkerPricingResponse.js";
 
 export const GetMarkersResponse: core.serialization.ObjectSchema<
     serializers.GetMarkersResponse.Raw,
@@ -14,6 +15,7 @@ export const GetMarkersResponse: core.serialization.ObjectSchema<
     page: core.serialization.number().optionalNullable(),
     size: core.serialization.number().optionalNullable(),
     pages: core.serialization.number().optionalNullable(),
+    pricing: MarkerPricingResponse.optionalNullable(),
 });
 
 export declare namespace GetMarkersResponse {
@@ -23,5 +25,6 @@ export declare namespace GetMarkersResponse {
         page?: (number | null | undefined) | null;
         size?: (number | null | undefined) | null;
         pages?: (number | null | undefined) | null;
+        pricing?: (MarkerPricingResponse.Raw | null | undefined) | null;
     }
 }

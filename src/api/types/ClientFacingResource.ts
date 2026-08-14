@@ -13,6 +13,7 @@ export const ClientFacingResource = {
     Result: "result",
     MatchReview: "match_review",
     Appointment: "appointment",
+    ResultTable: "result_table",
     Glucose: "glucose",
     Heartrate: "heartrate",
     Hrv: "hrv",

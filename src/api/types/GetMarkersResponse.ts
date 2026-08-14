@@ -8,4 +8,5 @@ export interface GetMarkersResponse {
     page?: number | null;
     size?: number | null;
     pages?: number | null;
+    pricing?: Junction.MarkerPricingResponse | null;
 }

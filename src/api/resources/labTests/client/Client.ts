@@ -4,6 +4,7 @@ import type { BaseClientOptions, BaseRequestOptions } from "../../../../BaseClie
 import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } from "../../../../BaseClient.js";
 import { mergeHeaders, mergeOnlyDefinedHeaders } from "../../../../core/headers.js";
 import * as core from "../../../../core/index.js";
+import { mergeAdditionalBodyParameters } from "../../../../core/requestBody.js";
 import * as environments from "../../../../environments.js";
 import { handleNonStatusCodeError } from "../../../../errors/handleNonStatusCodeError.js";
 import * as errors from "../../../../errors/index.js";
@@ -204,7 +205,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.CreateLabTestRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.CreateLabTestRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -379,7 +383,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.UpdateLabTestRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.UpdateLabTestRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -436,6 +443,7 @@ export class LabTestsClient {
      *         labSlug: "lab_slug",
      *         name: "name",
      *         aLaCarteEnabled: true,
+     *         includePricing: true,
      *         labAccountId: "lab_account_id",
      *         page: 1,
      *         size: 1
@@ -452,12 +460,13 @@ export class LabTestsClient {
         request: Junction.GetMarkersLabTestsRequest = {},
         requestOptions?: LabTestsClient.RequestOptions,
     ): Promise<core.WithRawResponse<Junction.GetMarkersResponse>> {
-        const { labId, labSlug, name, aLaCarteEnabled, labAccountId, page, size } = request;
+        const { labId, labSlug, name, aLaCarteEnabled, includePricing, labAccountId, page, size } = request;
         const _queryParams: Record<string, unknown> = {
             lab_id: labId,
             lab_slug: labSlug,
             name,
             a_la_carte_enabled: aLaCarteEnabled,
+            include_pricing: includePricing,
             lab_account_id: labAccountId,
             page,
             size,
@@ -575,7 +584,10 @@ export class LabTestsClient {
                 .mergeAdditional(requestOptions?.queryParams)
                 .build(),
             requestType: "json",
-            body: serializers.OrderSetRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.OrderSetRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -894,6 +906,8 @@ export class LabTestsClient {
      *     await client.labTests.getPaginated({
      *         labTestLimit: 1,
      *         nextCursor: "next_cursor",
+     *         includePricing: true,
+     *         labAccountId: "lab_account_id",
      *         generationMethod: "auto",
      *         labSlug: "lab_slug",
      *         collectionMethod: "testkit",
@@ -919,6 +933,8 @@ export class LabTestsClient {
         const {
             labTestLimit,
             nextCursor,
+            includePricing,
+            labAccountId,
             generationMethod,
             labSlug,
             collectionMethod,
@@ -932,6 +948,8 @@ export class LabTestsClient {
         const _queryParams: Record<string, unknown> = {
             lab_test_limit: labTestLimit,
             next_cursor: nextCursor,
+            include_pricing: includePricing,
+            lab_account_id: labAccountId,
             generation_method:
                 generationMethod !== undefined
                     ? serializers.LabTestGenerationMethodFilter.jsonOrThrow(generationMethod, {
@@ -1336,7 +1354,10 @@ export class LabTestsClient {
                 .mergeAdditional(requestOptions?.queryParams)
                 .build(),
             requestType: "json",
-            body: serializers.UsAddress.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.UsAddress.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -1430,7 +1451,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.AppointmentBookingRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.AppointmentBookingRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -1528,7 +1552,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.RequestAppointmentRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.RequestAppointmentRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -1622,7 +1649,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.AppointmentRescheduleRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.AppointmentRescheduleRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -1714,9 +1744,12 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.ApiApiV1EndpointsVitalApiLabTestingOrdersHelpersAppointmentCancelRequest.jsonOrThrow(
-                _body,
-                { unrecognizedObjectKeys: "strip" },
+            body: mergeAdditionalBodyParameters(
+                serializers.ApiApiV1EndpointsVitalApiLabTestingOrdersHelpersAppointmentCancelRequest.jsonOrThrow(
+                    _body,
+                    { unrecognizedObjectKeys: "strip" },
+                ),
+                requestOptions?.additionalBodyParameters,
             ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
@@ -2733,7 +2766,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.AppointmentBookingRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.AppointmentBookingRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -2825,7 +2861,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.AppointmentRescheduleRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.AppointmentRescheduleRequest.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -2915,9 +2954,12 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.VitalCoreClientsLabTestGetlabsSchemaAppointmentCancelRequest.jsonOrThrow(_body, {
-                unrecognizedObjectKeys: "strip",
-            }),
+            body: mergeAdditionalBodyParameters(
+                serializers.VitalCoreClientsLabTestGetlabsSchemaAppointmentCancelRequest.jsonOrThrow(_body, {
+                    unrecognizedObjectKeys: "strip",
+                }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -3468,7 +3510,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.UpdateOrderBody.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.UpdateOrderBody.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -3571,7 +3616,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.CreateOrderRequestCompatible.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.CreateOrderRequestCompatible.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -3674,7 +3722,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.ImportOrderBody.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.ImportOrderBody.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -3857,9 +3908,12 @@ export class LabTestsClient {
                 .mergeAdditional(requestOptions?.queryParams)
                 .build(),
             requestType: "json",
-            body: serializers.labTests.simulateOrderProcess.Request.jsonOrThrow(_body, {
-                unrecognizedObjectKeys: "strip",
-            }),
+            body: mergeAdditionalBodyParameters(
+                serializers.labTests.simulateOrderProcess.Request.jsonOrThrow(_body, {
+                    unrecognizedObjectKeys: "strip",
+                }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,
@@ -3985,6 +4039,626 @@ export class LabTestsClient {
     }
 
     /**
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @example
+     *     await client.labTests.listUnmatchedResultTestCases()
+     */
+    public listUnmatchedResultTestCases(
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.ListUnmatchedResultTestCasesResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__listUnmatchedResultTestCases(requestOptions));
+    }
+
+    private async __listUnmatchedResultTestCases(
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.ListUnmatchedResultTestCasesResponse>> {
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                "v3/unmatched_result_test/case",
+            ),
+            method: "GET",
+            headers: _headers,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.ListUnmatchedResultTestCasesResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            throw new errors.JunctionError({
+                statusCode: _response.error.statusCode,
+                body: _response.error.body,
+                rawResponse: _response.rawResponse,
+            });
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v3/unmatched_result_test/case",
+        );
+    }
+
+    /**
+     * @param {Junction.CreateUnmatchedResultTestBody} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.createUnmatchedResultTest({
+     *         idempotencyKey: "X-Idempotency-Key",
+     *         "case": "match_completed",
+     *         orderSource: "managed"
+     *     })
+     */
+    public createUnmatchedResultTest(
+        request: Junction.CreateUnmatchedResultTestBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.CreateUnmatchedResultTestResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__createUnmatchedResultTest(request, requestOptions));
+    }
+
+    private async __createUnmatchedResultTest(
+        request: Junction.CreateUnmatchedResultTestBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.CreateUnmatchedResultTestResponse>> {
+        const { idempotencyKey, ..._body } = request;
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            mergeOnlyDefinedHeaders({ "X-Idempotency-Key": idempotencyKey }),
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                "v3/unmatched_result_test",
+            ),
+            method: "POST",
+            headers: _headers,
+            contentType: "application/json",
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            requestType: "json",
+            body: mergeAdditionalBodyParameters(
+                serializers.CreateUnmatchedResultTestBody.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.CreateUnmatchedResultTestResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(_response.error, _response.rawResponse, "POST", "/v3/unmatched_result_test");
+    }
+
+    /**
+     * @param {Junction.GetUnmatchedResultTestLabTestsRequest} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.getUnmatchedResultTest({
+     *         runId: "run_id"
+     *     })
+     */
+    public getUnmatchedResultTest(
+        request: Junction.GetUnmatchedResultTestLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.GetUnmatchedResultTestResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__getUnmatchedResultTest(request, requestOptions));
+    }
+
+    private async __getUnmatchedResultTest(
+        request: Junction.GetUnmatchedResultTestLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.GetUnmatchedResultTestResponse>> {
+        const { runId } = request;
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                `v3/unmatched_result_test/${core.url.encodePathParam(runId)}`,
+            ),
+            method: "GET",
+            headers: _headers,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.GetUnmatchedResultTestResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v3/unmatched_result_test/{run_id}",
+        );
+    }
+
+    /**
+     * @param {Junction.ListUnmatchedResultsLabTestsRequest} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.listUnmatchedResults({
+     *         limit: 1,
+     *         nextCursor: "next_cursor",
+     *         decisionCode: "match_sample_id",
+     *         labSlug: "lab_slug",
+     *         status: "pending_customer_review",
+     *         createdAtStart: "created_at_start",
+     *         createdAtEnd: "created_at_end",
+     *         searchInput: "search_input"
+     *     })
+     */
+    public listUnmatchedResults(
+        request: Junction.ListUnmatchedResultsLabTestsRequest = {},
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.ListUnmatchedResultResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__listUnmatchedResults(request, requestOptions));
+    }
+
+    private async __listUnmatchedResults(
+        request: Junction.ListUnmatchedResultsLabTestsRequest = {},
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.ListUnmatchedResultResponse>> {
+        const { limit, nextCursor, decisionCode, labSlug, status, createdAtStart, createdAtEnd, searchInput } = request;
+        const _queryParams: Record<string, unknown> = {
+            limit,
+            next_cursor: nextCursor,
+            decision_code:
+                decisionCode !== undefined
+                    ? serializers.MatchDecisionCode.jsonOrThrow(decisionCode, { unrecognizedObjectKeys: "strip" })
+                    : undefined,
+            lab_slug: labSlug,
+            status:
+                status !== undefined
+                    ? serializers.MatchReviewStatusFilter.jsonOrThrow(status, { unrecognizedObjectKeys: "strip" })
+                    : undefined,
+            created_at_start: createdAtStart,
+            created_at_end: createdAtEnd,
+            search_input: searchInput,
+        };
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                "v3/unmatched_result",
+            ),
+            method: "GET",
+            headers: _headers,
+            queryString: core.url
+                .queryBuilder()
+                .addMany(_queryParams)
+                .mergeAdditional(requestOptions?.queryParams)
+                .build(),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.ListUnmatchedResultResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(_response.error, _response.rawResponse, "GET", "/v3/unmatched_result");
+    }
+
+    /**
+     * @param {Junction.GetUnmatchedResultLabTestsRequest} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.getUnmatchedResult({
+     *         rawResultId: "raw_result_id"
+     *     })
+     */
+    public getUnmatchedResult(
+        request: Junction.GetUnmatchedResultLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.GetUnmatchedResultResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__getUnmatchedResult(request, requestOptions));
+    }
+
+    private async __getUnmatchedResult(
+        request: Junction.GetUnmatchedResultLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.GetUnmatchedResultResponse>> {
+        const { rawResultId } = request;
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                `v3/unmatched_result/${core.url.encodePathParam(rawResultId)}`,
+            ),
+            method: "GET",
+            headers: _headers,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.GetUnmatchedResultResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v3/unmatched_result/{raw_result_id}",
+        );
+    }
+
+    /**
+     * @param {Junction.AcceptUnmatchedResultBody} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.acceptUnmatchedResult({
+     *         rawResultId: "raw_result_id"
+     *     })
+     */
+    public acceptUnmatchedResult(
+        request: Junction.AcceptUnmatchedResultBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.ClientFacingOrder> {
+        return core.HttpResponsePromise.fromPromise(this.__acceptUnmatchedResult(request, requestOptions));
+    }
+
+    private async __acceptUnmatchedResult(
+        request: Junction.AcceptUnmatchedResultBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.ClientFacingOrder>> {
+        const { rawResultId, ..._body } = request;
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                `v3/unmatched_result/${core.url.encodePathParam(rawResultId)}/accept`,
+            ),
+            method: "POST",
+            headers: _headers,
+            contentType: "application/json",
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            requestType: "json",
+            body: mergeAdditionalBodyParameters(
+                serializers.AcceptUnmatchedResultBody.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.ClientFacingOrder.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v3/unmatched_result/{raw_result_id}/accept",
+        );
+    }
+
+    /**
+     * @param {Junction.ResolveUnmatchedResultBody} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.resolveUnmatchedResult({
+     *         rawResultId: "raw_result_id",
+     *         action: "reject"
+     *     })
+     */
+    public resolveUnmatchedResult(
+        request: Junction.ResolveUnmatchedResultBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.UnmatchedResult> {
+        return core.HttpResponsePromise.fromPromise(this.__resolveUnmatchedResult(request, requestOptions));
+    }
+
+    private async __resolveUnmatchedResult(
+        request: Junction.ResolveUnmatchedResultBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.UnmatchedResult>> {
+        const { rawResultId, ..._body } = request;
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                `v3/unmatched_result/${core.url.encodePathParam(rawResultId)}/resolve`,
+            ),
+            method: "POST",
+            headers: _headers,
+            contentType: "application/json",
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            requestType: "json",
+            body: mergeAdditionalBodyParameters(
+                serializers.ResolveUnmatchedResultBody.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.UnmatchedResult.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v3/unmatched_result/{raw_result_id}/resolve",
+        );
+    }
+
+    /**
      * @param {Junction.ValidateIcdCodesBody} request
      * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
      *
@@ -4024,7 +4698,10 @@ export class LabTestsClient {
             contentType: "application/json",
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
-            body: serializers.ValidateIcdCodesBody.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+            body: mergeAdditionalBodyParameters(
+                serializers.ValidateIcdCodesBody.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
             timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
             maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
             abortSignal: requestOptions?.abortSignal,

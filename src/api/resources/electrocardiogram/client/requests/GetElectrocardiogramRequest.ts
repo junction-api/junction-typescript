@@ -11,7 +11,9 @@
  */
 export interface GetElectrocardiogramRequest {
     userId: string;
+    /** Start date in YYYY-MM-DD */
     startDate: string;
+    /** End date (inclusive) in YYYY-MM-DD */
     endDate?: string | null;
     /** Provider oura/strava etc */
     provider?: string | null;

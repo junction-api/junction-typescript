@@ -246,4 +246,77 @@ describe("CompendiumClient", () => {
             });
         }).rejects.toThrow(Junction.UnprocessableEntityError);
     });
+
+    test("search_orderable_tests (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { provider_ids: ["provider_ids"], target_lab: "labcorp" };
+        const rawResponseBody = {
+            candidates: {
+                key: [
+                    {
+                        marker_id: 1,
+                        lab_id: 1,
+                        name: "name",
+                        loinc_set_hash: "loinc_set_hash",
+                        relation: "relation",
+                        confidence: 1.1,
+                        marker_popularity_score: 1.1,
+                    },
+                ],
+            },
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v3/compendium/search_orderable_tests")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.compendium.searchOrderableTests({
+            providerIds: ["provider_ids"],
+            targetLab: "labcorp",
+        });
+        expect(response).toEqual({
+            candidates: {
+                key: [
+                    {
+                        markerId: 1,
+                        labId: 1,
+                        name: "name",
+                        loincSetHash: "loinc_set_hash",
+                        relation: "relation",
+                        confidence: 1.1,
+                        markerPopularityScore: 1.1,
+                    },
+                ],
+            },
+        });
+    });
+
+    test("search_orderable_tests (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { provider_ids: ["provider_ids", "provider_ids"], target_lab: "labcorp" };
+        const rawResponseBody = {};
+
+        server
+            .mockEndpoint()
+            .post("/v3/compendium/search_orderable_tests")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(422)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.compendium.searchOrderableTests({
+                providerIds: ["provider_ids", "provider_ids"],
+                targetLab: "labcorp",
+            });
+        }).rejects.toThrow(Junction.UnprocessableEntityError);
+    });
 });

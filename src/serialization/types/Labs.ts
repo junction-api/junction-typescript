@@ -19,6 +19,7 @@ export const Labs: core.serialization.Schema<serializers.Labs.Raw, Junction.Labs
     "nexus",
     "my_uti",
     "crl",
+    "mtl",
 ]);
 
 export declare namespace Labs {
@@ -36,5 +37,6 @@ export declare namespace Labs {
         | "ihd"
         | "nexus"
         | "my_uti"
-        | "crl";
+        | "crl"
+        | "mtl";
 }

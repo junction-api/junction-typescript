@@ -29,6 +29,7 @@ describe("LabTestsClient", () => {
                     zipcode: "91789",
                     collection_methods: ["testkit"],
                     sample_types: ["saliva"],
+                    logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                 },
                 markers: [
                     {
@@ -100,6 +101,7 @@ describe("LabTestsClient", () => {
                     zipcode: "91789",
                     collectionMethods: ["testkit"],
                     sampleTypes: ["saliva"],
+                    logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                 },
                 markers: [
                     {
@@ -181,6 +183,7 @@ describe("LabTestsClient", () => {
                 zipcode: "91789",
                 collection_methods: ["testkit"],
                 sample_types: ["saliva"],
+                logo_url: "https://assets.tryvital.io/labs/labcorp.png",
             },
             markers: [
                 {
@@ -252,6 +255,7 @@ describe("LabTestsClient", () => {
                 zipcode: "91789",
                 collectionMethods: ["testkit"],
                 sampleTypes: ["saliva"],
+                logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
             },
             markers: [
                 {
@@ -344,6 +348,7 @@ describe("LabTestsClient", () => {
                 zipcode: "91789",
                 collection_methods: ["testkit"],
                 sample_types: ["saliva"],
+                logo_url: "https://assets.tryvital.io/labs/labcorp.png",
             },
             markers: [
                 {
@@ -413,6 +418,7 @@ describe("LabTestsClient", () => {
                 zipcode: "91789",
                 collectionMethods: ["testkit"],
                 sampleTypes: ["saliva"],
+                logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
             },
             markers: [
                 {
@@ -502,6 +508,7 @@ describe("LabTestsClient", () => {
                 zipcode: "91789",
                 collection_methods: ["testkit"],
                 sample_types: ["saliva"],
+                logo_url: "https://assets.tryvital.io/labs/labcorp.png",
             },
             markers: [
                 {
@@ -571,6 +578,7 @@ describe("LabTestsClient", () => {
                 zipcode: "91789",
                 collectionMethods: ["testkit"],
                 sampleTypes: ["saliva"],
+                logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
             },
             markers: [
                 {
@@ -695,6 +703,7 @@ describe("LabTestsClient", () => {
             page: 1,
             size: 1,
             pages: 1,
+            pricing: { currency: "USD", data: { key: { base_amount_minor: 1 } } },
         };
 
         server
@@ -710,6 +719,7 @@ describe("LabTestsClient", () => {
             labSlug: "lab_slug",
             name: "name",
             aLaCarteEnabled: true,
+            includePricing: true,
             labAccountId: "lab_account_id",
             page: 1,
             size: 1,
@@ -773,6 +783,14 @@ describe("LabTestsClient", () => {
             page: 1,
             size: 1,
             pages: 1,
+            pricing: {
+                currency: "USD",
+                data: {
+                    key: {
+                        baseAmountMinor: 1,
+                    },
+                },
+            },
         });
     });
 
@@ -852,6 +870,7 @@ describe("LabTestsClient", () => {
             page: 1,
             size: 1,
             pages: 1,
+            pricing: { currency: "USD", data: { key: { base_amount_minor: 1 } } },
         };
 
         server
@@ -927,6 +946,14 @@ describe("LabTestsClient", () => {
             page: 1,
             size: 1,
             pages: 1,
+            pricing: {
+                currency: "USD",
+                data: {
+                    key: {
+                        baseAmountMinor: 1,
+                    },
+                },
+            },
         });
     });
 
@@ -1009,6 +1036,7 @@ describe("LabTestsClient", () => {
             page: 1,
             size: 1,
             pages: 1,
+            pricing: { currency: "USD", data: { key: { base_amount_minor: 1 } } },
         };
 
         server
@@ -1084,6 +1112,14 @@ describe("LabTestsClient", () => {
             page: 1,
             size: 1,
             pages: 1,
+            pricing: {
+                currency: "USD",
+                data: {
+                    key: {
+                        baseAmountMinor: 1,
+                    },
+                },
+            },
         });
     });
 
@@ -1228,6 +1264,7 @@ describe("LabTestsClient", () => {
                 zipcode: "91789",
                 collection_methods: ["testkit"],
                 sample_types: ["saliva"],
+                logo_url: "https://assets.tryvital.io/labs/labcorp.png",
             },
         ];
 
@@ -1244,6 +1281,7 @@ describe("LabTestsClient", () => {
                 zipcode: "91789",
                 collectionMethods: ["testkit"],
                 sampleTypes: ["saliva"],
+                logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
             },
         ]);
     });
@@ -1273,6 +1311,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collection_methods: ["testkit"],
                         sample_types: ["saliva"],
+                        logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -1311,6 +1350,7 @@ describe("LabTestsClient", () => {
                 },
             ],
             next_cursor: "next_cursor",
+            pricing: { currency: "USD", data: { key: { pricing: { base_amount_minor: 1 } } } },
         };
 
         server.mockEndpoint().get("/v3/lab_test").respondWith().statusCode(200).jsonBody(rawResponseBody).build();
@@ -1318,6 +1358,8 @@ describe("LabTestsClient", () => {
         const response = await client.labTests.getPaginated({
             labTestLimit: 1,
             nextCursor: "next_cursor",
+            includePricing: true,
+            labAccountId: "lab_account_id",
             generationMethod: "auto",
             labSlug: "lab_slug",
             collectionMethod: "testkit",
@@ -1349,6 +1391,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collectionMethods: ["testkit"],
                         sampleTypes: ["saliva"],
+                        logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -1393,6 +1436,16 @@ describe("LabTestsClient", () => {
                 },
             ],
             nextCursor: "next_cursor",
+            pricing: {
+                currency: "USD",
+                data: {
+                    key: {
+                        pricing: {
+                            baseAmountMinor: 1,
+                        },
+                    },
+                },
+            },
         });
     });
 
@@ -1416,9 +1469,9 @@ describe("LabTestsClient", () => {
         const rawResponseBody = {
             orders: [
                 {
-                    user_id: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                    id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                    team_id: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                    user_id: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                    id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                    team_id: "73ed7487-cebd-4182-a98e-086db825c522",
                     patient_details: { dob: "2020-01-01T00:00:00Z", gender: "male" },
                     patient_address: {
                         receiver_name: "John Doe",
@@ -1448,6 +1501,7 @@ describe("LabTestsClient", () => {
                             zipcode: "91789",
                             collection_methods: ["testkit"],
                             sample_types: ["saliva"],
+                            logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                         },
                         markers: [
                             {
@@ -1483,9 +1537,9 @@ describe("LabTestsClient", () => {
                     details: {
                         type: "testkit",
                         data: {
-                            id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                            id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                             shipment: {
-                                id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                                id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                                 outbound_tracking_number: "<outbound_tracking_number>",
                                 outbound_tracking_url: "<outbound_tracking_url>",
                                 inbound_tracking_number: "<inbound_tracking_number>",
@@ -1596,9 +1650,9 @@ describe("LabTestsClient", () => {
         expect(response).toEqual({
             orders: [
                 {
-                    userId: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                    id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                    teamId: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                    userId: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                    id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                    teamId: "73ed7487-cebd-4182-a98e-086db825c522",
                     patientDetails: {
                         dob: new Date("2020-01-01T00:00:00.000Z"),
                         gender: "male",
@@ -1631,6 +1685,7 @@ describe("LabTestsClient", () => {
                             zipcode: "91789",
                             collectionMethods: ["testkit"],
                             sampleTypes: ["saliva"],
+                            logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                         },
                         markers: [
                             {
@@ -1672,9 +1727,9 @@ describe("LabTestsClient", () => {
                     details: {
                         type: "testkit",
                         data: {
-                            id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                            id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                             shipment: {
-                                id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                                id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                                 outboundTrackingNumber: "<outbound_tracking_number>",
                                 outboundTrackingUrl: "<outbound_tracking_url>",
                                 inboundTrackingNumber: "<inbound_tracking_number>",
@@ -1896,10 +1951,10 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
         const rawRequestBody = { booking_key: "booking_key" };
         const rawResponseBody = {
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            user_id: "3296b932-4284-49f6-a052-1eedd293efda",
-            order_id: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            order_transaction_id: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            user_id: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            order_id: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            order_transaction_id: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 first_line: "123 Main St.",
                 second_line: "Apt. 208",
@@ -1946,10 +2001,10 @@ describe("LabTestsClient", () => {
             },
         });
         expect(response).toEqual({
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            userId: "3296b932-4284-49f6-a052-1eedd293efda",
-            orderId: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            orderTransactionId: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            userId: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            orderId: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            orderTransactionId: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 firstLine: "123 Main St.",
                 secondLine: "Apt. 208",
@@ -2029,10 +2084,10 @@ describe("LabTestsClient", () => {
             provider: "getlabs",
         };
         const rawResponseBody = {
-            id: "d28f5387-843d-4282-a733-f7c22306d1c6",
-            user_id: "3cb08a5d-2d22-43a4-ae2c-28f2b5f59be4",
-            order_id: "43f921c9-f3f3-4a3b-8aef-d3c3a30713b7",
-            order_transaction_id: "65a82929-b852-47de-bb37-15e47ce69b51",
+            id: "e88bcb95-e9e2-4436-8c21-317e883e34ba",
+            user_id: "3fe7c636-2f01-4a55-b007-f7017c575638",
+            order_id: "6b17f399-1903-4d1f-8742-d0f47a7ba73c",
+            order_transaction_id: "18116748-0e3b-4d80-9b34-170fad6ac687",
             address: {
                 first_line: "123 Main St.",
                 second_line: "Apt. 208",
@@ -2080,10 +2135,10 @@ describe("LabTestsClient", () => {
             provider: "getlabs",
         });
         expect(response).toEqual({
-            id: "d28f5387-843d-4282-a733-f7c22306d1c6",
-            userId: "3cb08a5d-2d22-43a4-ae2c-28f2b5f59be4",
-            orderId: "43f921c9-f3f3-4a3b-8aef-d3c3a30713b7",
-            orderTransactionId: "65a82929-b852-47de-bb37-15e47ce69b51",
+            id: "e88bcb95-e9e2-4436-8c21-317e883e34ba",
+            userId: "3fe7c636-2f01-4a55-b007-f7017c575638",
+            orderId: "6b17f399-1903-4d1f-8742-d0f47a7ba73c",
+            orderTransactionId: "18116748-0e3b-4d80-9b34-170fad6ac687",
             address: {
                 firstLine: "123 Main St.",
                 secondLine: "Apt. 208",
@@ -2160,10 +2215,10 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
         const rawRequestBody = { booking_key: "booking_key" };
         const rawResponseBody = {
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            user_id: "3296b932-4284-49f6-a052-1eedd293efda",
-            order_id: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            order_transaction_id: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            user_id: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            order_id: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            order_transaction_id: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 first_line: "123 Main St.",
                 second_line: "Apt. 208",
@@ -2210,10 +2265,10 @@ describe("LabTestsClient", () => {
             },
         });
         expect(response).toEqual({
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            userId: "3296b932-4284-49f6-a052-1eedd293efda",
-            orderId: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            orderTransactionId: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            userId: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            orderId: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            orderTransactionId: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 firstLine: "123 Main St.",
                 secondLine: "Apt. 208",
@@ -2290,10 +2345,10 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
         const rawRequestBody = { cancellation_reason_id: "cancellation_reason_id" };
         const rawResponseBody = {
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            user_id: "3296b932-4284-49f6-a052-1eedd293efda",
-            order_id: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            order_transaction_id: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            user_id: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            order_id: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            order_transaction_id: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 first_line: "123 Main St.",
                 second_line: "Apt. 208",
@@ -2338,10 +2393,10 @@ describe("LabTestsClient", () => {
             cancellationReasonId: "cancellation_reason_id",
         });
         expect(response).toEqual({
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            userId: "3296b932-4284-49f6-a052-1eedd293efda",
-            orderId: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            orderTransactionId: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            userId: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            orderId: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            orderTransactionId: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 firstLine: "123 Main St.",
                 secondLine: "Apt. 208",
@@ -2416,7 +2471,7 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
 
         const rawResponseBody = [
-            { id: "8dac8538-b510-4954-b363-bc9b15d836b8", name: "I'm feeling sick", is_refundable: true },
+            { id: "8ea84471-7b1c-4f59-97fd-0ff4860ba00a", name: "I'm feeling sick", is_refundable: true },
         ];
 
         server
@@ -2430,7 +2485,7 @@ describe("LabTestsClient", () => {
         const response = await client.labTests.getPhlebotomyAppointmentCancellationReason();
         expect(response).toEqual([
             {
-                id: "8dac8538-b510-4954-b363-bc9b15d836b8",
+                id: "8ea84471-7b1c-4f59-97fd-0ff4860ba00a",
                 name: "I'm feeling sick",
                 isRefundable: true,
             },
@@ -2442,10 +2497,10 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
 
         const rawResponseBody = {
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            user_id: "3296b932-4284-49f6-a052-1eedd293efda",
-            order_id: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            order_transaction_id: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            user_id: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            order_id: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            order_transaction_id: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 first_line: "123 Main St.",
                 second_line: "Apt. 208",
@@ -2488,10 +2543,10 @@ describe("LabTestsClient", () => {
             orderId: "order_id",
         });
         expect(response).toEqual({
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            userId: "3296b932-4284-49f6-a052-1eedd293efda",
-            orderId: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            orderTransactionId: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            userId: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            orderId: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            orderTransactionId: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 firstLine: "123 Main St.",
                 secondLine: "Apt. 208",
@@ -2902,6 +2957,7 @@ describe("LabTestsClient", () => {
                     is_above_max_range: false,
                     is_below_min_range: false,
                     interpretation: "normal",
+                    source_interpretation: "normal",
                     loinc: "742-7",
                     loinc_slug: "monocytes-auto-bld-vol",
                     provider_id: "provider_id",
@@ -2981,6 +3037,7 @@ describe("LabTestsClient", () => {
                     isAboveMaxRange: false,
                     isBelowMinRange: false,
                     interpretation: "normal",
+                    sourceInterpretation: "normal",
                     loinc: "742-7",
                     loincSlug: "monocytes-auto-bld-vol",
                     providerId: "provider_id",
@@ -3190,10 +3247,10 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
         const rawRequestBody = { booking_key: "booking_key" };
         const rawResponseBody = {
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            user_id: "3296b932-4284-49f6-a052-1eedd293efda",
-            order_id: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            order_transaction_id: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            user_id: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            order_id: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            order_transaction_id: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 first_line: "123 Main St.",
                 second_line: "Apt. 208",
@@ -3240,10 +3297,10 @@ describe("LabTestsClient", () => {
             },
         });
         expect(response).toEqual({
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            userId: "3296b932-4284-49f6-a052-1eedd293efda",
-            orderId: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            orderTransactionId: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            userId: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            orderId: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            orderTransactionId: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 firstLine: "123 Main St.",
                 secondLine: "Apt. 208",
@@ -3320,10 +3377,10 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
         const rawRequestBody = { booking_key: "booking_key" };
         const rawResponseBody = {
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            user_id: "3296b932-4284-49f6-a052-1eedd293efda",
-            order_id: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            order_transaction_id: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            user_id: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            order_id: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            order_transaction_id: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 first_line: "123 Main St.",
                 second_line: "Apt. 208",
@@ -3370,10 +3427,10 @@ describe("LabTestsClient", () => {
             },
         });
         expect(response).toEqual({
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            userId: "3296b932-4284-49f6-a052-1eedd293efda",
-            orderId: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            orderTransactionId: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            userId: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            orderId: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            orderTransactionId: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 firstLine: "123 Main St.",
                 secondLine: "Apt. 208",
@@ -3450,10 +3507,10 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
         const rawRequestBody = { cancellationReasonId: "cancellationReasonId" };
         const rawResponseBody = {
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            user_id: "3296b932-4284-49f6-a052-1eedd293efda",
-            order_id: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            order_transaction_id: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            user_id: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            order_id: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            order_transaction_id: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 first_line: "123 Main St.",
                 second_line: "Apt. 208",
@@ -3498,10 +3555,10 @@ describe("LabTestsClient", () => {
             cancellationReasonId: "cancellationReasonId",
         });
         expect(response).toEqual({
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            userId: "3296b932-4284-49f6-a052-1eedd293efda",
-            orderId: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            orderTransactionId: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            userId: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            orderId: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            orderTransactionId: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 firstLine: "123 Main St.",
                 secondLine: "Apt. 208",
@@ -3576,7 +3633,7 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
 
         const rawResponseBody = [
-            { id: "8dac8538-b510-4954-b363-bc9b15d836b8", name: "I'm feeling sick", is_refundable: true },
+            { id: "8ea84471-7b1c-4f59-97fd-0ff4860ba00a", name: "I'm feeling sick", is_refundable: true },
         ];
 
         server
@@ -3590,7 +3647,7 @@ describe("LabTestsClient", () => {
         const response = await client.labTests.getPscAppointmentCancellationReason();
         expect(response).toEqual([
             {
-                id: "8dac8538-b510-4954-b363-bc9b15d836b8",
+                id: "8ea84471-7b1c-4f59-97fd-0ff4860ba00a",
                 name: "I'm feeling sick",
                 isRefundable: true,
             },
@@ -3602,10 +3659,10 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
 
         const rawResponseBody = {
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            user_id: "3296b932-4284-49f6-a052-1eedd293efda",
-            order_id: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            order_transaction_id: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            user_id: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            order_id: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            order_transaction_id: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 first_line: "123 Main St.",
                 second_line: "Apt. 208",
@@ -3648,10 +3705,10 @@ describe("LabTestsClient", () => {
             orderId: "order_id",
         });
         expect(response).toEqual({
-            id: "2c6755a9-aeb4-45b5-a263-5fb9c464a12d",
-            userId: "3296b932-4284-49f6-a052-1eedd293efda",
-            orderId: "1f5f864b-e0c4-4803-8a21-f95da9476d33",
-            orderTransactionId: "f983d0a6-a603-44b1-8cf8-e89d544ab006",
+            id: "a52a6d2c-fbc5-4d12-8329-4663bd3b7357",
+            userId: "02e570c4-5d21-4c9a-9a68-8cfa918bf4ab",
+            orderId: "606aa159-53c4-48cd-9532-f2ea254199b3",
+            orderTransactionId: "8ba52e75-a57d-4715-a258-3362f3758e13",
             address: {
                 firstLine: "123 Main St.",
                 secondLine: "Apt. 208",
@@ -3724,9 +3781,9 @@ describe("LabTestsClient", () => {
         const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
 
         const rawResponseBody = {
-            user_id: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-            id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-            team_id: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+            user_id: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+            id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+            team_id: "73ed7487-cebd-4182-a98e-086db825c522",
             patient_details: {
                 first_name: "first_name",
                 last_name: "last_name",
@@ -3778,6 +3835,7 @@ describe("LabTestsClient", () => {
                     zipcode: "91789",
                     collection_methods: ["testkit"],
                     sample_types: ["saliva"],
+                    logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                 },
                 markers: [
                     {
@@ -3817,9 +3875,9 @@ describe("LabTestsClient", () => {
             details: {
                 type: "testkit",
                 data: {
-                    id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                    id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                     shipment: {
-                        id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                        id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                         outbound_tracking_number: "<outbound_tracking_number>",
                         outbound_tracking_url: "<outbound_tracking_url>",
                         inbound_tracking_number: "<inbound_tracking_number>",
@@ -3918,9 +3976,9 @@ describe("LabTestsClient", () => {
             orderId: "order_id",
         });
         expect(response).toEqual({
-            userId: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-            id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-            teamId: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+            userId: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+            id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+            teamId: "73ed7487-cebd-4182-a98e-086db825c522",
             patientDetails: {
                 firstName: "first_name",
                 lastName: "last_name",
@@ -3978,6 +4036,7 @@ describe("LabTestsClient", () => {
                     zipcode: "91789",
                     collectionMethods: ["testkit"],
                     sampleTypes: ["saliva"],
+                    logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                 },
                 markers: [
                     {
@@ -4023,9 +4082,9 @@ describe("LabTestsClient", () => {
             details: {
                 type: "testkit",
                 data: {
-                    id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                    id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                     shipment: {
-                        id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                        id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                         outboundTrackingNumber: "<outbound_tracking_number>",
                         outboundTrackingUrl: "<outbound_tracking_url>",
                         inboundTrackingNumber: "<inbound_tracking_number>",
@@ -4144,9 +4203,9 @@ describe("LabTestsClient", () => {
         const rawRequestBody = {};
         const rawResponseBody = {
             order: {
-                user_id: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                team_id: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                user_id: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                team_id: "73ed7487-cebd-4182-a98e-086db825c522",
                 patient_details: {
                     first_name: "first_name",
                     last_name: "last_name",
@@ -4201,6 +4260,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collection_methods: ["testkit"],
                         sample_types: ["saliva"],
+                        logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -4240,9 +4300,9 @@ describe("LabTestsClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outbound_tracking_number: "<outbound_tracking_number>",
                             outbound_tracking_url: "<outbound_tracking_url>",
                             inbound_tracking_number: "<inbound_tracking_number>",
@@ -4337,9 +4397,9 @@ describe("LabTestsClient", () => {
         });
         expect(response).toEqual({
             order: {
-                userId: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                teamId: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                userId: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                teamId: "73ed7487-cebd-4182-a98e-086db825c522",
                 patientDetails: {
                     firstName: "first_name",
                     lastName: "last_name",
@@ -4394,6 +4454,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collectionMethods: ["testkit"],
                         sampleTypes: ["saliva"],
+                        logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -4439,9 +4500,9 @@ describe("LabTestsClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outboundTrackingNumber: "<outbound_tracking_number>",
                             outboundTrackingUrl: "<outbound_tracking_url>",
                             inboundTrackingNumber: "<inbound_tracking_number>",
@@ -4578,9 +4639,9 @@ describe("LabTestsClient", () => {
         };
         const rawResponseBody = {
             order: {
-                user_id: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                team_id: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                user_id: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                team_id: "73ed7487-cebd-4182-a98e-086db825c522",
                 patient_details: {
                     first_name: "first_name",
                     last_name: "last_name",
@@ -4635,6 +4696,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collection_methods: ["testkit"],
                         sample_types: ["saliva"],
+                        logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -4674,9 +4736,9 @@ describe("LabTestsClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outbound_tracking_number: "<outbound_tracking_number>",
                             outbound_tracking_url: "<outbound_tracking_url>",
                             inbound_tracking_number: "<inbound_tracking_number>",
@@ -4786,9 +4848,9 @@ describe("LabTestsClient", () => {
         });
         expect(response).toEqual({
             order: {
-                userId: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                teamId: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                userId: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                teamId: "73ed7487-cebd-4182-a98e-086db825c522",
                 patientDetails: {
                     firstName: "first_name",
                     lastName: "last_name",
@@ -4843,6 +4905,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collectionMethods: ["testkit"],
                         sampleTypes: ["saliva"],
+                        logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -4888,9 +4951,9 @@ describe("LabTestsClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outboundTrackingNumber: "<outbound_tracking_number>",
                             outboundTrackingUrl: "<outbound_tracking_url>",
                             inboundTrackingNumber: "<inbound_tracking_number>",
@@ -5064,9 +5127,9 @@ describe("LabTestsClient", () => {
         };
         const rawResponseBody = {
             order: {
-                user_id: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                team_id: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                user_id: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                team_id: "73ed7487-cebd-4182-a98e-086db825c522",
                 patient_details: {
                     first_name: "first_name",
                     last_name: "last_name",
@@ -5121,6 +5184,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collection_methods: ["testkit"],
                         sample_types: ["saliva"],
+                        logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -5160,9 +5224,9 @@ describe("LabTestsClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outbound_tracking_number: "<outbound_tracking_number>",
                             outbound_tracking_url: "<outbound_tracking_url>",
                             inbound_tracking_number: "<inbound_tracking_number>",
@@ -5277,9 +5341,9 @@ describe("LabTestsClient", () => {
         });
         expect(response).toEqual({
             order: {
-                userId: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                teamId: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                userId: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                teamId: "73ed7487-cebd-4182-a98e-086db825c522",
                 patientDetails: {
                     firstName: "first_name",
                     lastName: "last_name",
@@ -5334,6 +5398,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collectionMethods: ["testkit"],
                         sampleTypes: ["saliva"],
+                        logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -5379,9 +5444,9 @@ describe("LabTestsClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outboundTrackingNumber: "<outbound_tracking_number>",
                             outboundTrackingUrl: "<outbound_tracking_url>",
                             inboundTrackingNumber: "<inbound_tracking_number>",
@@ -5549,9 +5614,9 @@ describe("LabTestsClient", () => {
 
         const rawResponseBody = {
             order: {
-                user_id: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                team_id: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                user_id: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                team_id: "73ed7487-cebd-4182-a98e-086db825c522",
                 patient_details: {
                     first_name: "first_name",
                     last_name: "last_name",
@@ -5606,6 +5671,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collection_methods: ["testkit"],
                         sample_types: ["saliva"],
+                        logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -5645,9 +5711,9 @@ describe("LabTestsClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outbound_tracking_number: "<outbound_tracking_number>",
                             outbound_tracking_url: "<outbound_tracking_url>",
                             inbound_tracking_number: "<inbound_tracking_number>",
@@ -5741,9 +5807,9 @@ describe("LabTestsClient", () => {
         });
         expect(response).toEqual({
             order: {
-                userId: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                teamId: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                userId: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                teamId: "73ed7487-cebd-4182-a98e-086db825c522",
                 patientDetails: {
                     firstName: "first_name",
                     lastName: "last_name",
@@ -5798,6 +5864,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collectionMethods: ["testkit"],
                         sampleTypes: ["saliva"],
+                        logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -5843,9 +5910,9 @@ describe("LabTestsClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outboundTrackingNumber: "<outbound_tracking_number>",
                             outboundTrackingUrl: "<outbound_tracking_url>",
                             inboundTrackingNumber: "<inbound_tracking_number>",
@@ -6017,9 +6084,9 @@ describe("LabTestsClient", () => {
 
         const rawResponseBody = {
             order: {
-                user_id: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                team_id: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                user_id: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                team_id: "73ed7487-cebd-4182-a98e-086db825c522",
                 patient_details: {
                     first_name: "first_name",
                     last_name: "last_name",
@@ -6074,6 +6141,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collection_methods: ["testkit"],
                         sample_types: ["saliva"],
+                        logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -6113,9 +6181,9 @@ describe("LabTestsClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outbound_tracking_number: "<outbound_tracking_number>",
                             outbound_tracking_url: "<outbound_tracking_url>",
                             inbound_tracking_number: "<inbound_tracking_number>",
@@ -6209,9 +6277,9 @@ describe("LabTestsClient", () => {
         });
         expect(response).toEqual({
             order: {
-                userId: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                teamId: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                userId: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                teamId: "73ed7487-cebd-4182-a98e-086db825c522",
                 patientDetails: {
                     firstName: "first_name",
                     lastName: "last_name",
@@ -6266,6 +6334,7 @@ describe("LabTestsClient", () => {
                         zipcode: "91789",
                         collectionMethods: ["testkit"],
                         sampleTypes: ["saliva"],
+                        logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -6311,9 +6380,9 @@ describe("LabTestsClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outboundTrackingNumber: "<outbound_tracking_number>",
                             outboundTrackingUrl: "<outbound_tracking_url>",
                             inboundTrackingNumber: "<inbound_tracking_number>",
@@ -6428,6 +6497,937 @@ describe("LabTestsClient", () => {
         await expect(async () => {
             return await client.labTests.updateOnSiteCollectionOrderDrawCompleted({
                 orderId: "order_id",
+            });
+        }).rejects.toThrow(Junction.UnprocessableEntityError);
+    });
+
+    test("list_unmatched_result_test_cases", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+
+        const rawResponseBody = {
+            data: [
+                {
+                    case: "match_completed",
+                    order_roles: ["order_roles"],
+                    required_statuses: { key: "ordered" },
+                    lab_constraints: ["lab_constraints"],
+                },
+            ],
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v3/unmatched_result_test/case")
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.labTests.listUnmatchedResultTestCases();
+        expect(response).toEqual({
+            data: [
+                {
+                    case: "match_completed",
+                    orderRoles: ["order_roles"],
+                    requiredStatuses: {
+                        key: "ordered",
+                    },
+                    labConstraints: ["lab_constraints"],
+                },
+            ],
+        });
+    });
+
+    test("create_unmatched_result_test (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { case: "match_completed", order_source: "managed" };
+        const rawResponseBody = { run_id: "run_id", status: "queued" };
+
+        server
+            .mockEndpoint()
+            .post("/v3/unmatched_result_test")
+            .header("X-Idempotency-Key", "X-Idempotency-Key")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.labTests.createUnmatchedResultTest({
+            idempotencyKey: "X-Idempotency-Key",
+            case: "match_completed",
+            orderSource: "managed",
+        });
+        expect(response).toEqual({
+            runId: "run_id",
+            status: "queued",
+        });
+    });
+
+    test("create_unmatched_result_test (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { case: "match_completed", order_source: "managed" };
+        const rawResponseBody = {};
+
+        server
+            .mockEndpoint()
+            .post("/v3/unmatched_result_test")
+            .header("X-Idempotency-Key", "idempotencyKey")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(422)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.labTests.createUnmatchedResultTest({
+                idempotencyKey: "idempotencyKey",
+                case: "match_completed",
+                orderSource: "managed",
+            });
+        }).rejects.toThrow(Junction.UnprocessableEntityError);
+    });
+
+    test("get_unmatched_result_test (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+
+        const rawResponseBody = {
+            run_id: "run_id",
+            status: "queued",
+            stage: "queued",
+            case: "match_completed",
+            order_source: "managed",
+            result_status: "final",
+            orders: { key: { order_id: "order_id", user_id: "user_id", order_transaction_id: "order_transaction_id" } },
+            raw_result_id: "raw_result_id",
+            error: { code: "code", message: "message" },
+            created_at: "2024-01-15T09:30:00Z",
+            updated_at: "2024-01-15T09:30:00Z",
+            started_at: "2024-01-15T09:30:00Z",
+            completed_at: "2024-01-15T09:30:00Z",
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v3/unmatched_result_test/run_id")
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.labTests.getUnmatchedResultTest({
+            runId: "run_id",
+        });
+        expect(response).toEqual({
+            runId: "run_id",
+            status: "queued",
+            stage: "queued",
+            case: "match_completed",
+            orderSource: "managed",
+            resultStatus: "final",
+            orders: {
+                key: {
+                    orderId: "order_id",
+                    userId: "user_id",
+                    orderTransactionId: "order_transaction_id",
+                },
+            },
+            rawResultId: "raw_result_id",
+            error: {
+                code: "code",
+                message: "message",
+            },
+            createdAt: new Date("2024-01-15T09:30:00.000Z"),
+            updatedAt: new Date("2024-01-15T09:30:00.000Z"),
+            startedAt: new Date("2024-01-15T09:30:00.000Z"),
+            completedAt: new Date("2024-01-15T09:30:00.000Z"),
+        });
+    });
+
+    test("get_unmatched_result_test (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+
+        const rawResponseBody = {};
+
+        server
+            .mockEndpoint()
+            .get("/v3/unmatched_result_test/run_id")
+            .respondWith()
+            .statusCode(422)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.labTests.getUnmatchedResultTest({
+                runId: "run_id",
+            });
+        }).rejects.toThrow(Junction.UnprocessableEntityError);
+    });
+
+    test("list_unmatched_results (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+
+        const rawResponseBody = {
+            data: [
+                {
+                    id: "id",
+                    status: "matched",
+                    decision_code: "match_sample_id",
+                    sub_reason_codes: ["lab_account_mismatch"],
+                    reason: "reason",
+                    lab: { id: 1, name: "name", slug: "slug" },
+                    markers: [{}],
+                    interpretation: "normal",
+                    result_status: "final",
+                    note: "note",
+                    resolution_action: "accept",
+                    resolved_user_id: "resolved_user_id",
+                    resolved_order_id: "resolved_order_id",
+                    allowed_actions: ["accept"],
+                    candidate_groups: [{}],
+                    created_at: "2024-01-15T09:30:00Z",
+                    updated_at: "2024-01-15T09:30:00Z",
+                    reviewed_at: "2024-01-15T09:30:00Z",
+                },
+            ],
+            next_cursor: "next_cursor",
+            total: 1,
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v3/unmatched_result")
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.labTests.listUnmatchedResults({
+            limit: 1,
+            nextCursor: "next_cursor",
+            decisionCode: "match_sample_id",
+            labSlug: "lab_slug",
+            status: "pending_customer_review",
+            createdAtStart: "created_at_start",
+            createdAtEnd: "created_at_end",
+            searchInput: "search_input",
+        });
+        expect(response).toEqual({
+            data: [
+                {
+                    id: "id",
+                    status: "matched",
+                    decisionCode: "match_sample_id",
+                    subReasonCodes: ["lab_account_mismatch"],
+                    reason: "reason",
+                    lab: {
+                        id: 1,
+                        name: "name",
+                        slug: "slug",
+                    },
+                    markers: [{}],
+                    interpretation: "normal",
+                    resultStatus: "final",
+                    note: "note",
+                    resolutionAction: "accept",
+                    resolvedUserId: "resolved_user_id",
+                    resolvedOrderId: "resolved_order_id",
+                    allowedActions: ["accept"],
+                    candidateGroups: [{}],
+                    createdAt: new Date("2024-01-15T09:30:00.000Z"),
+                    updatedAt: new Date("2024-01-15T09:30:00.000Z"),
+                    reviewedAt: new Date("2024-01-15T09:30:00.000Z"),
+                },
+            ],
+            nextCursor: "next_cursor",
+            total: 1,
+        });
+    });
+
+    test("list_unmatched_results (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+
+        const rawResponseBody = {};
+
+        server
+            .mockEndpoint()
+            .get("/v3/unmatched_result")
+            .respondWith()
+            .statusCode(422)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.labTests.listUnmatchedResults();
+        }).rejects.toThrow(Junction.UnprocessableEntityError);
+    });
+
+    test("get_unmatched_result (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+
+        const rawResponseBody = {
+            id: "id",
+            status: "matched",
+            decision_code: "match_sample_id",
+            sub_reason_codes: ["lab_account_mismatch"],
+            reason: "reason",
+            patient: {
+                first_name: "first_name",
+                last_name: "last_name",
+                dob: "2024-01-15T09:30:00Z",
+                gender: "gender",
+            },
+            lab: { id: 1, name: "name", slug: "slug" },
+            markers: [{ provider_id: "provider_id", name: "name" }],
+            interpretation: "normal",
+            result_status: "final",
+            note: "note",
+            resolution_action: "accept",
+            resolved_user_id: "resolved_user_id",
+            resolved_order_id: "resolved_order_id",
+            allowed_actions: ["accept"],
+            candidate_groups: [
+                { user_id: "user_id", candidates: [{ candidate_type: "provenance_order", confidence_level: "high" }] },
+            ],
+            created_at: "2024-01-15T09:30:00Z",
+            updated_at: "2024-01-15T09:30:00Z",
+            reviewed_at: "2024-01-15T09:30:00Z",
+        };
+
+        server
+            .mockEndpoint()
+            .get("/v3/unmatched_result/raw_result_id")
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.labTests.getUnmatchedResult({
+            rawResultId: "raw_result_id",
+        });
+        expect(response).toEqual({
+            id: "id",
+            status: "matched",
+            decisionCode: "match_sample_id",
+            subReasonCodes: ["lab_account_mismatch"],
+            reason: "reason",
+            patient: {
+                firstName: "first_name",
+                lastName: "last_name",
+                dob: new Date("2024-01-15T09:30:00.000Z"),
+                gender: "gender",
+            },
+            lab: {
+                id: 1,
+                name: "name",
+                slug: "slug",
+            },
+            markers: [
+                {
+                    providerId: "provider_id",
+                    name: "name",
+                },
+            ],
+            interpretation: "normal",
+            resultStatus: "final",
+            note: "note",
+            resolutionAction: "accept",
+            resolvedUserId: "resolved_user_id",
+            resolvedOrderId: "resolved_order_id",
+            allowedActions: ["accept"],
+            candidateGroups: [
+                {
+                    userId: "user_id",
+                    candidates: [
+                        {
+                            candidateType: "provenance_order",
+                            confidenceLevel: "high",
+                        },
+                    ],
+                },
+            ],
+            createdAt: new Date("2024-01-15T09:30:00.000Z"),
+            updatedAt: new Date("2024-01-15T09:30:00.000Z"),
+            reviewedAt: new Date("2024-01-15T09:30:00.000Z"),
+        });
+    });
+
+    test("get_unmatched_result (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+
+        const rawResponseBody = {};
+
+        server
+            .mockEndpoint()
+            .get("/v3/unmatched_result/raw_result_id")
+            .respondWith()
+            .statusCode(422)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.labTests.getUnmatchedResult({
+                rawResultId: "raw_result_id",
+            });
+        }).rejects.toThrow(Junction.UnprocessableEntityError);
+    });
+
+    test("accept_unmatched_result (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = {};
+        const rawResponseBody = {
+            user_id: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+            id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+            team_id: "73ed7487-cebd-4182-a98e-086db825c522",
+            patient_details: {
+                first_name: "first_name",
+                last_name: "last_name",
+                dob: "2020-01-01T00:00:00Z",
+                gender: "male",
+                phone_number: "phone_number",
+                email: "email",
+                medical_proxy: {
+                    first_name: "first_name",
+                    last_name: "last_name",
+                    address: { first_line: "first_line", country: "country", zip: "zip", city: "city", state: "state" },
+                    phone_number: "phone_number",
+                    household_income: 1,
+                    household_size: 1,
+                    email: "email",
+                },
+                race: "african_american_or_black",
+                ethnicity: "hispanic",
+                sexual_orientation: "lesbian_gay_or_homosexual",
+                gender_identity: "male",
+            },
+            patient_address: {
+                receiver_name: "John Doe",
+                first_line: "123 Main St.",
+                second_line: "Apt. 208",
+                city: "San Francisco",
+                state: "CA",
+                zip: "91189",
+                country: "United States",
+                access_notes: "access_notes",
+                phone_number: "+11234567890",
+            },
+            lab_test: {
+                id: "id",
+                slug: "slug",
+                name: "Lipids Panel",
+                sample_type: "dried_blood_spot",
+                method: "testkit",
+                price: 1.1,
+                is_active: true,
+                status: "active",
+                fasting: true,
+                lab: {
+                    id: 1,
+                    slug: "labcorp",
+                    name: "LabCorp",
+                    first_line_address: "123 Main St",
+                    city: "San Francisco",
+                    zipcode: "91789",
+                    collection_methods: ["testkit"],
+                    sample_types: ["saliva"],
+                    logo_url: "https://assets.tryvital.io/labs/labcorp.png",
+                },
+                markers: [
+                    {
+                        id: 1,
+                        name: "Hemoglobin A1c",
+                        slug: "hemoglobin-a1c",
+                        description:
+                            "Hemoglobin A1c is a form of hemoglobin that is measured identify your average blood sugar levels over the past 3 months.",
+                        lab_id: 1,
+                        provider_id: "1234",
+                        type: "biomarker",
+                        unit: "%",
+                        price: "10.00",
+                        aoe: {
+                            questions: [
+                                {
+                                    id: 1,
+                                    required: true,
+                                    code: "question_code",
+                                    value: "question_value",
+                                    type: "choice",
+                                    sequence: 1,
+                                    answers: [{ id: 1, code: "answer_code", value: "answer_value" }],
+                                },
+                            ],
+                        },
+                        common_tat_days: 3,
+                        worst_case_tat_days: 5,
+                        is_orderable: true,
+                    },
+                ],
+                auto_generated: true,
+                has_collection_instructions: true,
+                common_tat_days: 1,
+                worst_case_tat_days: 1,
+            },
+            details: {
+                type: "testkit",
+                data: {
+                    id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
+                    shipment: {
+                        id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
+                        outbound_tracking_number: "<outbound_tracking_number>",
+                        outbound_tracking_url: "<outbound_tracking_url>",
+                        inbound_tracking_number: "<inbound_tracking_number>",
+                        inbound_tracking_url: "<inbound_tracking_url>",
+                        outbound_courier: "usps",
+                        inbound_courier: "usps",
+                        notes: "<notes>",
+                    },
+                    created_at: "2020-01-01T00:00:00Z",
+                    updated_at: "2020-01-01T00:00:00Z",
+                },
+            },
+            sample_id: "123456789",
+            notes: "This is a note",
+            clinical_notes: "clinical_notes",
+            created_at: "2020-01-01T00:00:00Z",
+            updated_at: "2020-01-01T00:00:00Z",
+            events: [
+                {
+                    id: 1,
+                    created_at: "2022-01-01T00:00:00Z",
+                    status: "received.testkit.ordered",
+                    status_detail: "fulfillment_error",
+                },
+                {
+                    id: 2,
+                    created_at: "2022-01-02T00:00:00Z",
+                    status: "received.testkit.requisition_created",
+                    status_detail: "fulfillment_error",
+                },
+                {
+                    id: 3,
+                    created_at: "2022-01-03T00:00:00Z",
+                    status: "collecting_sample.testkit.transit_customer",
+                    status_detail: "fulfillment_error",
+                },
+            ],
+            status: "collecting_sample",
+            last_event: {
+                id: 3,
+                created_at: "2022-01-03T00:00:00Z",
+                status: "collecting_sample.testkit.transit_customer",
+                status_detail: "fulfillment_error",
+            },
+            physician: { first_name: "first_name", last_name: "last_name", npi: "npi" },
+            health_insurance_id: "health_insurance_id",
+            requisition_form_url: "https://www.example.com",
+            priority: true,
+            shipping_details: {
+                receiver_name: "receiver_name",
+                first_line: "first_line",
+                second_line: "second_line",
+                city: "city",
+                state: "state",
+                zip: "zip",
+                country: "country",
+                phone_number: "phone_number",
+            },
+            activate_by: "2020-01-01",
+            passthrough: "passthrough",
+            billing_type: "client_bill",
+            icd_codes: ["icd_codes"],
+            has_abn: false,
+            interpretation: "normal",
+            has_missing_results: true,
+            expected_result_by_date: "expected_result_by_date",
+            worst_case_result_by_date: "worst_case_result_by_date",
+            origin: "initial",
+            order_transaction: {
+                id: "a655f0e4-6405-4a1d-80b7-66f06c2108a7",
+                status: "active",
+                orders: [
+                    {
+                        id: "d55210cc-3d9f-4115-8262-5013f700c7be",
+                        low_level_status: "transit_customer",
+                        low_level_status_created_at: "2020-01-05T00:00:00Z",
+                        origin: "initial",
+                        created_at: "2020-01-01T00:00:00Z",
+                        updated_at: "2020-01-05T00:00:00Z",
+                    },
+                    {
+                        id: "e66321dd-4e0g-5226-9373-6124g811d8cf",
+                        low_level_status: "requisition_created",
+                        low_level_status_created_at: "2020-01-05T01:00:00Z",
+                        origin: "redraw",
+                        created_at: "2020-01-05T01:00:00Z",
+                        updated_at: "2020-01-05T01:00:00Z",
+                    },
+                ],
+            },
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v3/unmatched_result/raw_result_id/accept")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.labTests.acceptUnmatchedResult({
+            rawResultId: "raw_result_id",
+        });
+        expect(response).toEqual({
+            userId: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+            id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+            teamId: "73ed7487-cebd-4182-a98e-086db825c522",
+            patientDetails: {
+                firstName: "first_name",
+                lastName: "last_name",
+                dob: new Date("2020-01-01T00:00:00.000Z"),
+                gender: "male",
+                phoneNumber: "phone_number",
+                email: "email",
+                medicalProxy: {
+                    firstName: "first_name",
+                    lastName: "last_name",
+                    address: {
+                        firstLine: "first_line",
+                        country: "country",
+                        zip: "zip",
+                        city: "city",
+                        state: "state",
+                    },
+                    phoneNumber: "phone_number",
+                    householdIncome: 1,
+                    householdSize: 1,
+                    email: "email",
+                },
+                race: "african_american_or_black",
+                ethnicity: "hispanic",
+                sexualOrientation: "lesbian_gay_or_homosexual",
+                genderIdentity: "male",
+            },
+            patientAddress: {
+                receiverName: "John Doe",
+                firstLine: "123 Main St.",
+                secondLine: "Apt. 208",
+                city: "San Francisco",
+                state: "CA",
+                zip: "91189",
+                country: "United States",
+                accessNotes: "access_notes",
+                phoneNumber: "+11234567890",
+            },
+            labTest: {
+                id: "id",
+                slug: "slug",
+                name: "Lipids Panel",
+                sampleType: "dried_blood_spot",
+                method: "testkit",
+                price: 1.1,
+                isActive: true,
+                status: "active",
+                fasting: true,
+                lab: {
+                    id: 1,
+                    slug: "labcorp",
+                    name: "LabCorp",
+                    firstLineAddress: "123 Main St",
+                    city: "San Francisco",
+                    zipcode: "91789",
+                    collectionMethods: ["testkit"],
+                    sampleTypes: ["saliva"],
+                    logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
+                },
+                markers: [
+                    {
+                        id: 1,
+                        name: "Hemoglobin A1c",
+                        slug: "hemoglobin-a1c",
+                        description:
+                            "Hemoglobin A1c is a form of hemoglobin that is measured identify your average blood sugar levels over the past 3 months.",
+                        labId: 1,
+                        providerId: "1234",
+                        type: "biomarker",
+                        unit: "%",
+                        price: "10.00",
+                        aoe: {
+                            questions: [
+                                {
+                                    id: 1,
+                                    required: true,
+                                    code: "question_code",
+                                    value: "question_value",
+                                    type: "choice",
+                                    sequence: 1,
+                                    answers: [
+                                        {
+                                            id: 1,
+                                            code: "answer_code",
+                                            value: "answer_value",
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                        commonTatDays: 3,
+                        worstCaseTatDays: 5,
+                        isOrderable: true,
+                    },
+                ],
+                autoGenerated: true,
+                hasCollectionInstructions: true,
+                commonTatDays: 1,
+                worstCaseTatDays: 1,
+            },
+            details: {
+                type: "testkit",
+                data: {
+                    id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
+                    shipment: {
+                        id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
+                        outboundTrackingNumber: "<outbound_tracking_number>",
+                        outboundTrackingUrl: "<outbound_tracking_url>",
+                        inboundTrackingNumber: "<inbound_tracking_number>",
+                        inboundTrackingUrl: "<inbound_tracking_url>",
+                        outboundCourier: "usps",
+                        inboundCourier: "usps",
+                        notes: "<notes>",
+                    },
+                    createdAt: new Date("2020-01-01T00:00:00.000Z"),
+                    updatedAt: new Date("2020-01-01T00:00:00.000Z"),
+                },
+            },
+            sampleId: "123456789",
+            notes: "This is a note",
+            clinicalNotes: "clinical_notes",
+            createdAt: new Date("2020-01-01T00:00:00.000Z"),
+            updatedAt: new Date("2020-01-01T00:00:00.000Z"),
+            events: [
+                {
+                    id: 1,
+                    createdAt: new Date("2022-01-01T00:00:00.000Z"),
+                    status: "received.testkit.ordered",
+                    statusDetail: "fulfillment_error",
+                },
+                {
+                    id: 2,
+                    createdAt: new Date("2022-01-02T00:00:00.000Z"),
+                    status: "received.testkit.requisition_created",
+                    statusDetail: "fulfillment_error",
+                },
+                {
+                    id: 3,
+                    createdAt: new Date("2022-01-03T00:00:00.000Z"),
+                    status: "collecting_sample.testkit.transit_customer",
+                    statusDetail: "fulfillment_error",
+                },
+            ],
+            status: "collecting_sample",
+            lastEvent: {
+                id: 3,
+                createdAt: new Date("2022-01-03T00:00:00.000Z"),
+                status: "collecting_sample.testkit.transit_customer",
+                statusDetail: "fulfillment_error",
+            },
+            physician: {
+                firstName: "first_name",
+                lastName: "last_name",
+                npi: "npi",
+            },
+            healthInsuranceId: "health_insurance_id",
+            requisitionFormUrl: "https://www.example.com",
+            priority: true,
+            shippingDetails: {
+                receiverName: "receiver_name",
+                firstLine: "first_line",
+                secondLine: "second_line",
+                city: "city",
+                state: "state",
+                zip: "zip",
+                country: "country",
+                phoneNumber: "phone_number",
+            },
+            activateBy: "2020-01-01",
+            passthrough: "passthrough",
+            billingType: "client_bill",
+            icdCodes: ["icd_codes"],
+            hasAbn: false,
+            interpretation: "normal",
+            hasMissingResults: true,
+            expectedResultByDate: "expected_result_by_date",
+            worstCaseResultByDate: "worst_case_result_by_date",
+            origin: "initial",
+            orderTransaction: {
+                id: "a655f0e4-6405-4a1d-80b7-66f06c2108a7",
+                status: "active",
+                orders: [
+                    {
+                        id: "d55210cc-3d9f-4115-8262-5013f700c7be",
+                        lowLevelStatus: "transit_customer",
+                        lowLevelStatusCreatedAt: new Date("2020-01-05T00:00:00.000Z"),
+                        origin: "initial",
+                        createdAt: new Date("2020-01-01T00:00:00.000Z"),
+                        updatedAt: new Date("2020-01-05T00:00:00.000Z"),
+                    },
+                    {
+                        id: "e66321dd-4e0g-5226-9373-6124g811d8cf",
+                        lowLevelStatus: "requisition_created",
+                        lowLevelStatusCreatedAt: new Date("2020-01-05T01:00:00.000Z"),
+                        origin: "redraw",
+                        createdAt: new Date("2020-01-05T01:00:00.000Z"),
+                        updatedAt: new Date("2020-01-05T01:00:00.000Z"),
+                    },
+                ],
+            },
+        });
+    });
+
+    test("accept_unmatched_result (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = {};
+        const rawResponseBody = {};
+
+        server
+            .mockEndpoint()
+            .post("/v3/unmatched_result/raw_result_id/accept")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(422)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.labTests.acceptUnmatchedResult({
+                rawResultId: "raw_result_id",
+            });
+        }).rejects.toThrow(Junction.UnprocessableEntityError);
+    });
+
+    test("resolve_unmatched_result (1)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { action: "reject" };
+        const rawResponseBody = {
+            id: "id",
+            status: "matched",
+            decision_code: "match_sample_id",
+            sub_reason_codes: ["lab_account_mismatch"],
+            reason: "reason",
+            patient: {
+                first_name: "first_name",
+                last_name: "last_name",
+                dob: "2024-01-15T09:30:00Z",
+                gender: "gender",
+            },
+            lab: { id: 1, name: "name", slug: "slug" },
+            markers: [{ provider_id: "provider_id", name: "name" }],
+            interpretation: "normal",
+            result_status: "final",
+            note: "note",
+            resolution_action: "accept",
+            resolved_user_id: "resolved_user_id",
+            resolved_order_id: "resolved_order_id",
+            allowed_actions: ["accept"],
+            candidate_groups: [
+                { user_id: "user_id", candidates: [{ candidate_type: "provenance_order", confidence_level: "high" }] },
+            ],
+            created_at: "2024-01-15T09:30:00Z",
+            updated_at: "2024-01-15T09:30:00Z",
+            reviewed_at: "2024-01-15T09:30:00Z",
+        };
+
+        server
+            .mockEndpoint()
+            .post("/v3/unmatched_result/raw_result_id/resolve")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(200)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        const response = await client.labTests.resolveUnmatchedResult({
+            rawResultId: "raw_result_id",
+            action: "reject",
+        });
+        expect(response).toEqual({
+            id: "id",
+            status: "matched",
+            decisionCode: "match_sample_id",
+            subReasonCodes: ["lab_account_mismatch"],
+            reason: "reason",
+            patient: {
+                firstName: "first_name",
+                lastName: "last_name",
+                dob: new Date("2024-01-15T09:30:00.000Z"),
+                gender: "gender",
+            },
+            lab: {
+                id: 1,
+                name: "name",
+                slug: "slug",
+            },
+            markers: [
+                {
+                    providerId: "provider_id",
+                    name: "name",
+                },
+            ],
+            interpretation: "normal",
+            resultStatus: "final",
+            note: "note",
+            resolutionAction: "accept",
+            resolvedUserId: "resolved_user_id",
+            resolvedOrderId: "resolved_order_id",
+            allowedActions: ["accept"],
+            candidateGroups: [
+                {
+                    userId: "user_id",
+                    candidates: [
+                        {
+                            candidateType: "provenance_order",
+                            confidenceLevel: "high",
+                        },
+                    ],
+                },
+            ],
+            createdAt: new Date("2024-01-15T09:30:00.000Z"),
+            updatedAt: new Date("2024-01-15T09:30:00.000Z"),
+            reviewedAt: new Date("2024-01-15T09:30:00.000Z"),
+        });
+    });
+
+    test("resolve_unmatched_result (2)", async () => {
+        const server = mockServerPool.createServer();
+        const client = new JunctionClient({ maxRetries: 0, apiKey: "test", environment: server.baseUrl });
+        const rawRequestBody = { action: "reject" };
+        const rawResponseBody = {};
+
+        server
+            .mockEndpoint()
+            .post("/v3/unmatched_result/raw_result_id/resolve")
+            .jsonBody(rawRequestBody)
+            .respondWith()
+            .statusCode(422)
+            .jsonBody(rawResponseBody)
+            .build();
+
+        await expect(async () => {
+            return await client.labTests.resolveUnmatchedResult({
+                rawResultId: "raw_result_id",
+                action: "reject",
             });
         }).rejects.toThrow(Junction.UnprocessableEntityError);
     });

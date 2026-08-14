@@ -22,9 +22,9 @@ describe("TestkitClient", () => {
         };
         const rawResponseBody = {
             order: {
-                user_id: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                team_id: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                user_id: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                team_id: "73ed7487-cebd-4182-a98e-086db825c522",
                 patient_details: {
                     first_name: "first_name",
                     last_name: "last_name",
@@ -79,6 +79,7 @@ describe("TestkitClient", () => {
                         zipcode: "91789",
                         collection_methods: ["testkit"],
                         sample_types: ["saliva"],
+                        logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -118,9 +119,9 @@ describe("TestkitClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outbound_tracking_number: "<outbound_tracking_number>",
                             outbound_tracking_url: "<outbound_tracking_url>",
                             inbound_tracking_number: "<inbound_tracking_number>",
@@ -230,9 +231,9 @@ describe("TestkitClient", () => {
         });
         expect(response).toEqual({
             order: {
-                userId: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                teamId: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                userId: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                teamId: "73ed7487-cebd-4182-a98e-086db825c522",
                 patientDetails: {
                     firstName: "first_name",
                     lastName: "last_name",
@@ -287,6 +288,7 @@ describe("TestkitClient", () => {
                         zipcode: "91789",
                         collectionMethods: ["testkit"],
                         sampleTypes: ["saliva"],
+                        logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -332,9 +334,9 @@ describe("TestkitClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outboundTrackingNumber: "<outbound_tracking_number>",
                             outboundTrackingUrl: "<outbound_tracking_url>",
                             inboundTrackingNumber: "<inbound_tracking_number>",
@@ -498,9 +500,9 @@ describe("TestkitClient", () => {
         };
         const rawResponseBody = {
             order: {
-                user_id: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                team_id: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                user_id: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                team_id: "73ed7487-cebd-4182-a98e-086db825c522",
                 patient_details: {
                     first_name: "first_name",
                     last_name: "last_name",
@@ -555,6 +557,7 @@ describe("TestkitClient", () => {
                         zipcode: "91789",
                         collection_methods: ["testkit"],
                         sample_types: ["saliva"],
+                        logo_url: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -594,9 +597,9 @@ describe("TestkitClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outbound_tracking_number: "<outbound_tracking_number>",
                             outbound_tracking_url: "<outbound_tracking_url>",
                             inbound_tracking_number: "<inbound_tracking_number>",
@@ -701,9 +704,9 @@ describe("TestkitClient", () => {
         });
         expect(response).toEqual({
             order: {
-                userId: "43619d07-3787-4a10-bb3a-13d7afc82a4e",
-                id: "8fb3bfd8-8500-4825-bf1a-8e3372fa239f",
-                teamId: "5b859ffc-9515-48b4-9897-a43b4a45b1ff",
+                userId: "b96db30b-adc5-42d5-b9d1-e4cf4dad7d92",
+                id: "5682eacc-c0d7-4e02-a6f1-ffc0687fda73",
+                teamId: "73ed7487-cebd-4182-a98e-086db825c522",
                 patientDetails: {
                     firstName: "first_name",
                     lastName: "last_name",
@@ -758,6 +761,7 @@ describe("TestkitClient", () => {
                         zipcode: "91789",
                         collectionMethods: ["testkit"],
                         sampleTypes: ["saliva"],
+                        logoUrl: "https://assets.tryvital.io/labs/labcorp.png",
                     },
                     markers: [
                         {
@@ -803,9 +807,9 @@ describe("TestkitClient", () => {
                 details: {
                     type: "testkit",
                     data: {
-                        id: "8476368f-41b8-46e5-8ffb-568989bc534f",
+                        id: "15626f3c-ed5c-4704-a330-b2a7254d1a0c",
                         shipment: {
-                            id: "46295cef-6bdd-47a8-9ae1-99825f376f75",
+                            id: "df562e45-61a2-4dbb-beb2-c4d80164d404",
                             outboundTrackingNumber: "<outbound_tracking_number>",
                             outboundTrackingUrl: "<outbound_tracking_url>",
                             inboundTrackingNumber: "<inbound_tracking_number>",
