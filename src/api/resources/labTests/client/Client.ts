@@ -895,6 +895,99 @@ export class LabTestsClient {
     }
 
     /**
+     * @param {Junction.EstimateOrderSetPricingBody} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.estimateOrderSetPricing({
+     *         orderSets: [{}],
+     *         modality: "testkit",
+     *         usState: "us_state"
+     *     })
+     */
+    public estimateOrderSetPricing(
+        request: Junction.EstimateOrderSetPricingBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.EstimateOrderSetPricingResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__estimateOrderSetPricing(request, requestOptions));
+    }
+
+    private async __estimateOrderSetPricing(
+        request: Junction.EstimateOrderSetPricingBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.EstimateOrderSetPricingResponse>> {
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                "v3/lab_test/estimate_order_set_pricing",
+            ),
+            method: "POST",
+            headers: _headers,
+            contentType: "application/json",
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            requestType: "json",
+            body: mergeAdditionalBodyParameters(
+                serializers.EstimateOrderSetPricingBody.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.EstimateOrderSetPricingResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v3/lab_test/estimate_order_set_pricing",
+        );
+    }
+
+    /**
      * GET lab tests the team has access to as a paginated list.
      *
      * @param {Junction.GetPaginatedLabTestsRequest} request

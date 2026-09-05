@@ -1,6 +1,6 @@
 {
     "name": "@junction-api/sdk",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "private": false,
     "repository": {
         "type": "git",
@@ -307,6 +307,17 @@
                 "default": "./dist/cjs/api/resources/labReport/exports.js"
             },
             "default": "./dist/cjs/api/resources/labReport/exports.js"
+        },
+        "./checkout": {
+            "import": {
+                "types": "./dist/esm/api/resources/checkout/exports.d.mts",
+                "default": "./dist/esm/api/resources/checkout/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/checkout/exports.d.ts",
+                "default": "./dist/cjs/api/resources/checkout/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/checkout/exports.js"
         },
         "./aggregate": {
             "import": {

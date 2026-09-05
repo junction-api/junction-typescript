@@ -1,6 +1,8 @@
 export * from "./aggregate/client/requests/index.js";
 export * as aggregate from "./aggregate/index.js";
 export * from "./aggregate/types/index.js";
+export * from "./checkout/client/requests/index.js";
+export * as checkout from "./checkout/index.js";
 export * from "./compendium/client/requests/index.js";
 export * as compendium from "./compendium/index.js";
 export * from "./insurance/client/requests/index.js";

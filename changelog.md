@@ -1,3 +1,14 @@
+## [1.4.0] - 2026-09-05
+### Added
+- **`CheckoutClient`** — new client accessible via `client.checkout` supporting quote management (`createQuote()`, `refineQuote()`, `getQuote()`) and session management (`getCheckoutSession()`, `confirmCheckoutSession()`).
+- **`LabTestsClient.estimateOrderSetPricing()`** — new method to estimate pricing for one or more order sets given a modality, US state, and optional billing type.
+- **Checkout types** — added `CheckoutQuote`, `CheckoutQuoteLineItem`, `CheckoutQuoteLineItemCode`, `CheckoutSession`, `CheckoutSessionStatus`, `CreateCheckoutQuoteBody`, `RefineCheckoutQuoteBody`, and `ClientFacingCheckoutQuoteCreated` webhook event to support the full checkout flow.
+- **Order-set and component pricing types** — added `OrderSetPricing`, `OrderSetPricingAggregatePricing`, `OrderSetPricingComponentsItem`, `EstimateOrderSetPricingBody`, `EstimateOrderSetPricingResponse`, and a suite of component-level pricing types (`LabChargePricingComponent`, `GenericPricingComponent`, `PricingComponentId`, and related conditions types).
+- **New enum values** — added `Billing.UpfrontPayment` (`"upfront_payment"`), `MatchReviewStatus.PendingCustomerReviewInProgress` (`"pending_customer_review:in_progress"`), and the new `WalkInCollectionNetworkSlug` enum identifying walk-in collection networks (Quest, Sonora Quest, Labcorp, Bioreference).
+
+### Changed
+- **`PricingModifierMarkerPricingConditions`** — added a new required `keys` field (`string[]`) exposing condition property names including those unknown to the deserializer.
+
 ## 1.3.0 - 2026-08-14
 
 ### Added
