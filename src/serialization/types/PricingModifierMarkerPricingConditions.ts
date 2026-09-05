@@ -15,11 +15,13 @@ export const PricingModifierMarkerPricingConditions: core.serialization.ObjectSc
         PricingModifierMarkerPricingConditionsDeltaAmountMinor,
     ),
     conditions: MarkerPricingConditions,
+    keys: core.serialization.list(core.serialization.string()),
 });
 
 export declare namespace PricingModifierMarkerPricingConditions {
     export interface Raw {
         delta_amount_minor: PricingModifierMarkerPricingConditionsDeltaAmountMinor.Raw;
         conditions: MarkerPricingConditions.Raw;
+        keys: string[];
     }
 }
