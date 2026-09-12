@@ -4,6 +4,7 @@
 export const IndexColumnExprIndex = {
     Sleep: "sleep",
     DerivedReadiness: "derived_readiness",
+    Reliability: "reliability",
     Activity: "activity",
     Workout: "workout",
     Body: "body",

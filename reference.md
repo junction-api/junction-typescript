@@ -8396,6 +8396,59 @@ await client.labTests.getLabs();
 </dl>
 </details>
 
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">estimateOrderSetPricing</a>({ ...params }) -> Junction.EstimateOrderSetPricingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.estimateOrderSetPricing({
+    orderSets: [{}],
+    modality: "testkit",
+    usState: "us_state"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.EstimateOrderSetPricingBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getPaginated</a>({ ...params }) -> Junction.LabTestResourcesResponse</code></summary>
 <dl>
 <dd>
@@ -11822,6 +11875,390 @@ await client.labReport.parserGetJob({
 <dd>
 
 **requestOptions:** `LabReportClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Checkout
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">createCheckoutSession</a>({ ...params }) -> Junction.CheckoutSession</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a checkout session for a quote.
+
+Retries carrying the same X-Idempotency-Key attach to the existing session
+and return its identifiers; omitting the key deliberately creates a fresh
+attempt. The session expires at the quote's expiry or 24 hours after
+creation, whichever comes first.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.createCheckoutSession({
+    quoteId: "quote_id",
+    userId: "user_id",
+    payment: {
+        channel: "stripe",
+        method: "checkout_session"
+    },
+    patientDetails: {
+        firstName: "first_name",
+        lastName: "last_name",
+        dob: "dob",
+        gender: "female",
+        phoneNumber: "phone_number",
+        email: "email"
+    },
+    patientAddress: {
+        firstLine: "first_line",
+        city: "city",
+        state: "state",
+        zip: "zip",
+        country: "country"
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.CreateCheckoutSessionBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">getCheckoutSession</a>({ ...params }) -> Junction.CheckoutSession</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get the checkout session snapshot.
+
+In-flight sessions reflect live workflow state; terminal sessions are
+served from the persisted snapshot. A read arriving moments after session
+creation can 404 until the workflow's first persistence write commits.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.getCheckoutSession({
+    checkoutSessionId: "checkout_session_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.GetCheckoutSessionCheckoutRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">confirmCheckoutSession</a>({ ...params }) -> Junction.CheckoutSession</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Confirm the checkout session after completing payment.
+
+In-flight sessions verify payment against the channel (Stripe) and report
+order progress; terminal sessions return the persisted snapshot untouched.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.confirmCheckoutSession({
+    checkoutSessionId: "checkout_session_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.ConfirmCheckoutSessionCheckoutRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">createQuote</a>({ ...params }) -> Junction.CheckoutQuote</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.createQuote({
+    orderSet: {},
+    modality: "testkit",
+    priority: true,
+    usState: "us_state"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.CreateCheckoutQuoteBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">refineQuote</a>({ ...params }) -> Junction.CheckoutQuote</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.refineQuote({
+    quoteId: "quote_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.RefineCheckoutQuoteBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">getQuote</a>({ ...params }) -> Junction.CheckoutQuote</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.getQuote({
+    quoteId: "quote_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.GetQuoteCheckoutRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
     
 </dd>
 </dl>

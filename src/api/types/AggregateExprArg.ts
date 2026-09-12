@@ -5,6 +5,7 @@ import type * as Junction from "../index.js";
 export type AggregateExprArg =
     | Junction.SleepColumnExpr
     | Junction.DerivedReadinessColumnExpr
+    | Junction.ReliabilityColumnExpr
     | Junction.ActivityColumnExpr
     | Junction.WorkoutColumnExpr
     | Junction.BodyColumnExpr

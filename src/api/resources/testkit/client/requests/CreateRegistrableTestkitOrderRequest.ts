@@ -19,6 +19,8 @@ import type * as Junction from "../../../../index.js";
  *     }
  */
 export interface CreateRegistrableTestkitOrderRequest {
+    idempotencyKey?: string | null;
+    idempotencyError?: "no-cache" | null;
     userId: string;
     labTestId: string;
     shippingDetails: Junction.ShippingAddressWithValidation;

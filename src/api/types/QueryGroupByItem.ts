@@ -7,6 +7,7 @@ export type QueryGroupByItem =
     | Junction.DatePartExpr
     | Junction.SleepColumnExpr
     | Junction.DerivedReadinessColumnExpr
+    | Junction.ReliabilityColumnExpr
     | Junction.ActivityColumnExpr
     | Junction.WorkoutColumnExpr
     | Junction.BodyColumnExpr

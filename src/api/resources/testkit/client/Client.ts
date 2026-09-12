@@ -2,7 +2,7 @@
 
 import type { BaseClientOptions, BaseRequestOptions } from "../../../../BaseClient.js";
 import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } from "../../../../BaseClient.js";
-import { mergeHeaders } from "../../../../core/headers.js";
+import { mergeHeaders, mergeOnlyDefinedHeaders } from "../../../../core/headers.js";
 import * as core from "../../../../core/index.js";
 import { mergeAdditionalBodyParameters } from "../../../../core/requestBody.js";
 import * as environments from "../../../../environments.js";
@@ -159,10 +159,15 @@ export class TestkitClient {
         request: Junction.CreateRegistrableTestkitOrderRequest,
         requestOptions?: TestkitClient.RequestOptions,
     ): Promise<core.WithRawResponse<Junction.PostOrderResponse>> {
+        const { idempotencyKey, idempotencyError, ..._body } = request;
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
             _authRequest.headers,
             this._options?.headers,
+            mergeOnlyDefinedHeaders({
+                "X-Idempotency-Key": idempotencyKey ?? undefined,
+                "X-Idempotency-Error": idempotencyError ?? undefined,
+            }),
             requestOptions?.headers,
         );
         const _response = await core.fetcher({
@@ -178,7 +183,7 @@ export class TestkitClient {
             queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
             requestType: "json",
             body: mergeAdditionalBodyParameters(
-                serializers.CreateRegistrableTestkitOrderRequest.jsonOrThrow(request, {
+                serializers.CreateRegistrableTestkitOrderRequest.jsonOrThrow(_body, {
                     unrecognizedObjectKeys: "strip",
                 }),
                 requestOptions?.additionalBodyParameters,

@@ -10,6 +10,7 @@ export const IndexColumnExprIndex: core.serialization.Schema<
 > = core.serialization.enum_([
     "sleep",
     "derived_readiness",
+    "reliability",
     "activity",
     "workout",
     "body",
@@ -23,6 +24,7 @@ export declare namespace IndexColumnExprIndex {
     export type Raw =
         | "sleep"
         | "derived_readiness"
+        | "reliability"
         | "activity"
         | "workout"
         | "body"
