@@ -6,6 +6,7 @@ export type { CancelOrderLabTestsRequest } from "./CancelOrderLabTestsRequest.js
 export type { CreateLabTestRequest } from "./CreateLabTestRequest.js";
 export type { CreateOrderRequestCompatible } from "./CreateOrderRequestCompatible.js";
 export type { CreateUnmatchedResultTestBody } from "./CreateUnmatchedResultTestBody.js";
+export type { EstimateOrderSetPricingBody } from "./EstimateOrderSetPricingBody.js";
 export type { GetAreaInfoLabTestsRequest } from "./GetAreaInfoLabTestsRequest.js";
 export type { GetByIdLabTestsRequest } from "./GetByIdLabTestsRequest.js";
 export type { GetLabelsPdfLabTestsRequest } from "./GetLabelsPdfLabTestsRequest.js";

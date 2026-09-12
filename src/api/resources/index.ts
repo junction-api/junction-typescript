@@ -6,6 +6,8 @@ export * from "./aggregate/types/index.js";
 export * as aggregation from "./aggregation/index.js";
 export * from "./body/client/requests/index.js";
 export * as body from "./body/index.js";
+export * from "./checkout/client/requests/index.js";
+export * as checkout from "./checkout/index.js";
 export * from "./compendium/client/requests/index.js";
 export * as compendium from "./compendium/index.js";
 export * from "./devices/client/requests/index.js";

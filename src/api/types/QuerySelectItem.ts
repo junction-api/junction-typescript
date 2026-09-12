@@ -7,6 +7,7 @@ export type QuerySelectItem =
     | Junction.GroupKeyColumnExpr
     | Junction.SleepColumnExpr
     | Junction.DerivedReadinessColumnExpr
+    | Junction.ReliabilityColumnExpr
     | Junction.ActivityColumnExpr
     | Junction.WorkoutColumnExpr
     | Junction.BodyColumnExpr

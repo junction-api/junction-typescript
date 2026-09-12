@@ -3,6 +3,7 @@
 import { ActivityClient } from "./api/resources/activity/client/Client.js";
 import { AggregateClient } from "./api/resources/aggregate/client/Client.js";
 import { BodyClient } from "./api/resources/body/client/Client.js";
+import { CheckoutClient } from "./api/resources/checkout/client/Client.js";
 import { CompendiumClient } from "./api/resources/compendium/client/Client.js";
 import { DevicesClient } from "./api/resources/devices/client/Client.js";
 import { ElectrocardiogramClient } from "./api/resources/electrocardiogram/client/Client.js";
@@ -63,6 +64,7 @@ export class JunctionClient {
     protected _insurance: InsuranceClient | undefined;
     protected _payor: PayorClient | undefined;
     protected _labReport: LabReportClient | undefined;
+    protected _checkout: CheckoutClient | undefined;
     protected _aggregate: AggregateClient | undefined;
 
     constructor(options: JunctionClient.Options = {}) {
@@ -167,6 +169,10 @@ export class JunctionClient {
 
     public get labReport(): LabReportClient {
         return (this._labReport ??= new LabReportClient(this._options));
+    }
+
+    public get checkout(): CheckoutClient {
+        return (this._checkout ??= new CheckoutClient(this._options));
     }
 
     public get aggregate(): AggregateClient {
