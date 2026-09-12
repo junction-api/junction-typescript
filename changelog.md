@@ -1,3 +1,11 @@
+## [1.4.0] - 2026-09-12
+### Added
+- **`CheckoutClient`** — new `client.checkout` namespace exposing the full checkout lifecycle via `createQuote()`, `refineQuote()`, `getQuote()`, `createCheckoutSession()`, `getCheckoutSession()`, and `confirmCheckoutSession()`.
+- **Checkout types** — `CheckoutSession`, `CheckoutQuote`, `CheckoutQuoteLineItem`, `CheckoutSessionStatus`, `CheckoutSessionPayment`, `CheckoutSessionPaymentMethod`, and `ClientFacingCheckoutQuoteCreated` added to support payment sessions and quotes, along with corresponding request body types.
+- **Order-set pricing estimation** — `EstimateOrderSetPricingBody`, `EstimateOrderSetPricingResponse`, and a full pricing component hierarchy (`OrderSetPricing`, `LabChargePricingComponent`, `GenericPricingComponent`, `PricingComponentId`, and related condition types) added for order-set price estimation.
+- **`ReliabilityColumnExpr`** — new timeseries column expression for querying data-source reliability metrics; available as a variant of `UnnestExprUnnest`, `AggregateExprArg`, `QueryGroupByItem`, `QuerySelectItem`, and `IndexColumnExprIndex`.
+- **New enum values and fields** — `Billing.upfront_payment`, `MatchReviewStatus.pending_customer_review:in_progress`, `WalkInCollectionNetworkSlug` (walk-in network identifiers), `GetUnmatchedResultResponse.isStale`, and optional `idempotencyKey`/`idempotencyError` fields on `CreateRegistrableTestkitOrderRequest` added.
+
 ## 1.3.0 - 2026-08-14
 
 ### Added
