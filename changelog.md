@@ -1,3 +1,16 @@
+## [1.4.0] - 2026-09-18
+### Added
+- **`CheckoutClient`** — new client accessible via `client.checkout` supporting the full checkout flow via `createQuote()`, `refineQuote()`, `getQuote()`, `createCheckoutSession()`, `getCheckoutSession()`, and `confirmCheckoutSession()`.
+- **Checkout types** — new `CheckoutQuote`, `CheckoutSession`, `CheckoutSessionStatus`, `CheckoutSessionPayment`, `CheckoutQuoteLineItem`, `CheckoutQuoteLineItemCode`, and `ClientFacingCheckoutQuoteCreated` webhook event type supporting the checkout and payment flow.
+- **Order-set pricing estimation** — new `EstimateOrderSetPricingBody`, `EstimateOrderSetPricingResponse`, `OrderSetPricing`, and a full component pricing hierarchy (`LabChargePricingComponent`, `GenericPricingComponent`, `PricingComponentId`, and related condition types).
+- **`ReliabilityColumnExpr`** and **`ReliabilityColumnExprReliability`** — new timeseries expression types for querying data-source reliability metrics, usable as variants of `AggregateExprArg`, `QueryGroupByItem`, `QuerySelectItem`, and `IndexColumnExprIndex`.
+- **New enum values** — `Billing.upfront_payment`, `MatchReviewStatus.pending_customer_review:in_progress`, and `WalkInCollectionNetworkSlug` (`quest`, `sonora_quest`, `labcorp`, `bioreference`) added across several types.
+
+### Changed
+- **`CreateRegistrableTestkitOrderRequest`** — now accepts optional `idempotencyKey` and `idempotencyError` fields forwarded as `X-Idempotency-Key` and `X-Idempotency-Error` request headers.
+- **`GetUnmatchedResultResponse`** — new optional `isStale` boolean field surfaces staleness status on unmatched lab results.
+- **`PricingModifierMarkerPricingConditions`** — new required `keys` string array field added to pricing modifier conditions.
+
 ## 1.3.0 - 2026-08-14
 
 ### Added
