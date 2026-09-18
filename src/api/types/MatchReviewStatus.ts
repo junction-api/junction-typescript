@@ -5,6 +5,7 @@ export const MatchReviewStatus = {
     Matched: "matched",
     PendingCustomerReview: "pending_customer_review",
     PendingOpsReview: "pending_ops_review",
+    PendingCustomerReviewInProgress: "pending_customer_review:in_progress",
     Resolved: "resolved",
 } as const;
 export type MatchReviewStatus = (typeof MatchReviewStatus)[keyof typeof MatchReviewStatus];
