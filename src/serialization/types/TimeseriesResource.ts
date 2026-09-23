@@ -27,7 +27,6 @@ export const TimeseriesResource: core.serialization.Schema<
     "glucose",
     "heartrate",
     "hrv",
-    "hypnogram",
     "ige",
     "igg",
     "respiratory_rate",
@@ -86,7 +85,6 @@ export declare namespace TimeseriesResource {
         | "glucose"
         | "heartrate"
         | "hrv"
-        | "hypnogram"
         | "ige"
         | "igg"
         | "respiratory_rate"

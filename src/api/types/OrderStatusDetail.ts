@@ -11,5 +11,14 @@ export const OrderStatusDetail = {
     SampleStabilityExceeded: "sample_stability_exceeded",
     SampleHemolyzed: "sample_hemolyzed",
     SampleImproperCollection: "sample_improper_collection",
+    SampleDamagedInTransit: "sample_damaged_in_transit",
+    SampleIntegrityCompromised: "sample_integrity_compromised",
+    SampleNotProvided: "sample_not_provided",
+    ConsentMissing: "consent_missing",
+    LabNotCertifiedForState: "lab_not_certified_for_state",
+    CollectionDeviceExpired: "collection_device_expired",
+    KitNotRegistered: "kit_not_registered",
+    CollectionSiteUnrecognised: "collection_site_unrecognised",
+    RejectedOnRequest: "rejected_on_request",
 } as const;
 export type OrderStatusDetail = (typeof OrderStatusDetail)[keyof typeof OrderStatusDetail];

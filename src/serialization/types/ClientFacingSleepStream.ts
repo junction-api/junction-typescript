@@ -5,7 +5,6 @@ import * as core from "../../core/index.js";
 import type * as serializers from "../index.js";
 import { ClientFacingHeartRateTimeseries } from "./ClientFacingHeartRateTimeseries.js";
 import { ClientFacingHrvTimeseries } from "./ClientFacingHrvTimeseries.js";
-import { ClientFacingHypnogramTimeseries } from "./ClientFacingHypnogramTimeseries.js";
 import { ClientFacingRespiratoryRateTimeseries } from "./ClientFacingRespiratoryRateTimeseries.js";
 
 export const ClientFacingSleepStream: core.serialization.ObjectSchema<
@@ -14,7 +13,6 @@ export const ClientFacingSleepStream: core.serialization.ObjectSchema<
 > = core.serialization.object({
     hrv: core.serialization.list(ClientFacingHrvTimeseries).optionalNullable(),
     heartrate: core.serialization.list(ClientFacingHeartRateTimeseries).optionalNullable(),
-    hypnogram: core.serialization.list(ClientFacingHypnogramTimeseries).optionalNullable(),
     respiratoryRate: core.serialization.property(
         "respiratory_rate",
         core.serialization.list(ClientFacingRespiratoryRateTimeseries).optionalNullable(),
@@ -25,7 +23,6 @@ export declare namespace ClientFacingSleepStream {
     export interface Raw {
         hrv?: (ClientFacingHrvTimeseries.Raw[] | null | undefined) | null;
         heartrate?: (ClientFacingHeartRateTimeseries.Raw[] | null | undefined) | null;
-        hypnogram?: (ClientFacingHypnogramTimeseries.Raw[] | null | undefined) | null;
         respiratory_rate?: (ClientFacingRespiratoryRateTimeseries.Raw[] | null | undefined) | null;
     }
 }

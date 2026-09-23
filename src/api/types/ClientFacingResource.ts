@@ -71,6 +71,5 @@ export const ClientFacingResource = {
     Carbohydrates: "carbohydrates",
     Note: "note",
     SleepStream: "sleep_stream",
-    Hypnogram: "hypnogram",
 } as const;
 export type ClientFacingResource = (typeof ClientFacingResource)[keyof typeof ClientFacingResource];

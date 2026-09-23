@@ -32,6 +32,7 @@ export const UnmatchedResult: core.serialization.ObjectSchema<
     interpretation: Interpretation.optionalNullable(),
     resultStatus: core.serialization.property("result_status", ResultStatus.optionalNullable()),
     note: core.serialization.string().optionalNullable(),
+    isStale: core.serialization.property("is_stale", core.serialization.boolean().optional()),
     resolutionAction: core.serialization.property("resolution_action", MatchReviewResolutionAction.optionalNullable()),
     resolvedUserId: core.serialization.property("resolved_user_id", core.serialization.string().optionalNullable()),
     resolvedOrderId: core.serialization.property("resolved_order_id", core.serialization.string().optionalNullable()),
@@ -61,6 +62,7 @@ export declare namespace UnmatchedResult {
         interpretation?: (Interpretation.Raw | null | undefined) | null;
         result_status?: (ResultStatus.Raw | null | undefined) | null;
         note?: (string | null | undefined) | null;
+        is_stale?: boolean | null;
         resolution_action?: (MatchReviewResolutionAction.Raw | null | undefined) | null;
         resolved_user_id?: (string | null | undefined) | null;
         resolved_order_id?: (string | null | undefined) | null;

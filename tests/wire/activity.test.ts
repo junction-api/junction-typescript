@@ -24,7 +24,7 @@ describe("ActivityClient", () => {
                     low: 6400,
                     medium: 6400,
                     high: 6000,
-                    source: { provider: "provider", device_id: "550e8400-e29b-41d4-a716-446655440000" },
+                    source: { provider: "oura", type: "ring", device_id: "550e8400-e29b-41d4-a716-446655440000" },
                     floors_climbed: 10,
                     time_zone: "Europe/London",
                     timezone_offset: 3600,
@@ -67,7 +67,8 @@ describe("ActivityClient", () => {
                     medium: 6400,
                     high: 6000,
                     source: {
-                        provider: "provider",
+                        provider: "oura",
+                        type: "ring",
                         deviceId: "550e8400-e29b-41d4-a716-446655440000",
                     },
                     floorsClimbed: 10,

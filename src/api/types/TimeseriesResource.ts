@@ -21,7 +21,6 @@ export const TimeseriesResource = {
     Glucose: "glucose",
     Heartrate: "heartrate",
     Hrv: "hrv",
-    Hypnogram: "hypnogram",
     Ige: "ige",
     Igg: "igg",
     RespiratoryRate: "respiratory_rate",

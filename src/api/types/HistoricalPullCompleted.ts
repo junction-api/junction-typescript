@@ -4,6 +4,5 @@ export interface HistoricalPullCompleted {
     userId: string;
     startDate: Date;
     endDate: Date;
-    isFinal: true;
     provider: string;
 }

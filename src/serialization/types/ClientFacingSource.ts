@@ -14,9 +14,6 @@ export const ClientFacingSource: core.serialization.ObjectSchema<
     deviceId: core.serialization.property("device_id", core.serialization.string().optionalNullable()),
     sport: core.serialization.string().optionalNullable(),
     workoutId: core.serialization.property("workout_id", core.serialization.string().optionalNullable()),
-    name: core.serialization.string().optional(),
-    slug: core.serialization.string().optional(),
-    logo: core.serialization.string().optional(),
 });
 
 export declare namespace ClientFacingSource {
@@ -27,8 +24,5 @@ export declare namespace ClientFacingSource {
         device_id?: (string | null | undefined) | null;
         sport?: (string | null | undefined) | null;
         workout_id?: (string | null | undefined) | null;
-        name?: string | null;
-        slug?: string | null;
-        logo?: string | null;
     }
 }

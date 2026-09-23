@@ -18,6 +18,7 @@ export interface GetUnmatchedResultResponse {
     /** ℹ️ This enum is non-exhaustive. */
     resultStatus?: Junction.ResultStatus | null;
     note?: string | null;
+    isStale?: boolean;
     /** ℹ️ This enum is non-exhaustive. */
     resolutionAction?: Junction.MatchReviewResolutionAction | null;
     resolvedUserId?: string | null;

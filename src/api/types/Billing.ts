@@ -6,5 +6,6 @@ export const Billing = {
     CommercialInsurance: "commercial_insurance",
     PatientBillPassthrough: "patient_bill_passthrough",
     PatientBill: "patient_bill",
+    UpfrontPayment: "upfront_payment",
 } as const;
 export type Billing = (typeof Billing)[keyof typeof Billing];

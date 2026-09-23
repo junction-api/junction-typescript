@@ -5,6 +5,5 @@ import type * as Junction from "../index.js";
 export interface ClientFacingSleepStream {
     hrv?: Junction.ClientFacingHrvTimeseries[] | null;
     heartrate?: Junction.ClientFacingHeartRateTimeseries[] | null;
-    hypnogram?: Junction.ClientFacingHypnogramTimeseries[] | null;
     respiratoryRate?: Junction.ClientFacingRespiratoryRateTimeseries[] | null;
 }
