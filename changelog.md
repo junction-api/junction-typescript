@@ -1,4 +1,25 @@
-## [1.3.1] - 2026-09-23
+## 2.0.0 - 2026-09-24
+
+### Added
+
+* **Checkout** — added `CheckoutClient` methods for quotes and checkout sessions, with checkout webhook types.
+* **Order pricing and tracking** — added `LabTestsClient.estimateOrderSetPricing()` and `getOrderTracking()`, pricing and tracking types, and an order-tracking webhook type.
+* **Test-kit idempotency** — added optional idempotency controls when creating a test-kit order.
+* **Result and status details** — added stale-result indicators and expanded order-status values.
+
+### Changed
+
+* **Pricing conditions** — `PricingModifierMarkerPricingConditions.keys` is now required; callers constructing this type must supply it.
+
+### Removed
+
+* **Legacy timeseries methods** — removed the non-grouped `vitals` methods (including `steps()` and `heartrate()`) and their request types. Use the corresponding `*Grouped()` methods and handle their paginated grouped responses.
+* **Hypnogram timeseries** — removed `hypnogram()`, `hypnogramGrouped()`, their types, and the sleep-stream hypnogram field. Use sleep-cycle summaries and events.
+* **Deprecated event fields** — removed `ClientFacingSource.name`, `logo`, and `slug`; `ProviderConnectionCreated.source`; and `HistoricalPullCompleted.isFinal`. Use source context, `ProviderConnectionCreated.provider`, and the completed event itself.
+
+### Beta
+
+* **Horizon AI device reliability** — added reliability columns for query selection, grouping, and aggregate expressions.
 
 ## 1.3.0 - 2026-08-14
 
