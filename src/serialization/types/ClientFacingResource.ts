@@ -77,7 +77,6 @@ export const ClientFacingResource: core.serialization.Schema<
     "carbohydrates",
     "note",
     "sleep_stream",
-    "hypnogram",
 ]);
 
 export declare namespace ClientFacingResource {
@@ -150,6 +149,5 @@ export declare namespace ClientFacingResource {
         | "insulin_injection"
         | "carbohydrates"
         | "note"
-        | "sleep_stream"
-        | "hypnogram";
+        | "sleep_stream";
 }

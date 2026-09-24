@@ -6,6 +6,7 @@ export type { CancelOrderLabTestsRequest } from "./CancelOrderLabTestsRequest.js
 export type { CreateLabTestRequest } from "./CreateLabTestRequest.js";
 export type { CreateOrderRequestCompatible } from "./CreateOrderRequestCompatible.js";
 export type { CreateUnmatchedResultTestBody } from "./CreateUnmatchedResultTestBody.js";
+export type { EstimateOrderSetPricingBody } from "./EstimateOrderSetPricingBody.js";
 export type { GetAreaInfoLabTestsRequest } from "./GetAreaInfoLabTestsRequest.js";
 export type { GetByIdLabTestsRequest } from "./GetByIdLabTestsRequest.js";
 export type { GetLabelsPdfLabTestsRequest } from "./GetLabelsPdfLabTestsRequest.js";
@@ -21,6 +22,7 @@ export type { GetOrderLabTestsRequest } from "./GetOrderLabTestsRequest.js";
 export type { GetOrderPscInfoLabTestsRequest } from "./GetOrderPscInfoLabTestsRequest.js";
 export type { GetOrderRequistionPdfLabTestsRequest } from "./GetOrderRequistionPdfLabTestsRequest.js";
 export type { GetOrdersLabTestsRequest } from "./GetOrdersLabTestsRequest.js";
+export type { GetOrderTrackingLabTestsRequest } from "./GetOrderTrackingLabTestsRequest.js";
 export type { GetPaginatedLabTestsRequest } from "./GetPaginatedLabTestsRequest.js";
 export type { GetPhlebotomyAppointmentAvailabilityLabTestsRequest } from "./GetPhlebotomyAppointmentAvailabilityLabTestsRequest.js";
 export type { GetPhlebotomyAppointmentLabTestsRequest } from "./GetPhlebotomyAppointmentLabTestsRequest.js";

@@ -25,7 +25,7 @@ describe("BodyClient", () => {
                     body_mass_index: 22.3,
                     lean_body_mass_kilogram: 40.1,
                     waist_circumference_centimeter: 86.36,
-                    source: { provider: "provider", device_id: "550e8400-e29b-41d4-a716-446655440000" },
+                    source: { provider: "withings", type: "scale", device_id: "550e8400-e29b-41d4-a716-446655440000" },
                     created_at: "2023-02-27T20:31:24Z",
                     updated_at: "2023-02-28T01:22:38Z",
                 },
@@ -63,7 +63,8 @@ describe("BodyClient", () => {
                     leanBodyMassKilogram: 40.1,
                     waistCircumferenceCentimeter: 86.36,
                     source: {
-                        provider: "provider",
+                        provider: "withings",
+                        type: "scale",
                         deviceId: "550e8400-e29b-41d4-a716-446655440000",
                     },
                     createdAt: new Date("2023-02-27T20:31:24.000Z"),

@@ -6,4 +6,6 @@ export interface PricingModifierMarkerPricingConditions {
     /** Amount delta in the smallest denomination of the currency, e.g. cents for USD. */
     deltaAmountMinor: Junction.PricingModifierMarkerPricingConditionsDeltaAmountMinor;
     conditions: Junction.MarkerPricingConditions;
+    /** Property names present in conditions, including names unknown to a deserializer. */
+    keys: string[];
 }

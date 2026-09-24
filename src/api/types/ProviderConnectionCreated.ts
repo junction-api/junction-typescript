@@ -4,8 +4,6 @@ import type * as Junction from "../index.js";
 
 export interface ProviderConnectionCreated {
     userId: string;
-    /** Deprecated. Use `provider` instead. Subject to removal after 1 Jan 2024. */
-    source: Junction.ClientFacingProvider;
     provider: Junction.ClientFacingProvider;
     /**
      * The unique identifier of the associated external data provider user.

@@ -4049,62 +4049,6 @@ await client.vitals.iggGrouped({
 </dl>
 </details>
 
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">hypnogramGrouped</a>({ ...params }) -> Junction.GroupedHypnogramResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.hypnogramGrouped({
-    userId: "user_id",
-    cursor: "cursor",
-    nextCursor: "next_cursor",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.HypnogramGroupedVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 <details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">hrvGrouped</a>({ ...params }) -> Junction.GroupedHrvResponse</code></summary>
 <dl>
 <dd>
@@ -4758,1464 +4702,6 @@ await client.vitals.bloodPressureGrouped({
 <dd>
 
 **request:** `Junction.BloodPressureGroupedVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">vo2Max</a>({ ...params }) -> Junction.ClientFacingVo2MaxTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.vo2Max({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.Vo2MaxVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">stressLevel</a>({ ...params }) -> Junction.ClientFacingStressLevelTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.stressLevel({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.StressLevelVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">mindfulnessMinutes</a>({ ...params }) -> Junction.ClientFacingMindfulnessMinutesTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.mindfulnessMinutes({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.MindfulnessMinutesVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">caffeine</a>({ ...params }) -> Junction.ClientFacingCaffeineTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.caffeine({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.CaffeineVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">water</a>({ ...params }) -> Junction.ClientFacingWaterTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.water({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.WaterVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">steps</a>({ ...params }) -> Junction.ClientFacingStepsTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.steps({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.StepsVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">floorsClimbed</a>({ ...params }) -> Junction.ClientFacingFloorsClimbedTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.floorsClimbed({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.FloorsClimbedVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">distance</a>({ ...params }) -> Junction.ClientFacingDistanceTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.distance({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.DistanceVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">caloriesBasal</a>({ ...params }) -> Junction.ClientFacingCaloriesBasalTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.caloriesBasal({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.CaloriesBasalVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">caloriesActive</a>({ ...params }) -> Junction.ClientFacingCaloriesActiveTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.caloriesActive({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.CaloriesActiveVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">respiratoryRate</a>({ ...params }) -> Junction.ClientFacingRespiratoryRateTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.respiratoryRate({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.RespiratoryRateVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">ige</a>({ ...params }) -> Junction.ClientFacingIgeTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.ige({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.IgeVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">igg</a>({ ...params }) -> Junction.ClientFacingIggTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.igg({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.IggVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">hypnogram</a>({ ...params }) -> Junction.ClientFacingHypnogramTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.hypnogram({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.HypnogramVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">hrv</a>({ ...params }) -> Junction.ClientFacingHrvTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.hrv({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.HrvVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">heartrate</a>({ ...params }) -> Junction.ClientFacingHeartRateTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.heartrate({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.HeartrateVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">glucose</a>({ ...params }) -> Junction.ClientFacingGlucoseTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.glucose({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.GlucoseVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">cholesterolTriglycerides</a>({ ...params }) -> Junction.ClientFacingCholesterolTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.cholesterolTriglycerides({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.CholesterolTriglyceridesVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">cholesterolTotal</a>({ ...params }) -> Junction.ClientFacingCholesterolTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.cholesterolTotal({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.CholesterolTotalVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">cholesterolLdl</a>({ ...params }) -> Junction.ClientFacingCholesterolTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.cholesterolLdl({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.CholesterolLdlVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">cholesterolHdl</a>({ ...params }) -> Junction.ClientFacingCholesterolTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.cholesterolHdl({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.CholesterolHdlVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">cholesterol</a>({ ...params }) -> Junction.ClientFacingCholesterolTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.cholesterol({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.CholesterolVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">bodyWeight</a>({ ...params }) -> Junction.ClientFacingBodyWeightTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.bodyWeight({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.BodyWeightVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">bodyFat</a>({ ...params }) -> Junction.ClientFacingBodyFatTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.bodyFat({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.BodyFatVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">bloodOxygen</a>({ ...params }) -> Junction.ClientFacingBloodOxygenTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.bloodOxygen({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.BloodOxygenVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">electrocardiogramVoltage</a>({ ...params }) -> Junction.ClientFacingElectrocardiogramVoltageTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.electrocardiogramVoltage({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.ElectrocardiogramVoltageVitalsRequest` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `VitalsClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.vitals.<a href="/src/api/resources/vitals/client/Client.ts">bloodPressure</a>({ ...params }) -> Junction.ClientFacingBloodPressureTimeseries[]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.vitals.bloodPressure({
-    userId: "user_id",
-    provider: "provider",
-    startDate: "start_date",
-    endDate: "end_date"
-});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request:** `Junction.BloodPressureVitalsRequest` 
     
 </dd>
 </dl>
@@ -8396,6 +6882,59 @@ await client.labTests.getLabs();
 </dl>
 </details>
 
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">estimateOrderSetPricing</a>({ ...params }) -> Junction.EstimateOrderSetPricingResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.estimateOrderSetPricing({
+    orderSets: [{}],
+    modality: "testkit",
+    usState: "us_state"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.EstimateOrderSetPricingBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getPaginated</a>({ ...params }) -> Junction.LabTestResourcesResponse</code></summary>
 <dl>
 <dd>
@@ -9819,6 +8358,71 @@ await client.labTests.getPscAppointment({
 <dd>
 
 **request:** `Junction.GetPscAppointmentLabTestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getOrderTracking</a>({ ...params }) -> Junction.OrderTracking</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get current estimates and immutable ETA update history for an order.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.getOrderTracking({
+    orderId: "order_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.GetOrderTrackingLabTestsRequest` 
     
 </dd>
 </dl>
@@ -11822,6 +10426,390 @@ await client.labReport.parserGetJob({
 <dd>
 
 **requestOptions:** `LabReportClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Checkout
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">createCheckoutSession</a>({ ...params }) -> Junction.CheckoutSession</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a checkout session for a quote.
+
+Retries carrying the same X-Idempotency-Key attach to the existing session
+and return its identifiers; omitting the key deliberately creates a fresh
+attempt. The session expires at the quote's expiry or 24 hours after
+creation, whichever comes first.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.createCheckoutSession({
+    quoteId: "quote_id",
+    userId: "user_id",
+    payment: {
+        channel: "stripe",
+        method: "checkout_session"
+    },
+    patientDetails: {
+        firstName: "first_name",
+        lastName: "last_name",
+        dob: "dob",
+        gender: "female",
+        phoneNumber: "phone_number",
+        email: "email"
+    },
+    patientAddress: {
+        firstLine: "first_line",
+        city: "city",
+        state: "state",
+        zip: "zip",
+        country: "country"
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.CreateCheckoutSessionBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">getCheckoutSession</a>({ ...params }) -> Junction.CheckoutSession</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get the checkout session snapshot.
+
+In-flight sessions reflect live workflow state; terminal sessions are
+served from the persisted snapshot. A read arriving moments after session
+creation can 404 until the workflow's first persistence write commits.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.getCheckoutSession({
+    checkoutSessionId: "checkout_session_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.GetCheckoutSessionCheckoutRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">confirmCheckoutSession</a>({ ...params }) -> Junction.CheckoutSession</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Confirm the checkout session after completing payment.
+
+In-flight sessions verify payment against the channel (Stripe) and report
+order progress; terminal sessions return the persisted snapshot untouched.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.confirmCheckoutSession({
+    checkoutSessionId: "checkout_session_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.ConfirmCheckoutSessionCheckoutRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">createQuote</a>({ ...params }) -> Junction.CheckoutQuote</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.createQuote({
+    orderSet: {},
+    modality: "testkit",
+    priority: true,
+    usState: "us_state"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.CreateCheckoutQuoteBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">refineQuote</a>({ ...params }) -> Junction.CheckoutQuote</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.refineQuote({
+    quoteId: "quote_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.RefineCheckoutQuoteBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.checkout.<a href="/src/api/resources/checkout/client/Client.ts">getQuote</a>({ ...params }) -> Junction.CheckoutQuote</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.checkout.getQuote({
+    quoteId: "quote_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.GetQuoteCheckoutRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `CheckoutClient.RequestOptions` 
     
 </dd>
 </dl>

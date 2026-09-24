@@ -18,8 +18,8 @@ describe("ProfileClient", () => {
             gender: "female",
             sex: "female",
             source: {
-                provider: "provider",
-                type: "type",
+                provider: "oura",
+                type: "ring",
                 app_id: "app_id",
                 device_id: "device_id",
                 sport: "sport",
@@ -50,8 +50,8 @@ describe("ProfileClient", () => {
             gender: "female",
             sex: "female",
             source: {
-                provider: "provider",
-                type: "type",
+                provider: "oura",
+                type: "ring",
                 appId: "app_id",
                 deviceId: "device_id",
                 sport: "sport",

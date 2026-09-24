@@ -7,7 +7,7 @@ import { ShippingAddressWithValidation } from "../../../../types/ShippingAddress
 
 export const CreateRegistrableTestkitOrderRequest: core.serialization.Schema<
     serializers.CreateRegistrableTestkitOrderRequest.Raw,
-    Junction.CreateRegistrableTestkitOrderRequest
+    Omit<Junction.CreateRegistrableTestkitOrderRequest, "idempotencyKey" | "idempotencyError">
 > = core.serialization.object({
     userId: core.serialization.property("user_id", core.serialization.string()),
     labTestId: core.serialization.property("lab_test_id", core.serialization.string()),

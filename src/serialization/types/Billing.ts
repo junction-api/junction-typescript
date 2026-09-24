@@ -9,8 +9,14 @@ export const Billing: core.serialization.Schema<serializers.Billing.Raw, Junctio
     "commercial_insurance",
     "patient_bill_passthrough",
     "patient_bill",
+    "upfront_payment",
 ]);
 
 export declare namespace Billing {
-    export type Raw = "client_bill" | "commercial_insurance" | "patient_bill_passthrough" | "patient_bill";
+    export type Raw =
+        | "client_bill"
+        | "commercial_insurance"
+        | "patient_bill_passthrough"
+        | "patient_bill"
+        | "upfront_payment";
 }

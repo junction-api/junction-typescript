@@ -27,10 +27,4 @@ export interface ClientFacingSource {
      * For all other types, this is always `null`.
      */
     workoutId?: string | null;
-    /** Deprecated. Subject to removal after 1 Jan 2024. */
-    name?: string;
-    /** Deprecated. Use `provider` instead. Subject to removal after 1 Jan 2024. */
-    slug?: string;
-    /** Deprecated. Subject to removal after 1 Jan 2024. */
-    logo?: string;
 }

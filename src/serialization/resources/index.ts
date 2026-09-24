@@ -1,6 +1,8 @@
 export * from "./aggregate/client/requests/index.js";
 export * as aggregate from "./aggregate/index.js";
 export * from "./aggregate/types/index.js";
+export * from "./checkout/client/requests/index.js";
+export * as checkout from "./checkout/index.js";
 export * from "./compendium/client/requests/index.js";
 export * as compendium from "./compendium/index.js";
 export * from "./insurance/client/requests/index.js";
@@ -21,4 +23,3 @@ export * as testkit from "./testkit/index.js";
 export * from "./user/client/requests/index.js";
 export * as user from "./user/index.js";
 export * from "./user/types/index.js";
-export * as vitals from "./vitals/index.js";

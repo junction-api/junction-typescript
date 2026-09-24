@@ -11,7 +11,6 @@ export const ProviderConnectionCreated: core.serialization.ObjectSchema<
     Junction.ProviderConnectionCreated
 > = core.serialization.object({
     userId: core.serialization.property("user_id", core.serialization.string()),
-    source: ClientFacingProvider,
     provider: ClientFacingProvider,
     externalUserId: core.serialization.property("external_user_id", core.serialization.string().optionalNullable()),
     resourceAvailability: core.serialization.property(
@@ -23,7 +22,6 @@ export const ProviderConnectionCreated: core.serialization.ObjectSchema<
 export declare namespace ProviderConnectionCreated {
     export interface Raw {
         user_id: string;
-        source: ClientFacingProvider.Raw;
         provider: ClientFacingProvider.Raw;
         external_user_id?: (string | null | undefined) | null;
         resource_availability: Record<string, ResourceAvailability.Raw>;

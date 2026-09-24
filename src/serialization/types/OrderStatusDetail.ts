@@ -17,6 +17,15 @@ export const OrderStatusDetail: core.serialization.Schema<
     "sample_stability_exceeded",
     "sample_hemolyzed",
     "sample_improper_collection",
+    "sample_damaged_in_transit",
+    "sample_integrity_compromised",
+    "sample_not_provided",
+    "consent_missing",
+    "lab_not_certified_for_state",
+    "collection_device_expired",
+    "kit_not_registered",
+    "collection_site_unrecognised",
+    "rejected_on_request",
 ]);
 
 export declare namespace OrderStatusDetail {
@@ -29,5 +38,14 @@ export declare namespace OrderStatusDetail {
         | "sample_contaminated"
         | "sample_stability_exceeded"
         | "sample_hemolyzed"
-        | "sample_improper_collection";
+        | "sample_improper_collection"
+        | "sample_damaged_in_transit"
+        | "sample_integrity_compromised"
+        | "sample_not_provided"
+        | "consent_missing"
+        | "lab_not_certified_for_state"
+        | "collection_device_expired"
+        | "kit_not_registered"
+        | "collection_site_unrecognised"
+        | "rejected_on_request";
 }
