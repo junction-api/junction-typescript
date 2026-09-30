@@ -895,6 +895,94 @@ export class LabTestsClient {
     }
 
     /**
+     * @param {Junction.ListPromotionsLabTestsRequest} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.listPromotions({
+     *         sourceSandboxLabTestIds: ["source_sandbox_lab_test_ids"]
+     *     })
+     */
+    public listPromotions(
+        request: Junction.ListPromotionsLabTestsRequest = {},
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.LabTestPromotion[]> {
+        return core.HttpResponsePromise.fromPromise(this.__listPromotions(request, requestOptions));
+    }
+
+    private async __listPromotions(
+        request: Junction.ListPromotionsLabTestsRequest = {},
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.LabTestPromotion[]>> {
+        const { sourceSandboxLabTestIds } = request;
+        const _queryParams: Record<string, unknown> = {
+            source_sandbox_lab_test_ids: sourceSandboxLabTestIds,
+        };
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                "v3/lab_test_promotion",
+            ),
+            method: "GET",
+            headers: _headers,
+            queryString: core.url
+                .queryBuilder()
+                .addMany(_queryParams)
+                .mergeAdditional(requestOptions?.queryParams)
+                .build(),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.labTests.listPromotions.Response.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(_response.error, _response.rawResponse, "GET", "/v3/lab_test_promotion");
+    }
+
+    /**
      * @param {Junction.EstimateOrderSetPricingBody} request
      * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
      *
@@ -1206,6 +1294,92 @@ export class LabTestsClient {
             _response.rawResponse,
             "GET",
             "/v3/lab_test/{lab_test_id}/collection_instruction_pdf",
+        );
+    }
+
+    /**
+     * @param {Junction.GetPromotionSourceLabTestsRequest} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.getPromotionSource({
+     *         labTestId: "lab_test_id"
+     *     })
+     */
+    public getPromotionSource(
+        request: Junction.GetPromotionSourceLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.LabTestPromotionSource> {
+        return core.HttpResponsePromise.fromPromise(this.__getPromotionSource(request, requestOptions));
+    }
+
+    private async __getPromotionSource(
+        request: Junction.GetPromotionSourceLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.LabTestPromotionSource>> {
+        const { labTestId } = request;
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                `v3/lab_test/${core.url.encodePathParam(labTestId)}/promotion_source`,
+            ),
+            method: "GET",
+            headers: _headers,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.LabTestPromotionSource.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v3/lab_test/{lab_test_id}/promotion_source",
         );
     }
 

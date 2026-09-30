@@ -3,6 +3,7 @@
 import type * as Junction from "../../../../../api/index.js";
 import * as core from "../../../../../core/index.js";
 import type * as serializers from "../../../../index.js";
+import { CheckoutSessionAppointment } from "../../../../types/CheckoutSessionAppointment.js";
 import { CheckoutSessionPayment } from "../../../../types/CheckoutSessionPayment.js";
 import { PatientAddressWithValidation } from "../../../../types/PatientAddressWithValidation.js";
 import { PatientDetailsWithValidation } from "../../../../types/PatientDetailsWithValidation.js";
@@ -16,6 +17,7 @@ export const CreateCheckoutSessionBody: core.serialization.Schema<
     payment: CheckoutSessionPayment,
     patientDetails: core.serialization.property("patient_details", PatientDetailsWithValidation),
     patientAddress: core.serialization.property("patient_address", PatientAddressWithValidation),
+    appointment: CheckoutSessionAppointment.optionalNullable(),
 });
 
 export declare namespace CreateCheckoutSessionBody {
@@ -25,5 +27,6 @@ export declare namespace CreateCheckoutSessionBody {
         payment: CheckoutSessionPayment.Raw;
         patient_details: PatientDetailsWithValidation.Raw;
         patient_address: PatientAddressWithValidation.Raw;
+        appointment?: (CheckoutSessionAppointment.Raw | null | undefined) | null;
     }
 }

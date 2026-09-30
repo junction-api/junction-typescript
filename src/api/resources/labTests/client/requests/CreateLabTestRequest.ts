@@ -21,4 +21,5 @@ export interface CreateLabTestRequest {
     labAccountId?: string | null;
     /** ℹ️ This enum is non-exhaustive. */
     labSlug?: Junction.Labs | null;
+    sourceSandboxLabTestId?: string | null;
 }

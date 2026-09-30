@@ -26,6 +26,7 @@ export type { GetOrderTrackingLabTestsRequest } from "./GetOrderTrackingLabTests
 export type { GetPaginatedLabTestsRequest } from "./GetPaginatedLabTestsRequest.js";
 export type { GetPhlebotomyAppointmentAvailabilityLabTestsRequest } from "./GetPhlebotomyAppointmentAvailabilityLabTestsRequest.js";
 export type { GetPhlebotomyAppointmentLabTestsRequest } from "./GetPhlebotomyAppointmentLabTestsRequest.js";
+export type { GetPromotionSourceLabTestsRequest } from "./GetPromotionSourceLabTestsRequest.js";
 export type { GetPscAppointmentAvailabilityLabTestsRequest } from "./GetPscAppointmentAvailabilityLabTestsRequest.js";
 export type { GetPscAppointmentLabTestsRequest } from "./GetPscAppointmentLabTestsRequest.js";
 export type { GetPscInfoLabTestsRequest } from "./GetPscInfoLabTestsRequest.js";
@@ -35,6 +36,7 @@ export type { GetResultRawLabTestsRequest } from "./GetResultRawLabTestsRequest.
 export type { GetUnmatchedResultLabTestsRequest } from "./GetUnmatchedResultLabTestsRequest.js";
 export type { GetUnmatchedResultTestLabTestsRequest } from "./GetUnmatchedResultTestLabTestsRequest.js";
 export type { ImportOrderBody } from "./ImportOrderBody.js";
+export type { ListPromotionsLabTestsRequest } from "./ListPromotionsLabTestsRequest.js";
 export type { ListUnmatchedResultsLabTestsRequest } from "./ListUnmatchedResultsLabTestsRequest.js";
 export type { RequestAppointmentRequest } from "./RequestAppointmentRequest.js";
 export type { ReschedulePhlebotomyAppointmentLabTestsRequest } from "./ReschedulePhlebotomyAppointmentLabTestsRequest.js";

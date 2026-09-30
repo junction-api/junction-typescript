@@ -1,3 +1,12 @@
+## [2.1.0] - 2026-09-30
+### Added
+
+- **`LabTestsClient.listPromotions()`** — retrieves promotion records that link sandbox lab tests to their corresponding production lab tests.
+- **`LabTestsClient.getPromotionSource()`** — fetches the source sandbox lab-test details for a given production lab test ID.
+- **`CheckoutSessionAppointment`** — new type representing a PSC slot held during checkout; added as an optional `appointment` field on `CreateCheckoutSessionBody`.
+- **`LabTestPromotion`** and **`LabTestPromotionSource`** — new types returned by the promotion endpoints.
+- **`sourceSandboxLabTestId`** — new optional field added to `CreateLabTestRequest` and `ClientFacingLabTest` to track the originating sandbox lab test.
+
 ## 2.0.0 - 2026-09-24
 
 ### Added

@@ -6882,6 +6882,57 @@ await client.labTests.getLabs();
 </dl>
 </details>
 
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">listPromotions</a>({ ...params }) -> Junction.LabTestPromotion[]</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.listPromotions({
+    sourceSandboxLabTestIds: ["source_sandbox_lab_test_ids"]
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.ListPromotionsLabTestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">estimateOrderSetPricing</a>({ ...params }) -> Junction.EstimateOrderSetPricingResponse</code></summary>
 <dl>
 <dd>
@@ -7044,6 +7095,57 @@ await client.labTests.getLabTestCollectionInstructionPdf({
 <dd>
 
 **request:** `Junction.GetLabTestCollectionInstructionPdfLabTestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getPromotionSource</a>({ ...params }) -> Junction.LabTestPromotionSource</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.getPromotionSource({
+    labTestId: "lab_test_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.GetPromotionSourceLabTestsRequest` 
     
 </dd>
 </dl>
