@@ -35,4 +35,5 @@ export interface CreateCheckoutSessionBody {
     payment: Junction.CheckoutSessionPayment;
     patientDetails: Junction.PatientDetailsWithValidation;
     patientAddress: Junction.PatientAddressWithValidation;
+    appointment?: Junction.CheckoutSessionAppointment | null;
 }

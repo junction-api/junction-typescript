@@ -24,6 +24,10 @@ export const CreateLabTestRequest: core.serialization.Schema<
     fasting: core.serialization.boolean().optionalNullable(),
     labAccountId: core.serialization.property("lab_account_id", core.serialization.string().optionalNullable()),
     labSlug: core.serialization.property("lab_slug", Labs.optionalNullable()),
+    sourceSandboxLabTestId: core.serialization.property(
+        "source_sandbox_lab_test_id",
+        core.serialization.string().optionalNullable(),
+    ),
 });
 
 export declare namespace CreateLabTestRequest {
@@ -36,5 +40,6 @@ export declare namespace CreateLabTestRequest {
         fasting?: (boolean | null | undefined) | null;
         lab_account_id?: (string | null | undefined) | null;
         lab_slug?: (Labs.Raw | null | undefined) | null;
+        source_sandbox_lab_test_id?: (string | null | undefined) | null;
     }
 }
