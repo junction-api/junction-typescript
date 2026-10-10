@@ -13,6 +13,7 @@ import { MatchReviewResolutionAction } from "./MatchReviewResolutionAction.js";
 import { MatchReviewStatus } from "./MatchReviewStatus.js";
 import { MatchSubReasonCode } from "./MatchSubReasonCode.js";
 import { ResultStatus } from "./ResultStatus.js";
+import { UnmatchedResultLatestActivityActorType } from "./UnmatchedResultLatestActivityActorType.js";
 
 export const UnmatchedResult: core.serialization.ObjectSchema<
     serializers.UnmatchedResult.Raw,
@@ -32,7 +33,6 @@ export const UnmatchedResult: core.serialization.ObjectSchema<
     interpretation: Interpretation.optionalNullable(),
     resultStatus: core.serialization.property("result_status", ResultStatus.optionalNullable()),
     note: core.serialization.string().optionalNullable(),
-    isStale: core.serialization.property("is_stale", core.serialization.boolean().optional()),
     resolutionAction: core.serialization.property("resolution_action", MatchReviewResolutionAction.optionalNullable()),
     resolvedUserId: core.serialization.property("resolved_user_id", core.serialization.string().optionalNullable()),
     resolvedOrderId: core.serialization.property("resolved_order_id", core.serialization.string().optionalNullable()),
@@ -47,6 +47,15 @@ export const UnmatchedResult: core.serialization.ObjectSchema<
     createdAt: core.serialization.property("created_at", core.serialization.date()),
     updatedAt: core.serialization.property("updated_at", core.serialization.date()),
     reviewedAt: core.serialization.property("reviewed_at", core.serialization.date().optionalNullable()),
+    latestActivityActorId: core.serialization.property(
+        "latest_activity_actor_id",
+        core.serialization.string().optionalNullable(),
+    ),
+    latestActivityActorType: core.serialization.property(
+        "latest_activity_actor_type",
+        UnmatchedResultLatestActivityActorType.optionalNullable(),
+    ),
+    latestActivityAt: core.serialization.property("latest_activity_at", core.serialization.date().optionalNullable()),
 });
 
 export declare namespace UnmatchedResult {
@@ -62,7 +71,6 @@ export declare namespace UnmatchedResult {
         interpretation?: (Interpretation.Raw | null | undefined) | null;
         result_status?: (ResultStatus.Raw | null | undefined) | null;
         note?: (string | null | undefined) | null;
-        is_stale?: boolean | null;
         resolution_action?: (MatchReviewResolutionAction.Raw | null | undefined) | null;
         resolved_user_id?: (string | null | undefined) | null;
         resolved_order_id?: (string | null | undefined) | null;
@@ -71,5 +79,8 @@ export declare namespace UnmatchedResult {
         created_at: string;
         updated_at: string;
         reviewed_at?: (string | null | undefined) | null;
+        latest_activity_actor_id?: (string | null | undefined) | null;
+        latest_activity_actor_type?: (UnmatchedResultLatestActivityActorType.Raw | null | undefined) | null;
+        latest_activity_at?: (string | null | undefined) | null;
     }
 }

@@ -6,4 +6,5 @@ export interface OrderSetRequest {
     labTestIds?: string[] | null;
     addOn?: Junction.AddOnOrder | null;
     labAccountId?: string | null;
+    parameters?: Junction.OrderSetParameters | null;
 }

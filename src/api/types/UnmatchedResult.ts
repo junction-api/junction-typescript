@@ -18,7 +18,6 @@ export interface UnmatchedResult {
     /** ℹ️ This enum is non-exhaustive. */
     resultStatus?: Junction.ResultStatus | null;
     note?: string | null;
-    isStale?: boolean;
     /** ℹ️ This enum is non-exhaustive. */
     resolutionAction?: Junction.MatchReviewResolutionAction | null;
     resolvedUserId?: string | null;
@@ -28,4 +27,8 @@ export interface UnmatchedResult {
     createdAt: Date;
     updatedAt: Date;
     reviewedAt?: Date | null;
+    latestActivityActorId?: string | null;
+    /** ℹ️ This enum is non-exhaustive. */
+    latestActivityActorType?: Junction.UnmatchedResultLatestActivityActorType | null;
+    latestActivityAt?: Date | null;
 }

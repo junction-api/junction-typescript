@@ -3,6 +3,7 @@ export { ApiApiV1EndpointsVitalApiLabTestingOrdersHelpersAppointmentCancelReques
 export { CreateLabTestRequest } from "./CreateLabTestRequest.js";
 export { CreateOrderRequestCompatible } from "./CreateOrderRequestCompatible.js";
 export { CreateUnmatchedResultTestBody } from "./CreateUnmatchedResultTestBody.js";
+export { CreateUnmatchedResultUpdateBody } from "./CreateUnmatchedResultUpdateBody.js";
 export { EstimateOrderSetPricingBody } from "./EstimateOrderSetPricingBody.js";
 export { ImportOrderBody } from "./ImportOrderBody.js";
 export { RequestAppointmentRequest } from "./RequestAppointmentRequest.js";

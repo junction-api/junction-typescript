@@ -1,3 +1,19 @@
+## [3.0.0] - 2026-10-10
+### Breaking Changes
+- **`UnmatchedResult.isStale`** — field removed from the type; remove any references to `.isStale` in your code.
+- **`getUnmatchedResult`** — return type changed from `GetUnmatchedResultResponse` to `UnmatchedResult`; update type annotations accordingly (`GetUnmatchedResultResponse` is now a type alias for `UnmatchedResult`).
+
+### Added
+- **`LabTestsClient`** — new methods `listPromotions()`, `getPromotionSource()`, `getLabTestCollectionInstructions()`, `listUnmatchedResultUpdates()`, and `createUnmatchedResultUpdate()` added to support lab-test promotion workflows, collection instructions, and unmatched-result review history.
+- **Lab-test promotion types** — added `LabTestPromotion`, `LabTestPromotionSource`, and related request types; `ClientFacingLabTest` gains an optional `sourceSandboxLabTestId` field.
+- **Unmatched-result update types** — added `UnmatchedResultUpdate`, `UnmatchedResultUpdateStatus`, `UnmatchedResultUpdateActorType`, `MatchReviewTransitionStatus`, `CreateUnmatchedResultUpdateBody`, and `ListUnmatchedResultUpdatesResponse` for audit-trail tracking; `UnmatchedResult` gains optional `latestActivityActorId`, `latestActivityActorType`, and `latestActivityAt` fields.
+- **`CheckoutSessionAppointment`** — new type for PSC appointment details; `CreateCheckoutSessionBody` gains an optional `appointment` field.
+- **Order-set and sleep enhancements** — added `OrderSetFastingRequirement`, `OrderSetParameters`, and an optional `parameters` field on `OrderSetRequest`; `ClientFacingOrder` gains `labAccountId`; `ClientFacingSleep` gains optional sleep-stage duration fields (`stageAsleepSecond`, `stageAwakeSecond`, `stageLightSecond`, `stageRemSecond`, `stageDeepSecond`).
+
+### Changed
+- **`MatchReviewStatusFilter`** — new `pending_customer_review:in_progress` enum value added; update any exhaustive switch/if checks on this enum.
+- **`ClientFacingHrvTimeseries`** — `unit` and `value` field descriptions updated to clarify HRV method (sdnn for Apple HealthKit, rmssd for all others) and that values are in milliseconds.
+
 ## 2.0.0 - 2026-09-24
 
 ### Added
