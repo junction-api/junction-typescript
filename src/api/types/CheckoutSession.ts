@@ -3,32 +3,24 @@
 import type * as Junction from "../index.js";
 
 /**
- * The checkout session snapshot. One schema is shared by the REST
- * endpoints and the `checkout.session.*` webhook bodies.
- *
- * Invariant on `payment_resource_url` / `payment_resource_client_secret`:
- * they are populated only on responses served from live workflow state over
- * the authenticated API while the session is unpaid, and are always `None`
- * everywhere else. In particular they are never populated in a webhook body
- * — the todo row, the logbook and the delivery pipeline all retain what they
- * are handed, so payment material must not enter any of them. Two things
- * hold that: `from_row` never sets the pair, and
- * `PublishCheckoutSessionEventTodoContext` strips it on validation, before
- * the event is persisted or recorded. Once the session leaves `unpaid`
- * they are `None` on every response, because the material is no longer
- * actionable.
+ * A checkout session collects payment for a quote; once it is paid, the
+ * order is created. The checkout session endpoints return this object, and
+ * `checkout.session.*` webhooks carry it as `data`.
  */
 export interface CheckoutSession {
     checkoutSessionId: string;
     /** ℹ️ This enum is non-exhaustive. */
     status: Junction.CheckoutSessionStatus;
     payBefore: Date;
+    /** ID of the Stripe Checkout Session (`cs_...`) or PaymentIntent (`pi_...`) collecting payment. `null` until the payment resource is created. */
     paymentResourceId?: string | null;
     orderId?: string | null;
     orderTransactionId?: string | null;
     /** ℹ️ This enum is non-exhaustive. */
     appointmentHoldStatus?: Junction.CheckoutAppointmentHoldStatus | null;
     appointmentId?: string | null;
+    /** Stripe-hosted payment page URL, for the `checkout_session` payment method. Returned only by the create, get and confirm endpoints while `status` is `unpaid`; always `null` in webhooks. */
     paymentResourceUrl?: string | null;
+    /** Client secret for confirming the Stripe PaymentIntent with Stripe.js, for the `payment_intent` payment method. Returned only by the create, get and confirm endpoints while `status` is `unpaid`; always `null` in webhooks. */
     paymentResourceClientSecret?: string | null;
 }

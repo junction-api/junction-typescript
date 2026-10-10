@@ -23,7 +23,7 @@ export interface ListUnmatchedResultsLabTestsRequest {
     decisionCode?: Junction.MatchDecisionCode | null;
     /** Filter by lab slug (e.g. `labcorp`, `quest`). */
     labSlug?: string | null;
-    /** Filter by review status. `pending_customer_review` returns items awaiting your action; `pending_ops_review` returns items you have escalated for review. */
+    /** Filter by review status. `pending_customer_review` returns items awaiting your action; `pending_customer_review:in_progress` returns items your team is working on; `pending_ops_review` returns items you have escalated for review. */
     status?: Junction.MatchReviewStatusFilter | null;
     /** Filter by result receipt date on or after this date (UTC, inclusive, YYYY-MM-DD). */
     createdAtStart?: string | null;

@@ -6882,6 +6882,57 @@ await client.labTests.getLabs();
 </dl>
 </details>
 
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">listPromotions</a>({ ...params }) -> Junction.LabTestPromotion[]</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.listPromotions({
+    sourceSandboxLabTestIds: ["source_sandbox_lab_test_ids"]
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.ListPromotionsLabTestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">estimateOrderSetPricing</a>({ ...params }) -> Junction.EstimateOrderSetPricingResponse</code></summary>
 <dl>
 <dd>
@@ -7012,6 +7063,75 @@ await client.labTests.getPaginated({
 </dl>
 </details>
 
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getLabTestCollectionInstructions</a>({ ...params }) -> Junction.GetLabTestCollectionInstructionsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get the tube count for an at-home phlebotomy lab test.
+
+Requires enable_approxdraw_labcorp for Labcorp and enable_approxdraw for
+other labs. Labcorp reuses a saved count or refreshes it with an eligible
+account. Other labs may also generate and store a collection-instructions PDF.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.getLabTestCollectionInstructions({
+    labTestId: "lab_test_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.GetLabTestCollectionInstructionsLabTestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getLabTestCollectionInstructionPdf</a>({ ...params }) -> core.BinaryResponse</code></summary>
 <dl>
 <dd>
@@ -7044,6 +7164,57 @@ await client.labTests.getLabTestCollectionInstructionPdf({
 <dd>
 
 **request:** `Junction.GetLabTestCollectionInstructionPdfLabTestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getPromotionSource</a>({ ...params }) -> Junction.LabTestPromotionSource</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.getPromotionSource({
+    labTestId: "lab_test_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.GetPromotionSourceLabTestsRequest` 
     
 </dd>
 </dl>
@@ -9315,7 +9486,7 @@ await client.labTests.listUnmatchedResults({
 </dl>
 </details>
 
-<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getUnmatchedResult</a>({ ...params }) -> Junction.GetUnmatchedResultResponse</code></summary>
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">getUnmatchedResult</a>({ ...params }) -> Junction.UnmatchedResult</code></summary>
 <dl>
 <dd>
 
@@ -9450,6 +9621,110 @@ await client.labTests.resolveUnmatchedResult({
 <dd>
 
 **request:** `Junction.ResolveUnmatchedResultBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">listUnmatchedResultUpdates</a>({ ...params }) -> Junction.ListUnmatchedResultUpdatesResponse</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.listUnmatchedResultUpdates({
+    rawResultId: "raw_result_id",
+    limit: 1,
+    nextCursor: "next_cursor"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.ListUnmatchedResultUpdatesLabTestsRequest` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `LabTestsClient.RequestOptions` 
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.labTests.<a href="/src/api/resources/labTests/client/Client.ts">createUnmatchedResultUpdate</a>({ ...params }) -> Junction.UnmatchedResult</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.labTests.createUnmatchedResultUpdate({
+    rawResultId: "raw_result_id"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `Junction.CreateUnmatchedResultUpdateBody` 
     
 </dd>
 </dl>

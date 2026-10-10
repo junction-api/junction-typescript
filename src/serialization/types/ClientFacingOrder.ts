@@ -23,6 +23,7 @@ export const ClientFacingOrder: core.serialization.ObjectSchema<
     userId: core.serialization.property("user_id", core.serialization.string()),
     id: core.serialization.string(),
     teamId: core.serialization.property("team_id", core.serialization.string()),
+    labAccountId: core.serialization.property("lab_account_id", core.serialization.string().optionalNullable()),
     patientDetails: core.serialization.property(
         "patient_details",
         ClientFacingPatientDetailsCompatible.optionalNullable(),
@@ -79,6 +80,7 @@ export declare namespace ClientFacingOrder {
         user_id: string;
         id: string;
         team_id: string;
+        lab_account_id?: (string | null | undefined) | null;
         patient_details?: (ClientFacingPatientDetailsCompatible.Raw | null | undefined) | null;
         patient_address?: (PatientAddressCompatible.Raw | null | undefined) | null;
         lab_test: ClientFacingLabTest.Raw;

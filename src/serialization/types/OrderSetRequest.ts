@@ -4,6 +4,7 @@ import type * as Junction from "../../api/index.js";
 import * as core from "../../core/index.js";
 import type * as serializers from "../index.js";
 import { AddOnOrder } from "./AddOnOrder.js";
+import { OrderSetParameters } from "./OrderSetParameters.js";
 
 export const OrderSetRequest: core.serialization.ObjectSchema<
     serializers.OrderSetRequest.Raw,
@@ -15,6 +16,7 @@ export const OrderSetRequest: core.serialization.ObjectSchema<
     ),
     addOn: core.serialization.property("add_on", AddOnOrder.optionalNullable()),
     labAccountId: core.serialization.property("lab_account_id", core.serialization.string().optionalNullable()),
+    parameters: OrderSetParameters.optionalNullable(),
 });
 
 export declare namespace OrderSetRequest {
@@ -22,5 +24,6 @@ export declare namespace OrderSetRequest {
         lab_test_ids?: (string[] | null | undefined) | null;
         add_on?: (AddOnOrder.Raw | null | undefined) | null;
         lab_account_id?: (string | null | undefined) | null;
+        parameters?: (OrderSetParameters.Raw | null | undefined) | null;
     }
 }

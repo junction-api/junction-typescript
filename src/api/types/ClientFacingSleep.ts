@@ -36,6 +36,11 @@ export interface ClientFacingSleep {
     rem: number;
     /** Total amount of deep (N3) sleep registered during the sleep period::seconds */
     deep: number;
+    stageAsleepSecond?: number | null;
+    stageAwakeSecond?: number | null;
+    stageLightSecond?: number | null;
+    stageRemSecond?: number | null;
+    stageDeepSecond?: number | null;
     /** A value between 1 and 100 representing how well the user slept. Currently only available for Withings, Oura, Whoop and Garmin::scalar */
     score?: number | null;
     /** A value between 0 and 100 representing the provider's recovery/readiness proxy. Currently sourced from Oura readiness score, Whoop recovery score, and Ultrahuman recovery::scalar */

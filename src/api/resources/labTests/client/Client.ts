@@ -895,6 +895,94 @@ export class LabTestsClient {
     }
 
     /**
+     * @param {Junction.ListPromotionsLabTestsRequest} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.listPromotions({
+     *         sourceSandboxLabTestIds: ["source_sandbox_lab_test_ids"]
+     *     })
+     */
+    public listPromotions(
+        request: Junction.ListPromotionsLabTestsRequest = {},
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.LabTestPromotion[]> {
+        return core.HttpResponsePromise.fromPromise(this.__listPromotions(request, requestOptions));
+    }
+
+    private async __listPromotions(
+        request: Junction.ListPromotionsLabTestsRequest = {},
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.LabTestPromotion[]>> {
+        const { sourceSandboxLabTestIds } = request;
+        const _queryParams: Record<string, unknown> = {
+            source_sandbox_lab_test_ids: sourceSandboxLabTestIds,
+        };
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                "v3/lab_test_promotion",
+            ),
+            method: "GET",
+            headers: _headers,
+            queryString: core.url
+                .queryBuilder()
+                .addMany(_queryParams)
+                .mergeAdditional(requestOptions?.queryParams)
+                .build(),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.labTests.listPromotions.Response.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(_response.error, _response.rawResponse, "GET", "/v3/lab_test_promotion");
+    }
+
+    /**
      * @param {Junction.EstimateOrderSetPricingBody} request
      * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
      *
@@ -1139,6 +1227,98 @@ export class LabTestsClient {
     }
 
     /**
+     * Get the tube count for an at-home phlebotomy lab test.
+     *
+     * Requires enable_approxdraw_labcorp for Labcorp and enable_approxdraw for
+     * other labs. Labcorp reuses a saved count or refreshes it with an eligible
+     * account. Other labs may also generate and store a collection-instructions PDF.
+     *
+     * @param {Junction.GetLabTestCollectionInstructionsLabTestsRequest} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.getLabTestCollectionInstructions({
+     *         labTestId: "lab_test_id"
+     *     })
+     */
+    public getLabTestCollectionInstructions(
+        request: Junction.GetLabTestCollectionInstructionsLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.GetLabTestCollectionInstructionsResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__getLabTestCollectionInstructions(request, requestOptions));
+    }
+
+    private async __getLabTestCollectionInstructions(
+        request: Junction.GetLabTestCollectionInstructionsLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.GetLabTestCollectionInstructionsResponse>> {
+        const { labTestId } = request;
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                `v3/lab_test/${core.url.encodePathParam(labTestId)}/collection_instructions`,
+            ),
+            method: "GET",
+            headers: _headers,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.GetLabTestCollectionInstructionsResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v3/lab_test/{lab_test_id}/collection_instructions",
+        );
+    }
+
+    /**
      * @throws {@link Junction.UnprocessableEntityError}
      */
     public getLabTestCollectionInstructionPdf(
@@ -1206,6 +1386,92 @@ export class LabTestsClient {
             _response.rawResponse,
             "GET",
             "/v3/lab_test/{lab_test_id}/collection_instruction_pdf",
+        );
+    }
+
+    /**
+     * @param {Junction.GetPromotionSourceLabTestsRequest} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.getPromotionSource({
+     *         labTestId: "lab_test_id"
+     *     })
+     */
+    public getPromotionSource(
+        request: Junction.GetPromotionSourceLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.LabTestPromotionSource> {
+        return core.HttpResponsePromise.fromPromise(this.__getPromotionSource(request, requestOptions));
+    }
+
+    private async __getPromotionSource(
+        request: Junction.GetPromotionSourceLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.LabTestPromotionSource>> {
+        const { labTestId } = request;
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                `v3/lab_test/${core.url.encodePathParam(labTestId)}/promotion_source`,
+            ),
+            method: "GET",
+            headers: _headers,
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.LabTestPromotionSource.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v3/lab_test/{lab_test_id}/promotion_source",
         );
     }
 
@@ -4577,14 +4843,14 @@ export class LabTestsClient {
     public getUnmatchedResult(
         request: Junction.GetUnmatchedResultLabTestsRequest,
         requestOptions?: LabTestsClient.RequestOptions,
-    ): core.HttpResponsePromise<Junction.GetUnmatchedResultResponse> {
+    ): core.HttpResponsePromise<Junction.UnmatchedResult> {
         return core.HttpResponsePromise.fromPromise(this.__getUnmatchedResult(request, requestOptions));
     }
 
     private async __getUnmatchedResult(
         request: Junction.GetUnmatchedResultLabTestsRequest,
         requestOptions?: LabTestsClient.RequestOptions,
-    ): Promise<core.WithRawResponse<Junction.GetUnmatchedResultResponse>> {
+    ): Promise<core.WithRawResponse<Junction.UnmatchedResult>> {
         const { rawResultId } = request;
         const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
         const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
@@ -4610,7 +4876,7 @@ export class LabTestsClient {
         });
         if (_response.ok) {
             return {
-                data: serializers.GetUnmatchedResultResponse.parseOrThrow(_response.body, {
+                data: serializers.UnmatchedResult.parseOrThrow(_response.body, {
                     unrecognizedObjectKeys: "passthrough",
                     allowUnrecognizedUnionMembers: true,
                     allowUnrecognizedEnumValues: true,
@@ -4831,6 +5097,194 @@ export class LabTestsClient {
             _response.rawResponse,
             "POST",
             "/v3/unmatched_result/{raw_result_id}/resolve",
+        );
+    }
+
+    /**
+     * @param {Junction.ListUnmatchedResultUpdatesLabTestsRequest} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.listUnmatchedResultUpdates({
+     *         rawResultId: "raw_result_id",
+     *         limit: 1,
+     *         nextCursor: "next_cursor"
+     *     })
+     */
+    public listUnmatchedResultUpdates(
+        request: Junction.ListUnmatchedResultUpdatesLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.ListUnmatchedResultUpdatesResponse> {
+        return core.HttpResponsePromise.fromPromise(this.__listUnmatchedResultUpdates(request, requestOptions));
+    }
+
+    private async __listUnmatchedResultUpdates(
+        request: Junction.ListUnmatchedResultUpdatesLabTestsRequest,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.ListUnmatchedResultUpdatesResponse>> {
+        const { rawResultId, limit, nextCursor } = request;
+        const _queryParams: Record<string, unknown> = {
+            limit,
+            next_cursor: nextCursor,
+        };
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                `v3/unmatched_result/${core.url.encodePathParam(rawResultId)}/update`,
+            ),
+            method: "GET",
+            headers: _headers,
+            queryString: core.url
+                .queryBuilder()
+                .addMany(_queryParams)
+                .mergeAdditional(requestOptions?.queryParams)
+                .build(),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.ListUnmatchedResultUpdatesResponse.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "GET",
+            "/v3/unmatched_result/{raw_result_id}/update",
+        );
+    }
+
+    /**
+     * @param {Junction.CreateUnmatchedResultUpdateBody} request
+     * @param {LabTestsClient.RequestOptions} requestOptions - Request-specific configuration.
+     *
+     * @throws {@link Junction.UnprocessableEntityError}
+     *
+     * @example
+     *     await client.labTests.createUnmatchedResultUpdate({
+     *         rawResultId: "raw_result_id"
+     *     })
+     */
+    public createUnmatchedResultUpdate(
+        request: Junction.CreateUnmatchedResultUpdateBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): core.HttpResponsePromise<Junction.UnmatchedResult> {
+        return core.HttpResponsePromise.fromPromise(this.__createUnmatchedResultUpdate(request, requestOptions));
+    }
+
+    private async __createUnmatchedResultUpdate(
+        request: Junction.CreateUnmatchedResultUpdateBody,
+        requestOptions?: LabTestsClient.RequestOptions,
+    ): Promise<core.WithRawResponse<Junction.UnmatchedResult>> {
+        const { rawResultId, ..._body } = request;
+        const _authRequest: core.AuthRequest = await this._options.authProvider.getAuthRequest();
+        const _headers: core.Fetcher.Args["headers"] = mergeHeaders(
+            _authRequest.headers,
+            this._options?.headers,
+            requestOptions?.headers,
+        );
+        const _response = await core.fetcher({
+            url: core.url.join(
+                (await core.Supplier.get(this._options.baseUrl)) ??
+                    (await core.Supplier.get(this._options.environment)) ??
+                    environments.JunctionEnvironment.Production,
+                `v3/unmatched_result/${core.url.encodePathParam(rawResultId)}/update`,
+            ),
+            method: "POST",
+            headers: _headers,
+            contentType: "application/json",
+            queryString: core.url.queryBuilder().mergeAdditional(requestOptions?.queryParams).build(),
+            requestType: "json",
+            body: mergeAdditionalBodyParameters(
+                serializers.CreateUnmatchedResultUpdateBody.jsonOrThrow(_body, { unrecognizedObjectKeys: "strip" }),
+                requestOptions?.additionalBodyParameters,
+            ),
+            timeoutMs: (requestOptions?.timeoutInSeconds ?? this._options?.timeoutInSeconds ?? 60) * 1000,
+            maxRetries: requestOptions?.maxRetries ?? this._options?.maxRetries,
+            abortSignal: requestOptions?.abortSignal,
+            fetchFn: this._options?.fetch,
+            logging: this._options.logging,
+        });
+        if (_response.ok) {
+            return {
+                data: serializers.UnmatchedResult.parseOrThrow(_response.body, {
+                    unrecognizedObjectKeys: "passthrough",
+                    allowUnrecognizedUnionMembers: true,
+                    allowUnrecognizedEnumValues: true,
+                    breadcrumbsPrefix: ["response"],
+                }),
+                rawResponse: _response.rawResponse,
+            };
+        }
+
+        if (_response.error.reason === "status-code") {
+            switch (_response.error.statusCode) {
+                case 422:
+                    throw new Junction.UnprocessableEntityError(
+                        serializers.HttpValidationError.parseOrThrow(_response.error.body, {
+                            unrecognizedObjectKeys: "passthrough",
+                            allowUnrecognizedUnionMembers: true,
+                            allowUnrecognizedEnumValues: true,
+                            breadcrumbsPrefix: ["response"],
+                        }),
+                        _response.rawResponse,
+                    );
+                default:
+                    throw new errors.JunctionError({
+                        statusCode: _response.error.statusCode,
+                        body: _response.error.body,
+                        rawResponse: _response.rawResponse,
+                    });
+            }
+        }
+
+        return handleNonStatusCodeError(
+            _response.error,
+            _response.rawResponse,
+            "POST",
+            "/v3/unmatched_result/{raw_result_id}/update",
         );
     }
 
