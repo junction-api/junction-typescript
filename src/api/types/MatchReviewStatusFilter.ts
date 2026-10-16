@@ -3,6 +3,7 @@
 /** ℹ️ This enum is non-exhaustive. */
 export const MatchReviewStatusFilter = {
     PendingCustomerReview: "pending_customer_review",
+    PendingCustomerReviewInProgress: "pending_customer_review:in_progress",
     PendingOpsReview: "pending_ops_review",
     Resolved: "resolved",
 } as const;

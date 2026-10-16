@@ -4,11 +4,14 @@
  * @example
  *     {
  *         labTestId: "lab_test_id",
+ *         version: 1,
  *         labAccountId: "lab_account_id"
  *     }
  */
 export interface GetByIdLabTestsRequest {
     labTestId: string;
+    /** Immutable marker-set version. Omit to read the latest version. */
+    version?: number | null;
     /** The lab account ID. This lab account is used to determine the availability of markers and lab tests. */
     labAccountId?: string | null;
 }

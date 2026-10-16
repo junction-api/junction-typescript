@@ -10,11 +10,23 @@ export const UpdateLabTestRequest: core.serialization.Schema<
 > = core.serialization.object({
     name: core.serialization.string().optionalNullable(),
     active: core.serialization.boolean().optionalNullable(),
+    labAccountId: core.serialization.property("lab_account_id", core.serialization.string().optionalNullable()),
+    markerIds: core.serialization.property(
+        "marker_ids",
+        core.serialization.list(core.serialization.number()).optionalNullable(),
+    ),
+    providerIds: core.serialization.property(
+        "provider_ids",
+        core.serialization.list(core.serialization.string()).optionalNullable(),
+    ),
 });
 
 export declare namespace UpdateLabTestRequest {
     export interface Raw {
         name?: (string | null | undefined) | null;
         active?: (boolean | null | undefined) | null;
+        lab_account_id?: (string | null | undefined) | null;
+        marker_ids?: (number[] | null | undefined) | null;
+        provider_ids?: (string[] | null | undefined) | null;
     }
 }

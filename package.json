@@ -1,11 +1,12 @@
 {
     "name": "@junction-api/sdk",
-    "version": "2.0.0",
+    "version": "0.0.0-fern-placeholder",
     "private": false,
     "repository": {
         "type": "git",
         "url": "git+https://github.com/junction-api/junction-typescript.git"
     },
+    "license": "MIT",
     "type": "commonjs",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.mjs",
