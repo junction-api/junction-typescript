@@ -2,7 +2,7 @@
 
 import type * as Junction from "../../api/index.js";
 import * as core from "../../core/index.js";
-import type * as serializers from "../index.js";
+import * as serializers from "../index.js";
 import { AoE } from "./AoE.js";
 import { ClientFacingResult } from "./ClientFacingResult.js";
 import { MarkerType } from "./MarkerType.js";
@@ -29,6 +29,9 @@ export const ClientFacingMarkerComplete: core.serialization.ObjectSchema<
     ),
     isOrderable: core.serialization.property("is_orderable", core.serialization.boolean().optionalNullable()),
     expectedResults: core.serialization.property("expected_results", core.serialization.list(ClientFacingResult)),
+    components: core.serialization
+        .list(core.serialization.lazyObject(() => serializers.ClientFacingMarkerComplete))
+        .optionalNullable(),
 });
 
 export declare namespace ClientFacingMarkerComplete {
@@ -48,5 +51,6 @@ export declare namespace ClientFacingMarkerComplete {
         worst_case_tat_days?: (number | null | undefined) | null;
         is_orderable?: (boolean | null | undefined) | null;
         expected_results: ClientFacingResult.Raw[];
+        components?: (serializers.ClientFacingMarkerComplete.Raw[] | null | undefined) | null;
     }
 }

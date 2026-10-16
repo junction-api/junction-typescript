@@ -10,4 +10,9 @@ export interface UpdateLabTestRequest {
     labTestId: string;
     name?: string | null;
     active?: boolean | null;
+    labAccountId?: string | null;
+    /** Complete marker membership for the panel. A changed set creates the new default version used by all subsequent orders. */
+    markerIds?: number[] | null;
+    /** Complete provider-code membership for the panel. A changed set creates the new default version used by all subsequent orders. */
+    providerIds?: string[] | null;
 }

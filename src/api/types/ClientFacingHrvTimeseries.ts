@@ -7,10 +7,10 @@ export interface ClientFacingHrvTimeseries {
     timezoneOffset?: number | null;
     /** Type is always null for this resource. */
     type?: string | null;
-    /** Measured in rmssd. */
+    /** HRV method: sdnn for Apple HealthKit, rmssd for other providers. Values are measured in milliseconds. */
     unit: string;
     /** The timestamp of the measurement. */
     timestamp: Date;
-    /** HRV calculated using rmssd during sleep */
+    /** Heart rate variability in milliseconds. */
     value: number;
 }

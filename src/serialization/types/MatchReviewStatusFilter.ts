@@ -7,8 +7,17 @@ import type * as serializers from "../index.js";
 export const MatchReviewStatusFilter: core.serialization.Schema<
     serializers.MatchReviewStatusFilter.Raw,
     Junction.MatchReviewStatusFilter
-> = core.serialization.enum_(["pending_customer_review", "pending_ops_review", "resolved"]);
+> = core.serialization.enum_([
+    "pending_customer_review",
+    "pending_customer_review:in_progress",
+    "pending_ops_review",
+    "resolved",
+]);
 
 export declare namespace MatchReviewStatusFilter {
-    export type Raw = "pending_customer_review" | "pending_ops_review" | "resolved";
+    export type Raw =
+        | "pending_customer_review"
+        | "pending_customer_review:in_progress"
+        | "pending_ops_review"
+        | "resolved";
 }

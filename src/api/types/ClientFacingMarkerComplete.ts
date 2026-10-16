@@ -19,4 +19,5 @@ export interface ClientFacingMarkerComplete {
     worstCaseTatDays?: number | null;
     isOrderable?: boolean | null;
     expectedResults: Junction.ClientFacingResult[];
+    components?: Junction.ClientFacingMarkerComplete[] | null;
 }

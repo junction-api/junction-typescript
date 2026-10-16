@@ -278,6 +278,7 @@ describe("CheckoutClient", () => {
                 lab_test_ids: ["lab_test_ids"],
                 add_on: { marker_ids: [1], provider_ids: ["provider_ids"] },
                 lab_account_id: "lab_account_id",
+                parameters: { fasting: "fasting_not_required" },
             },
             walk_in_collection_networks: ["quest"],
             line_items: [{ code: "lab_test_fee", amount_minor: 1, currency: "USD" }],
@@ -313,6 +314,9 @@ describe("CheckoutClient", () => {
                     providerIds: ["provider_ids"],
                 },
                 labAccountId: "lab_account_id",
+                parameters: {
+                    fasting: "fasting_not_required",
+                },
             },
             walkInCollectionNetworks: ["quest"],
             lineItems: [
@@ -366,6 +370,7 @@ describe("CheckoutClient", () => {
                 lab_test_ids: ["lab_test_ids"],
                 add_on: { marker_ids: [1], provider_ids: ["provider_ids"] },
                 lab_account_id: "lab_account_id",
+                parameters: { fasting: "fasting_not_required" },
             },
             walk_in_collection_networks: ["quest"],
             line_items: [{ code: "lab_test_fee", amount_minor: 1, currency: "USD" }],
@@ -398,6 +403,9 @@ describe("CheckoutClient", () => {
                     providerIds: ["provider_ids"],
                 },
                 labAccountId: "lab_account_id",
+                parameters: {
+                    fasting: "fasting_not_required",
+                },
             },
             walkInCollectionNetworks: ["quest"],
             lineItems: [
@@ -448,6 +456,7 @@ describe("CheckoutClient", () => {
                 lab_test_ids: ["lab_test_ids"],
                 add_on: { marker_ids: [1], provider_ids: ["provider_ids"] },
                 lab_account_id: "lab_account_id",
+                parameters: { fasting: "fasting_not_required" },
             },
             walk_in_collection_networks: ["quest"],
             line_items: [{ code: "lab_test_fee", amount_minor: 1, currency: "USD" }],
@@ -479,6 +488,9 @@ describe("CheckoutClient", () => {
                     providerIds: ["provider_ids"],
                 },
                 labAccountId: "lab_account_id",
+                parameters: {
+                    fasting: "fasting_not_required",
+                },
             },
             walkInCollectionNetworks: ["quest"],
             lineItems: [

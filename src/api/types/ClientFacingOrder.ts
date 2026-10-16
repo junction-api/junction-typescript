@@ -9,6 +9,7 @@ export interface ClientFacingOrder {
     id: string;
     /** Your team id. */
     teamId: string;
+    labAccountId?: string | null;
     /** Patient Details */
     patientDetails?: Junction.ClientFacingPatientDetailsCompatible | null;
     /** Patient Address */

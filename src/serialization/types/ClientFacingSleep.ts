@@ -26,6 +26,14 @@ export const ClientFacingSleep: core.serialization.ObjectSchema<
     light: core.serialization.number(),
     rem: core.serialization.number(),
     deep: core.serialization.number(),
+    stageAsleepSecond: core.serialization.property(
+        "stage_asleep_second",
+        core.serialization.number().optionalNullable(),
+    ),
+    stageAwakeSecond: core.serialization.property("stage_awake_second", core.serialization.number().optionalNullable()),
+    stageLightSecond: core.serialization.property("stage_light_second", core.serialization.number().optionalNullable()),
+    stageRemSecond: core.serialization.property("stage_rem_second", core.serialization.number().optionalNullable()),
+    stageDeepSecond: core.serialization.property("stage_deep_second", core.serialization.number().optionalNullable()),
     score: core.serialization.number().optionalNullable(),
     recoveryReadinessScore: core.serialization.property(
         "recovery_readiness_score",
@@ -64,6 +72,11 @@ export declare namespace ClientFacingSleep {
         light: number;
         rem: number;
         deep: number;
+        stage_asleep_second?: (number | null | undefined) | null;
+        stage_awake_second?: (number | null | undefined) | null;
+        stage_light_second?: (number | null | undefined) | null;
+        stage_rem_second?: (number | null | undefined) | null;
+        stage_deep_second?: (number | null | undefined) | null;
         score?: (number | null | undefined) | null;
         recovery_readiness_score?: (number | null | undefined) | null;
         hr_lowest?: (number | null | undefined) | null;

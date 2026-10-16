@@ -2,30 +2,4 @@
 
 import type * as Junction from "../index.js";
 
-export interface GetUnmatchedResultResponse {
-    id: string;
-    /** ℹ️ This enum is non-exhaustive. */
-    status: Junction.MatchReviewStatus;
-    /** ℹ️ This enum is non-exhaustive. */
-    decisionCode: Junction.MatchDecisionCode;
-    subReasonCodes?: Junction.MatchSubReasonCode[];
-    reason: string;
-    patient?: Junction.MatchReviewPatient | null;
-    lab: Junction.MatchReviewLab;
-    markers?: Junction.MatchReviewMarker[];
-    /** ℹ️ This enum is non-exhaustive. */
-    interpretation?: Junction.Interpretation | null;
-    /** ℹ️ This enum is non-exhaustive. */
-    resultStatus?: Junction.ResultStatus | null;
-    note?: string | null;
-    isStale?: boolean;
-    /** ℹ️ This enum is non-exhaustive. */
-    resolutionAction?: Junction.MatchReviewResolutionAction | null;
-    resolvedUserId?: string | null;
-    resolvedOrderId?: string | null;
-    allowedActions?: Junction.MatchReviewResolutionAction[];
-    candidateGroups?: Junction.MatchReviewCandidateGroup[];
-    createdAt: Date;
-    updatedAt: Date;
-    reviewedAt?: Date | null;
-}
+export type GetUnmatchedResultResponse = Junction.UnmatchedResult;
