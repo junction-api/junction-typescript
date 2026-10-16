@@ -1,3 +1,19 @@
+## [3.0.0] - 2026-10-16
+### Breaking Changes
+- **`LabTestsClient.getUnmatchedResult()`** — now returns `Junction.UnmatchedResult` instead of `Junction.GetUnmatchedResultResponse`; update type annotations to `UnmatchedResult` (`GetUnmatchedResultResponse` remains as a type alias with an identical shape).
+
+### Added
+- **`LabTestsClient.getVersionHistory()`** — lists immutable marker-set versions for a lab test, returning `GetLabTestVersionHistoryResponse` along with new `LabTestVersionSummary` and `LabTestVersionMarkerSummary` types.
+- **`LabTestsClient.listPromotions()` and `getPromotionSource()`** — support sandbox-to-production lab-test promotion workflows via new `LabTestPromotion` and `LabTestPromotionSource` types.
+- **`LabTestsClient.getLabTestCollectionInstructions()`** — retrieves tube count and optional collection-instructions PDF for at-home phlebotomy lab tests.
+- **`LabTestsClient.listUnmatchedResultUpdates()` and `createUnmatchedResultUpdate()`** — manage update history for unmatched results via new `UnmatchedResultUpdate`, `ListUnmatchedResultUpdatesResponse`, `MatchReviewTransitionStatus`, `UnmatchedResultUpdateActorType`, and `UnmatchedResultUpdateStatus` types.
+- **Order and request field additions** — `UpdateLabTestRequest` gains optional `labAccountId`, `markerIds`, and `providerIds`; `ClientFacingOrder` gains optional `labAccountId`; `OrderSetRequest` gains optional `parameters` (`OrderSetParameters` with fasting control via `OrderSetFastingRequirement`); `ClientFacingLabTest` gains optional `version`, `sourceSandboxLabTestId`, and `updatedAt`; `ClientFacingSleep` gains optional per-stage second fields.
+
+### Changed
+- **`MatchReviewStatusFilter`** — new `pending_customer_review:in_progress` enum value added for items actively being worked on by your team.
+- **`GetByIdLabTestsRequest`** — new optional `version` field allows fetching a specific immutable version of a lab test.
+- **`ClientFacingHrvTimeseries`** — `unit` and `value` field descriptions clarified to reflect HRV values in milliseconds and provider-specific methods (sdnn for Apple HealthKit, rmssd for others).
+
 ## 2.0.0 - 2026-09-24
 
 ### Added
